@@ -36,11 +36,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("ApiGet")]
         public virtual IActionResult ApiGet()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("api");
         }
 
         /// <summary>
@@ -53,11 +50,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetToken")]
         public virtual IActionResult GetToken([FromBody]UserInfo body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("token");
         }
 
         /// <summary>
@@ -69,11 +63,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("Root")]
         public virtual IActionResult Root()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -85,11 +76,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("Statistics")]
         public virtual IActionResult Statistics()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("statistics");
         }
     }
 }

@@ -37,11 +37,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("DeleteDocument")]
         public virtual IActionResult DeleteDocument([FromRoute][Required]int? id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -55,11 +52,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("DownloadDocument")]
         public virtual IActionResult DownloadDocument([FromRoute][Required]int? id, [FromQuery]bool? original)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("document");
         }
 
         /// <summary>
@@ -72,11 +66,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentMetadata")]
         public virtual IActionResult GetDocumentMetadata([FromRoute][Required]int? id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("metadata");
         }
 
         /// <summary>
@@ -90,10 +81,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetDocumentPreview")]
         public virtual IActionResult GetDocumentPreview([FromRoute][Required]int? id)
         { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+            return Ok("document preview");
         }
 
         /// <summary>
@@ -106,11 +94,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentThumb")]
         public virtual IActionResult GetDocumentThumb([FromRoute][Required]int? id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("thumb");
         }
 
         /// <summary>
@@ -130,11 +115,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocuments")]
         public virtual IActionResult GetDocuments([FromQuery]int? page, [FromQuery]int? pageSize, [FromQuery]string query, [FromQuery]string ordering, [FromQuery]List<int?> tagsIdAll, [FromQuery]int? documentTypeId, [FromQuery]int? correspondentId, [FromQuery]bool? truncateContent)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("documents");
         }
 
         /// <summary>
@@ -148,11 +130,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateDocument")]
         public virtual IActionResult UpdateDocument([FromRoute][Required]int? id, [FromBody]Document body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
     }

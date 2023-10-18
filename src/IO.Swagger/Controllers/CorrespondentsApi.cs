@@ -37,11 +37,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("CreateCorrespondent")]
         public virtual IActionResult CreateCorrespondent([FromBody]NewCorrespondent body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -54,11 +51,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("DeleteCorrespondent")]
         public virtual IActionResult DeleteCorrespondent([FromRoute][Required]int? id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -71,10 +65,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("GetCorrespondents")]
         public virtual IActionResult GetCorrespondents()
         { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+            return Ok("correspondents");
         }
 
         /// <summary>
@@ -88,11 +79,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateCorrespondent")]
         public virtual IActionResult UpdateCorrespondent([FromRoute][Required]int? id, [FromBody]Correspondent body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
     }
 }

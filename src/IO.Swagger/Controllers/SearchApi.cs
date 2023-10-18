@@ -38,11 +38,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("AutoComplete")]
         public virtual IActionResult AutoComplete([FromQuery]string term, [FromQuery]int? limit)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("autocomplete");
         }
     }
 }

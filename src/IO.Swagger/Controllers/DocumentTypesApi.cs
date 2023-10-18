@@ -37,11 +37,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("CreateDocumentType")]
         public virtual IActionResult CreateDocumentType([FromBody]NewDocumentType body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -54,11 +51,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("DeleteDocumentType")]
         public virtual IActionResult DeleteDocumentType([FromRoute][Required]int? id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -70,11 +64,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentTypes")]
         public virtual IActionResult GetDocumentTypes()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("document types");
         }
 
         /// <summary>
@@ -88,11 +79,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateDocumentType")]
         public virtual IActionResult UpdateDocumentType([FromRoute][Required]int? id, [FromBody]DocumentType body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
     }
 }

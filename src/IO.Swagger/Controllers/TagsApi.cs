@@ -37,11 +37,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("CreateTag")]
         public virtual IActionResult CreateTag([FromBody]NewTag body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -54,11 +51,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("DeleteTag")]
         public virtual IActionResult DeleteTag([FromRoute][Required]int? id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
 
         /// <summary>
@@ -70,11 +64,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetTags")]
         public virtual IActionResult GetTags()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok("tags");
         }
 
         /// <summary>
@@ -88,11 +79,8 @@ namespace IO.Swagger.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateTag")]
         public virtual IActionResult UpdateTag([FromRoute][Required]int? id, [FromBody]DocTag body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
+        {
+            return Ok();
         }
     }
 }
