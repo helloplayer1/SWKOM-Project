@@ -1,0 +1,17 @@
+version: '1.0'
+
+services:
+  paperlessrest:
+    image: paperless-rest
+    container_name: paperless-rest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 80:8080
+    volumes:
+      - ./PaperlessREST/src:/app/src
+      - /app/src/bin
+      - /app/src/obj
