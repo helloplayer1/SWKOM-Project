@@ -21,10 +21,10 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using IO.Swagger.Filters;
+using PaperlessREST.Filters;
 
 
-namespace IO.Swagger
+namespace PaperlessREST
 {
     /// <summary>
     /// Startup

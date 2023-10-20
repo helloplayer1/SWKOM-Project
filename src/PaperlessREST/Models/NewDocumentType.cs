@@ -18,28 +18,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Models
+namespace PaperlessREST.Models
 {
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Correspondent : IEquatable<Correspondent>
+    public partial class NewDocumentType : IEquatable<NewDocumentType>
     { 
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-
-        [DataMember(Name="id")]
-        public long? Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Slug
-        /// </summary>
-
-        [DataMember(Name="slug")]
-        public string Slug { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -69,35 +55,17 @@ namespace IO.Swagger.Models
         public bool? IsInsensitive { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocumentCount
-        /// </summary>
-
-        [DataMember(Name="document_count")]
-        public long? DocumentCount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LastCorrespondence
-        /// </summary>
-
-        [DataMember(Name="last_correspondence")]
-        public DateTime? LastCorrespondence { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Correspondent {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Slug: ").Append(Slug).Append("\n");
+            sb.Append("class NewDocumentType {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Match: ").Append(Match).Append("\n");
             sb.Append("  MatchingAlgorithm: ").Append(MatchingAlgorithm).Append("\n");
             sb.Append("  IsInsensitive: ").Append(IsInsensitive).Append("\n");
-            sb.Append("  DocumentCount: ").Append(DocumentCount).Append("\n");
-            sb.Append("  LastCorrespondence: ").Append(LastCorrespondence).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,30 +88,20 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Correspondent)obj);
+            return obj.GetType() == GetType() && Equals((NewDocumentType)obj);
         }
 
         /// <summary>
-        /// Returns true if Correspondent instances are equal
+        /// Returns true if NewDocumentType instances are equal
         /// </summary>
-        /// <param name="other">Instance of Correspondent to be compared</param>
+        /// <param name="other">Instance of NewDocumentType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Correspondent other)
+        public bool Equals(NewDocumentType other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
-                (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    Slug == other.Slug ||
-                    Slug != null &&
-                    Slug.Equals(other.Slug)
-                ) && 
                 (
                     Name == other.Name ||
                     Name != null &&
@@ -163,16 +121,6 @@ namespace IO.Swagger.Models
                     IsInsensitive == other.IsInsensitive ||
                     IsInsensitive != null &&
                     IsInsensitive.Equals(other.IsInsensitive)
-                ) && 
-                (
-                    DocumentCount == other.DocumentCount ||
-                    DocumentCount != null &&
-                    DocumentCount.Equals(other.DocumentCount)
-                ) && 
-                (
-                    LastCorrespondence == other.LastCorrespondence ||
-                    LastCorrespondence != null &&
-                    LastCorrespondence.Equals(other.LastCorrespondence)
                 );
         }
 
@@ -186,10 +134,6 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Slug != null)
-                    hashCode = hashCode * 59 + Slug.GetHashCode();
                     if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
                     if (Match != null)
@@ -198,10 +142,6 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
                     if (IsInsensitive != null)
                     hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                    if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-                    if (LastCorrespondence != null)
-                    hashCode = hashCode * 59 + LastCorrespondence.GetHashCode();
                 return hashCode;
             }
         }
@@ -209,12 +149,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Correspondent left, Correspondent right)
+        public static bool operator ==(NewDocumentType left, NewDocumentType right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Correspondent left, Correspondent right)
+        public static bool operator !=(NewDocumentType left, NewDocumentType right)
         {
             return !Equals(left, right);
         }

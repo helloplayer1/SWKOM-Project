@@ -14,43 +14,55 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
+using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
-using IO.Swagger.Models;
+using PaperlessREST.Models;
 
-namespace IO.Swagger.Controllers
+namespace PaperlessREST.Controllers
 { 
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
-    public class DocumentTypesApiController : ControllerBase
+    public class LoginApiController : ControllerBase
     { 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <response code="200">Success</response>
+        [HttpGet]
+        [Route("/api")]
+        [ValidateModelState]
+        [SwaggerOperation("ApiGet")]
+        public virtual IActionResult ApiGet()
+        {
+            return Ok("api");
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="body"></param>
         /// <response code="200">Success</response>
         [HttpPost]
-        [Route("/api/document_types")]
+        [Route("/api/token")]
         [ValidateModelState]
-        [SwaggerOperation("CreateDocumentType")]
-        public virtual IActionResult CreateDocumentType([FromBody]NewDocumentType body)
+        [SwaggerOperation("GetToken")]
+        public virtual IActionResult GetToken([FromBody]UserInfo body)
         {
-            return Ok();
+            return Ok("token");
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="id"></param>
         /// <response code="200">Success</response>
-        [HttpDelete]
-        [Route("/api/document_types/{id}")]
+        [HttpPost]
+        [Route("/api")]
         [ValidateModelState]
-        [SwaggerOperation("DeleteDocumentType")]
-        public virtual IActionResult DeleteDocumentType([FromRoute][Required]int? id)
+        [SwaggerOperation("Root")]
+        public virtual IActionResult Root()
         {
             return Ok();
         }
@@ -60,27 +72,12 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <response code="200">Success</response>
         [HttpGet]
-        [Route("/api/document_types")]
+        [Route("/api/statistics")]
         [ValidateModelState]
-        [SwaggerOperation("GetDocumentTypes")]
-        public virtual IActionResult GetDocumentTypes()
+        [SwaggerOperation("Statistics")]
+        public virtual IActionResult Statistics()
         {
-            return Ok("document types");
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="body"></param>
-        /// <response code="200">Success</response>
-        [HttpPut]
-        [Route("/api/document_types/{id}")]
-        [ValidateModelState]
-        [SwaggerOperation("UpdateDocumentType")]
-        public virtual IActionResult UpdateDocumentType([FromRoute][Required]int? id, [FromBody]DocumentType body)
-        {
-            return Ok();
+            return Ok("statistics");
         }
     }
 }

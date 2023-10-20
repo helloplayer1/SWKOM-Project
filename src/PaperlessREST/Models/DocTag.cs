@@ -18,14 +18,28 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Models
+namespace PaperlessREST.Models
 {
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class NewTag : IEquatable<NewTag>
+    public partial class DocTag : IEquatable<DocTag>
     { 
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+
+        [DataMember(Name="id")]
+        public long? Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Slug
+        /// </summary>
+
+        [DataMember(Name="slug")]
+        public string Slug { get; set; }
+
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -69,19 +83,29 @@ namespace IO.Swagger.Models
         public bool? IsInboxTag { get; set; }
 
         /// <summary>
+        /// Gets or Sets DocumentCount
+        /// </summary>
+
+        [DataMember(Name="document_count")]
+        public long? DocumentCount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewTag {\n");
+            sb.Append("class DocTag {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Slug: ").Append(Slug).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  Match: ").Append(Match).Append("\n");
             sb.Append("  MatchingAlgorithm: ").Append(MatchingAlgorithm).Append("\n");
             sb.Append("  IsInsensitive: ").Append(IsInsensitive).Append("\n");
             sb.Append("  IsInboxTag: ").Append(IsInboxTag).Append("\n");
+            sb.Append("  DocumentCount: ").Append(DocumentCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,20 +128,30 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((NewTag)obj);
+            return obj.GetType() == GetType() && Equals((DocTag)obj);
         }
 
         /// <summary>
-        /// Returns true if NewTag instances are equal
+        /// Returns true if DocTag instances are equal
         /// </summary>
-        /// <param name="other">Instance of NewTag to be compared</param>
+        /// <param name="other">Instance of DocTag to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewTag other)
+        public bool Equals(DocTag other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
+                (
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
+                ) && 
+                (
+                    Slug == other.Slug ||
+                    Slug != null &&
+                    Slug.Equals(other.Slug)
+                ) && 
                 (
                     Name == other.Name ||
                     Name != null &&
@@ -147,6 +181,11 @@ namespace IO.Swagger.Models
                     IsInboxTag == other.IsInboxTag ||
                     IsInboxTag != null &&
                     IsInboxTag.Equals(other.IsInboxTag)
+                ) && 
+                (
+                    DocumentCount == other.DocumentCount ||
+                    DocumentCount != null &&
+                    DocumentCount.Equals(other.DocumentCount)
                 );
         }
 
@@ -160,6 +199,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (Slug != null)
+                    hashCode = hashCode * 59 + Slug.GetHashCode();
                     if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
                     if (Color != null)
@@ -172,6 +215,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
                     if (IsInboxTag != null)
                     hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
+                    if (DocumentCount != null)
+                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
                 return hashCode;
             }
         }
@@ -179,12 +224,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(NewTag left, NewTag right)
+        public static bool operator ==(DocTag left, DocTag right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(NewTag left, NewTag right)
+        public static bool operator !=(DocTag left, DocTag right)
         {
             return !Equals(left, right);
         }

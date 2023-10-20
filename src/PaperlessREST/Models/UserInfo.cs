@@ -18,41 +18,27 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Models
+namespace PaperlessREST.Models
 {
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class NewDocumentType : IEquatable<NewDocumentType>
+    public partial class UserInfo : IEquatable<UserInfo>
     { 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Username
         /// </summary>
 
-        [DataMember(Name="name")]
-        public string Name { get; set; }
+        [DataMember(Name="username")]
+        public string Username { get; set; }
 
         /// <summary>
-        /// Gets or Sets Match
+        /// Gets or Sets Password
         /// </summary>
 
-        [DataMember(Name="match")]
-        public string Match { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MatchingAlgorithm
-        /// </summary>
-
-        [DataMember(Name="matching_algorithm")]
-        public long? MatchingAlgorithm { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsInsensitive
-        /// </summary>
-
-        [DataMember(Name="is_insensitive")]
-        public bool? IsInsensitive { get; set; }
+        [DataMember(Name="password")]
+        public string Password { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,11 +47,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewDocumentType {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Match: ").Append(Match).Append("\n");
-            sb.Append("  MatchingAlgorithm: ").Append(MatchingAlgorithm).Append("\n");
-            sb.Append("  IsInsensitive: ").Append(IsInsensitive).Append("\n");
+            sb.Append("class UserInfo {\n");
+            sb.Append("  Username: ").Append(Username).Append("\n");
+            sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,39 +72,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((NewDocumentType)obj);
+            return obj.GetType() == GetType() && Equals((UserInfo)obj);
         }
 
         /// <summary>
-        /// Returns true if NewDocumentType instances are equal
+        /// Returns true if UserInfo instances are equal
         /// </summary>
-        /// <param name="other">Instance of NewDocumentType to be compared</param>
+        /// <param name="other">Instance of UserInfo to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewDocumentType other)
+        public bool Equals(UserInfo other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Name == other.Name ||
-                    Name != null &&
-                    Name.Equals(other.Name)
+                    Username == other.Username ||
+                    Username != null &&
+                    Username.Equals(other.Username)
                 ) && 
                 (
-                    Match == other.Match ||
-                    Match != null &&
-                    Match.Equals(other.Match)
-                ) && 
-                (
-                    MatchingAlgorithm == other.MatchingAlgorithm ||
-                    MatchingAlgorithm != null &&
-                    MatchingAlgorithm.Equals(other.MatchingAlgorithm)
-                ) && 
-                (
-                    IsInsensitive == other.IsInsensitive ||
-                    IsInsensitive != null &&
-                    IsInsensitive.Equals(other.IsInsensitive)
+                    Password == other.Password ||
+                    Password != null &&
+                    Password.Equals(other.Password)
                 );
         }
 
@@ -134,14 +108,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Name != null)
-                    hashCode = hashCode * 59 + Name.GetHashCode();
-                    if (Match != null)
-                    hashCode = hashCode * 59 + Match.GetHashCode();
-                    if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                    if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
+                    if (Username != null)
+                    hashCode = hashCode * 59 + Username.GetHashCode();
+                    if (Password != null)
+                    hashCode = hashCode * 59 + Password.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +119,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(NewDocumentType left, NewDocumentType right)
+        public static bool operator ==(UserInfo left, UserInfo right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(NewDocumentType left, NewDocumentType right)
+        public static bool operator !=(UserInfo left, UserInfo right)
         {
             return !Equals(left, right);
         }

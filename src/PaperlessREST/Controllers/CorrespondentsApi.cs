@@ -14,18 +14,18 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
+using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
-using IO.Swagger.Models;
+using PaperlessREST.Models;
 
-namespace IO.Swagger.Controllers
+namespace PaperlessREST.Controllers
 { 
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
-    public class TagsApiController : ControllerBase
+    public class CorrespondentsApiController : ControllerBase
     { 
         /// <summary>
         /// 
@@ -33,10 +33,10 @@ namespace IO.Swagger.Controllers
         /// <param name="body"></param>
         /// <response code="200">Success</response>
         [HttpPost]
-        [Route("/api/tags")]
+        [Route("/api/correspondents")]
         [ValidateModelState]
-        [SwaggerOperation("CreateTag")]
-        public virtual IActionResult CreateTag([FromBody]NewTag body)
+        [SwaggerOperation("CreateCorrespondent")]
+        public virtual IActionResult CreateCorrespondent([FromBody]NewCorrespondent body)
         {
             return Ok();
         }
@@ -47,10 +47,10 @@ namespace IO.Swagger.Controllers
         /// <param name="id"></param>
         /// <response code="200">Success</response>
         [HttpDelete]
-        [Route("/api/tags/{id}")]
+        [Route("/api/correspondents/{id}")]
         [ValidateModelState]
-        [SwaggerOperation("DeleteTag")]
-        public virtual IActionResult DeleteTag([FromRoute][Required]int? id)
+        [SwaggerOperation("DeleteCorrespondent")]
+        public virtual IActionResult DeleteCorrespondent([FromRoute][Required]int? id)
         {
             return Ok();
         }
@@ -60,12 +60,12 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <response code="200">Success</response>
         [HttpGet]
-        [Route("/api/tags")]
+        [Route("/api/correspondents")]
         [ValidateModelState]
-        [SwaggerOperation("GetTags")]
-        public virtual IActionResult GetTags()
-        {
-            return Ok("tags");
+        [SwaggerOperation("GetCorrespondents")]
+        public virtual IActionResult GetCorrespondents()
+        { 
+            return Ok("correspondents");
         }
 
         /// <summary>
@@ -75,10 +75,10 @@ namespace IO.Swagger.Controllers
         /// <param name="body"></param>
         /// <response code="200">Success</response>
         [HttpPut]
-        [Route("/api/tags/{id}")]
+        [Route("/api/correspondents/{id}")]
         [ValidateModelState]
-        [SwaggerOperation("UpdateTag")]
-        public virtual IActionResult UpdateTag([FromRoute][Required]int? id, [FromBody]DocTag body)
+        [SwaggerOperation("UpdateCorrespondent")]
+        public virtual IActionResult UpdateCorrespondent([FromRoute][Required]int? id, [FromBody]Correspondent body)
         {
             return Ok();
         }

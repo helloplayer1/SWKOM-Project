@@ -18,13 +18,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Models
+namespace PaperlessREST.Models
 {
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class DocumentType : IEquatable<DocumentType>
+    public partial class Correspondent : IEquatable<Correspondent>
     { 
         /// <summary>
         /// Gets or Sets Id
@@ -76,13 +76,20 @@ namespace IO.Swagger.Models
         public long? DocumentCount { get; set; }
 
         /// <summary>
+        /// Gets or Sets LastCorrespondence
+        /// </summary>
+
+        [DataMember(Name="last_correspondence")]
+        public DateTime? LastCorrespondence { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentType {\n");
+            sb.Append("class Correspondent {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Slug: ").Append(Slug).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -90,6 +97,7 @@ namespace IO.Swagger.Models
             sb.Append("  MatchingAlgorithm: ").Append(MatchingAlgorithm).Append("\n");
             sb.Append("  IsInsensitive: ").Append(IsInsensitive).Append("\n");
             sb.Append("  DocumentCount: ").Append(DocumentCount).Append("\n");
+            sb.Append("  LastCorrespondence: ").Append(LastCorrespondence).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,15 +120,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DocumentType)obj);
+            return obj.GetType() == GetType() && Equals((Correspondent)obj);
         }
 
         /// <summary>
-        /// Returns true if DocumentType instances are equal
+        /// Returns true if Correspondent instances are equal
         /// </summary>
-        /// <param name="other">Instance of DocumentType to be compared</param>
+        /// <param name="other">Instance of Correspondent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentType other)
+        public bool Equals(Correspondent other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -160,6 +168,11 @@ namespace IO.Swagger.Models
                     DocumentCount == other.DocumentCount ||
                     DocumentCount != null &&
                     DocumentCount.Equals(other.DocumentCount)
+                ) && 
+                (
+                    LastCorrespondence == other.LastCorrespondence ||
+                    LastCorrespondence != null &&
+                    LastCorrespondence.Equals(other.LastCorrespondence)
                 );
         }
 
@@ -187,6 +200,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
                     if (DocumentCount != null)
                     hashCode = hashCode * 59 + DocumentCount.GetHashCode();
+                    if (LastCorrespondence != null)
+                    hashCode = hashCode * 59 + LastCorrespondence.GetHashCode();
                 return hashCode;
             }
         }
@@ -194,12 +209,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(DocumentType left, DocumentType right)
+        public static bool operator ==(Correspondent left, Correspondent right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DocumentType left, DocumentType right)
+        public static bool operator !=(Correspondent left, Correspondent right)
         {
             return !Equals(left, right);
         }
