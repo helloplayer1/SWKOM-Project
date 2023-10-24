@@ -64,7 +64,7 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetCorrespondents")]
         public virtual IActionResult GetCorrespondents()
-        { 
+        {
             return Ok("correspondents");
         }
 
@@ -79,7 +79,7 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateCorrespondent")]
         public virtual IActionResult UpdateCorrespondent([FromRoute][Required]int? id, [FromBody]Correspondent body)
-        {
+        { 
             return Ok();
         }
     }

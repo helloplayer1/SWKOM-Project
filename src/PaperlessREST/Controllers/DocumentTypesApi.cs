@@ -65,7 +65,7 @@ namespace PaperlessREST.Controllers
         [SwaggerOperation("GetDocumentTypes")]
         public virtual IActionResult GetDocumentTypes()
         {
-            return Ok("document types");
+            return Ok("document_types");
         }
 
         /// <summary>

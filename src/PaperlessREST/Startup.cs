@@ -73,15 +73,8 @@ namespace PaperlessREST
                     c.SwaggerDoc("1.0", new OpenApiInfo
                     {
                         Version = "1.0",
-                        Title = "Mock Server",
-                        Description = "Mock Server (ASP.NET Core 7.0)",
-                        Contact = new OpenApiContact()
-                        {
-                           Name = "Swagger Codegen Contributors",
-                           Url = new Uri("https://github.com/swagger-api/swagger-codegen"),
-                           Email = ""
-                        },
-                        TermsOfService = new Uri("")
+                        Title = "PaperlessREST",
+                        Description = "PaperlessREST (ASP.NET Core 7.0)",
                     });
                     c.CustomSchemaIds(type => type.FullName);
                     c.IncludeXmlComments($"{AppContext.BaseDirectory}{Path.DirectorySeparatorChar}{_hostingEnv.ApplicationName}.xml");

@@ -80,8 +80,8 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentPreview")]
         public virtual IActionResult GetDocumentPreview([FromRoute][Required]int? id)
-        { 
-            return Ok("document preview");
+        {
+            return Ok("preview");
         }
 
         /// <summary>
@@ -115,8 +115,11 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocuments")]
         public virtual IActionResult GetDocuments([FromQuery]int? page, [FromQuery]int? pageSize, [FromQuery]string query, [FromQuery]string ordering, [FromQuery]List<int?> tagsIdAll, [FromQuery]int? documentTypeId, [FromQuery]int? correspondentId, [FromQuery]bool? truncateContent)
-        {
-            return Ok("documents");
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -130,8 +133,11 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateDocument")]
         public virtual IActionResult UpdateDocument([FromRoute][Required]int? id, [FromBody]Document body)
-        {
-            return Ok();
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            throw new NotImplementedException();
         }
 
     }
