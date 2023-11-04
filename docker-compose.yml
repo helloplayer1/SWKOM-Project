@@ -15,3 +15,18 @@ services:
       - ./src/PaperlessREST/:/app/src
       - /app/src/bin
       - /app/src/obj
+
+  angular-app:
+    image: paperless-ngx-ui
+    ports:
+      - 80:80
+    volumes:
+      - ./paperless-ngx-ui:/usr/share/nginx/html
+
+  ngx:
+    image: nginx
+    ports:
+      - 8080:80
+    volumes:
+      - /path/to/your/nginx/conf.d:/etc/nginx/conf.d
+    
