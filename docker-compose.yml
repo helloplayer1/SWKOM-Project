@@ -1,7 +1,7 @@
 version: '1.0'
 
 services:
-  paperlessrest:
+  paperless-rest:
     image: paperless-rest
     container_name: paperless-rest
     build:
@@ -10,23 +10,18 @@ services:
       args:
         - configuration=Debug
     ports:
-      - 80:8080
+      - 8080:8080
     volumes:
       - ./src/PaperlessREST/:/app/src
       - /app/src/bin
       - /app/src/obj
 
   angular-app:
-    image: paperless-ngx-ui
+    image: nginx
     ports:
       - 80:80
     volumes:
-      - ./paperless-ngx-ui:/usr/share/nginx/html
-
-  ngx:
-    image: nginx
-    ports:
-      - 8080:80
-    volumes:
-      - /path/to/your/nginx/conf.d:/etc/nginx/conf.d
-    
+      - ./src/paperless-ngx-ui/static:/usr/share/nginx/html/
+      - ./src/config/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - paperless-rest
