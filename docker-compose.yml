@@ -30,16 +30,14 @@ services:
   paperless-db:
     container_name: paperless-db
     image: postgres
-    enviroment:
+    environment:
       POSTGRES_DB: paperless
       POSTGRES_USER: paperless
       POSTGRES_PASSWWORD: paperless
     ports:
       - 1433:1433
     volumes:
-      - data:/var/lib/postgressql/data
-    
-  paperless-data:
-    container_name: paperless-data
-    volumes:
-      - data
+      - db-data:/var/lib/postgressql/data
+
+volumes:
+  db-data:
