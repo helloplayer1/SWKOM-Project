@@ -18,6 +18,7 @@ services:
 
   angular-app:
     image: nginx
+    container_name: paperless-ui
     ports:
       - 80:80
     volumes:
@@ -25,3 +26,20 @@ services:
       - ./src/config/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - paperless-rest
+  
+  paperless-db:
+    container_name: paperless-db
+    image: postgres
+    enviroment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWWORD: paperless
+    ports:
+      - 1433:1433
+    volumes:
+      - data:/var/lib/postgressql/data
+    
+  paperless-data:
+    container_name: paperless-data
+    volumes:
+      - data
