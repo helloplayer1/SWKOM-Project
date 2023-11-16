@@ -14,12 +14,12 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
+using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
-using IO.Swagger.Models;
+using PaperlessREST.Models;
 
-namespace IO.Swagger.Controllers
+namespace PaperlessREST.Controllers
 { 
     /// <summary>
     /// 
