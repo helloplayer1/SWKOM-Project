@@ -4,6 +4,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST", "src\PaperlessREST\PaperlessREST.csproj", "{79D1DDA9-1FAE-4532-ABC6-5C24F9C432D5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{536A1EE3-C0C7-4872-992F-2C7CA2396581} = {536A1EE3-C0C7-4872-992F-2C7CA2396581}
+		{5E1E59DA-D485-4F2F-BC28-87918D99CA9D} = {5E1E59DA-D485-4F2F-BC28-87918D99CA9D}
+		{740B1BBB-09CF-4F92-996C-0E3F1B6DB73C} = {740B1BBB-09CF-4F92-996C-0E3F1B6DB73C}
+		{9AD9738A-06FD-4E8B-8192-3E882AB3CB14} = {9AD9738A-06FD-4E8B-8192-3E882AB3CB14}
+		{D89E5047-47EF-471F-9563-494A72318828} = {D89E5047-47EF-471F-9563-494A72318828}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic", "PaperlessREST.BusinessLogic\PaperlessREST.BusinessLogic.csproj", "{D89E5047-47EF-471F-9563-494A72318828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic.Entities", "PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj", "{9AD9738A-06FD-4E8B-8192-3E882AB3CB14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic.Interfaces", "PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj", "{740B1BBB-09CF-4F92-996C-0E3F1B6DB73C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic.Tests", "PaperlessREST.BusinessLogic.Tests\PaperlessREST.BusinessLogic.Tests.csproj", "{536A1EE3-C0C7-4872-992F-2C7CA2396581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.Entities", "PaperlessREST.Entities\PaperlessREST.Entities.csproj", "{5E1E59DA-D485-4F2F-BC28-87918D99CA9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +32,31 @@ Global
 		{79D1DDA9-1FAE-4532-ABC6-5C24F9C432D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79D1DDA9-1FAE-4532-ABC6-5C24F9C432D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79D1DDA9-1FAE-4532-ABC6-5C24F9C432D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D89E5047-47EF-471F-9563-494A72318828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D89E5047-47EF-471F-9563-494A72318828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D89E5047-47EF-471F-9563-494A72318828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D89E5047-47EF-471F-9563-494A72318828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD9738A-06FD-4E8B-8192-3E882AB3CB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD9738A-06FD-4E8B-8192-3E882AB3CB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD9738A-06FD-4E8B-8192-3E882AB3CB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD9738A-06FD-4E8B-8192-3E882AB3CB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740B1BBB-09CF-4F92-996C-0E3F1B6DB73C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740B1BBB-09CF-4F92-996C-0E3F1B6DB73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740B1BBB-09CF-4F92-996C-0E3F1B6DB73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740B1BBB-09CF-4F92-996C-0E3F1B6DB73C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{536A1EE3-C0C7-4872-992F-2C7CA2396581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{536A1EE3-C0C7-4872-992F-2C7CA2396581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{536A1EE3-C0C7-4872-992F-2C7CA2396581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{536A1EE3-C0C7-4872-992F-2C7CA2396581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E1E59DA-D485-4F2F-BC28-87918D99CA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1E59DA-D485-4F2F-BC28-87918D99CA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1E59DA-D485-4F2F-BC28-87918D99CA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1E59DA-D485-4F2F-BC28-87918D99CA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4236C3AF-4EFF-483C-82B0-9EDF394D6AE0}
 	EndGlobalSection
 EndGlobal

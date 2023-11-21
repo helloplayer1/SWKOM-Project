@@ -83,6 +83,8 @@ namespace PaperlessREST
                     // Use [ValidateModelState] on Actions to actually validate it in C# as well!
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
+
+            services.AddAutoMapper(typeof(RestProfile));
         }
 
         /// <summary>

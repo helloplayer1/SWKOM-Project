@@ -8,5 +8,6 @@ namespace PaperlessREST.BusinessLogic.Interfaces
 {
     public interface ITagLogic
     {
+        
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaperlessREST.BusinessLogic.Interfaces
 {
-    internal interface ICorrespondentLogic
+    public interface ICorrespondentLogic
     {
     }
 }
