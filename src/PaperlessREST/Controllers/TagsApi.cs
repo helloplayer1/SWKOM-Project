@@ -18,6 +18,7 @@ using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using PaperlessREST.Entities;
+using PaperlessREST.BusinessLogic.Interfaces;
 
 namespace PaperlessREST.Controllers
 { 
@@ -27,6 +28,14 @@ namespace PaperlessREST.Controllers
     [ApiController]
     public class TagsApiController : ControllerBase
     { 
+        private ITagLogic _tagLogic;
+
+        public TagsApiController(ITagLogic tagLogic)
+        {
+            _tagLogic = tagLogic;
+        }
+
+
         /// <summary>
         /// 
         /// </summary>

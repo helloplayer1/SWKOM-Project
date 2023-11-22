@@ -18,6 +18,7 @@ using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using PaperlessREST.Entities;
+using PaperlessREST.BusinessLogic.Interfaces;
 
 namespace PaperlessREST.Controllers
 { 
@@ -27,6 +28,11 @@ namespace PaperlessREST.Controllers
     [ApiController]
     public class DocumentTypesApiController : ControllerBase
     { 
+        private IDocumentTypeLogic _documentTypeLogic;
+        public DocumentTypesApiController(IDocumentTypeLogic documentTypeLogic) 
+        {
+            _documentTypeLogic = documentTypeLogic;
+        }
         /// <summary>
         /// 
         /// </summary>

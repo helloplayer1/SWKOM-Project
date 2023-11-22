@@ -7,9 +7,9 @@ using FluentValidation;
 
 namespace PaperlessREST.BusinessLogic.Entities.Validators
 {
-    public class DocumentValidation: AbstractValidator<Document>
+    public class DocumentValidator: AbstractValidator<Document>
     {
-        public DocumentValidation() {
+        public DocumentValidator() {
             RuleFor(document => document.Id).NotNull().NotEmpty();
             RuleFor(document => document.Correspondent).NotNull().NotEmpty();
             RuleFor(document => document.DocumentType).NotNull().NotEmpty();

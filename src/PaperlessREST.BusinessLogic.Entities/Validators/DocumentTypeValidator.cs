@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PaperlessREST.BusinessLogic.Entities.Validators
 {
-    public class DocumentTypeValidation : AbstractValidator<DocumentType>
+    public class DocumentTypeValidator : AbstractValidator<DocumentType>
     {
-        public DocumentTypeValidation() {
+        public DocumentTypeValidator() {
             RuleFor(documentType => documentType.Id).NotNull().NotEmpty();
             RuleFor(documentType => documentType.Slug).NotNull().NotEmpty();
             RuleFor(documentType => documentType.Name).NotNull().NotEmpty();

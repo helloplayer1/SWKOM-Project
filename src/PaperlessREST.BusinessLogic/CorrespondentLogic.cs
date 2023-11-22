@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PaperlessREST.BusinessLogic
 {
-    internal class CorrespondentLogic : ICorrespondentLogic
+    public class CorrespondentLogic : ICorrespondentLogic
     {
     }
 }

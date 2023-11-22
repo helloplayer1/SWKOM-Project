@@ -18,6 +18,7 @@ using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using PaperlessREST.Entities;
+using PaperlessREST.BusinessLogic.Interfaces;
 
 namespace PaperlessREST.Controllers
 { 
@@ -26,7 +27,13 @@ namespace PaperlessREST.Controllers
     /// </summary>
     [ApiController]
     public class CorrespondentsApiController : ControllerBase
-    { 
+    {
+        private ICorrespondentLogic _correspondentLogic;
+        public CorrespondentsApiController(ICorrespondentLogic correspondentLogic)
+        {
+            _correspondentLogic = correspondentLogic;
+        }
+
         /// <summary>
         /// 
         /// </summary>

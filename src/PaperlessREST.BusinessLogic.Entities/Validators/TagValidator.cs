@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PaperlessREST.BusinessLogic.Entities.Validators
 {
-    public class TagValidation : AbstractValidator<Tag>
+    public class TagValidator : AbstractValidator<Tag>
     {
-        public TagValidation() {
+        public TagValidator() {
             RuleFor(tag => tag.Id).NotNull().NotEmpty();
             RuleFor(tag => tag.Slug).NotNull().NotEmpty();
             RuleFor(tag => tag.Name).NotNull().NotEmpty();

@@ -22,7 +22,11 @@ using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using PaperlessREST.Filters;
-
+using PaperlessREST.BusinessLogic.Interfaces;
+using PaperlessREST.BusinessLogic;
+using FluentValidation;
+using PaperlessREST.BusinessLogic.Entities;
+using PaperlessREST.BusinessLogic.Entities.Validators;
 
 namespace PaperlessREST
 {
@@ -85,6 +89,16 @@ namespace PaperlessREST
                 });
 
             services.AddAutoMapper(typeof(RestProfile));
+            services.AddSingleton<IDocumentLogic, DocumentLogic>();
+            services.AddSingleton<IDocumentTypeLogic, DocumentTypeLogic>();
+            services.AddSingleton<ITagLogic, TagLogic>();
+            services.AddSingleton<ICorrespondentLogic, CorrespondentLogic>();
+            services.AddScoped<IValidator<Document>, DocumentValidator>();
+            services.AddScoped<IValidator<DocumentType>, DocumentTypeValidator>();
+            services.AddScoped<IValidator<Correspondent>, CorrespondentValidator>();
+            services.AddScoped<IValidator<Tag>, TagValidator>();
+            services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
+
         }
 
         /// <summary>
