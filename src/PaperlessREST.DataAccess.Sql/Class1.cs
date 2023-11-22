@@ -1,7 +1,7 @@
 ﻿namespace PaperlessREST.DataAccess.Sql
 {
-    public class Class1
+    public class Class1 
     {
 
     }
-}
+}}
