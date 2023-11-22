@@ -2,11 +2,9 @@ version: '1.0'
 
 services:
   paperless-rest:
-    image: paperless-rest
     container_name: paperless-rest
     build:
       context: .
-      dockerfile: ./Dockerfile
       args:
         - configuration=Debug
     ports:

@@ -17,7 +17,7 @@ using System.ComponentModel.DataAnnotations;
 using PaperlessREST.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
-using PaperlessREST.Entities
+using PaperlessREST.Entities;
 
 namespace PaperlessREST.Controllers
 { 

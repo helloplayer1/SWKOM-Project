@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
