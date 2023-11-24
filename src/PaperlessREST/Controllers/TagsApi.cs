@@ -19,6 +19,8 @@ using PaperlessREST.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using PaperlessREST.Entities;
 using PaperlessREST.BusinessLogic.Interfaces;
+using AutoMapper;
+using PaperlessREST.BusinessLogic.Entities;
 
 namespace PaperlessREST.Controllers
 { 
@@ -30,9 +32,12 @@ namespace PaperlessREST.Controllers
     { 
         private ITagLogic _tagLogic;
 
-        public TagsApiController(ITagLogic tagLogic)
+        private IMapper _mapper;
+
+        public TagsApiController(ITagLogic tagLogic, IMapper mapper)
         {
             _tagLogic = tagLogic;
+            _mapper = mapper;
         }
 
 
@@ -48,15 +53,13 @@ namespace PaperlessREST.Controllers
         [SwaggerResponse(statusCode: 200, type: typeof(InlineResponse20017), description: "Success")]
         public virtual IActionResult CreateTag([FromBody]ApiTagsBody body)
         { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(InlineResponse20017));
-            string exampleJson = null;
-            exampleJson = "{\n  \"owner\" : 1,\n  \"matching_algorithm\" : 6,\n  \"user_can_change\" : true,\n  \"color\" : \"color\",\n  \"is_insensitive\" : true,\n  \"name\" : \"name\",\n  \"match\" : \"match\",\n  \"id\" : 0,\n  \"text_color\" : \"text_color\",\n  \"is_inbox_tag\" : true,\n  \"slug\" : \"slug\"\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<InlineResponse20017>(exampleJson)
-                        : default(InlineResponse20017);            //TODO: Change the data returned
-            return new ObjectResult(example);
+            Tag tag = _mapper.Map<ApiTagsBody, Tag>(body);
+
+            // call repository
+
+            InlineResponse20017 response = _mapper.Map<Tag, InlineResponse20017>(tag);
+
+            return new ObjectResult(response);
         }
 
         /// <summary>
