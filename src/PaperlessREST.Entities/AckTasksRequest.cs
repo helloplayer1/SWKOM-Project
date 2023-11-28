@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiAcknowledgeTasksBody.cs
-    public partial class ApiAcknowledgeTasksBody : IEquatable<ApiAcknowledgeTasksBody>
-========
     public partial class AckTasksRequest : IEquatable<AckTasksRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/AckTasksRequest.cs
     {
         /// <summary>
         /// Gets or Sets Tasks
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiAcknowledgeTasksBody.cs
-
-        [DataMember(Name = "tasks")]
-        public List<int?> Tasks { get; set; }
-========
         [DataMember(Name = "tasks", EmitDefaultValue = false)]
         public List<int> Tasks { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/AckTasksRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object

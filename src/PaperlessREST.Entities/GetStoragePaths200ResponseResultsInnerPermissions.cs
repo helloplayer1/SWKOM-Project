@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissions.cs
-    public partial class ApistoragePathsidPermissions : IEquatable<ApistoragePathsidPermissions>
-========
     public partial class GetStoragePaths200ResponseResultsInnerPermissions : IEquatable<GetStoragePaths200ResponseResultsInnerPermissions>
->>>>>>>> dev:src/PaperlessREST.Entities/GetStoragePaths200ResponseResultsInnerPermissions.cs
     {
         /// <summary>
         /// Gets or Sets View
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissions.cs
-
-        [DataMember(Name = "view")]
-        public ApistoragePathsidPermissionsView View { get; set; }
-========
         [DataMember(Name = "view", EmitDefaultValue = false)]
         public GetStoragePaths200ResponseResultsInnerPermissionsView View { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetStoragePaths200ResponseResultsInnerPermissions.cs
 
         /// <summary>
         /// Gets or Sets Change
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissions.cs
-
-        [DataMember(Name = "change")]
-        public ApistoragePathsidPermissionsView Change { get; set; }
-========
         [DataMember(Name = "change", EmitDefaultValue = false)]
         public GetStoragePaths200ResponseResultsInnerPermissionsView Change { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetStoragePaths200ResponseResultsInnerPermissions.cs
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentsSelectionDataBody.cs
-    public partial class DocumentsSelectionDataBody : IEquatable<DocumentsSelectionDataBody>
-========
     public partial class SelectionDataRequest : IEquatable<SelectionDataRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionDataRequest.cs
     {
         /// <summary>
         /// Gets or Sets Documents
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentsSelectionDataBody.cs
-
-        [DataMember(Name = "documents")]
-        public List<int?> Documents { get; set; }
-========
         [DataMember(Name = "documents", EmitDefaultValue = false)]
         public List<int> Documents { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionDataRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object

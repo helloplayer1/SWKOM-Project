@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsBulkEdit.cs
-    public partial class ApiuiSettingsSettingsBulkEdit : IEquatable<ApiuiSettingsSettingsBulkEdit>
-========
     public partial class CreateUISettingsRequestSettingsBulkEdit : IEquatable<CreateUISettingsRequestSettingsBulkEdit>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsBulkEdit.cs
     {
         /// <summary>
         /// Gets or Sets ApplyOnClose
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsBulkEdit.cs
-
-        [DataMember(Name = "apply_on_close")]
-        public bool? ApplyOnClose { get; set; }
-========
         [DataMember(Name = "apply_on_close", EmitDefaultValue = true)]
         public bool ApplyOnClose { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsBulkEdit.cs
 
         /// <summary>
         /// Gets or Sets ConfirmationDialogs
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsBulkEdit.cs
-
-        [DataMember(Name = "confirmation_dialogs")]
-        public bool? ConfirmationDialogs { get; set; }
-========
         [DataMember(Name = "confirmation_dialogs", EmitDefaultValue = true)]
         public bool ConfirmationDialogs { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsBulkEdit.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,17 +108,10 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsBulkEdit.cs
-                if (ApplyOnClose != null)
-                    hashCode = hashCode * 59 + ApplyOnClose.GetHashCode();
-                if (ConfirmationDialogs != null)
-                    hashCode = hashCode * 59 + ConfirmationDialogs.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + ApplyOnClose.GetHashCode();
 
                 hashCode = hashCode * 59 + ConfirmationDialogs.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsBulkEdit.cs
                 return hashCode;
             }
         }

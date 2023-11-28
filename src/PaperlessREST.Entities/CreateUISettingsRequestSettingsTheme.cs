@@ -24,22 +24,13 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsTheme.cs
-    public partial class ApiuiSettingsSettingsTheme : IEquatable<ApiuiSettingsSettingsTheme>
-========
     public partial class CreateUISettingsRequestSettingsTheme : IEquatable<CreateUISettingsRequestSettingsTheme>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsTheme.cs
     {
         /// <summary>
         /// Gets or Sets Color
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsTheme.cs
-
-        [DataMember(Name = "color")]
-========
         [DataMember(Name = "color", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsTheme.cs
         public string Color { get; set; }
 
         /// <summary>

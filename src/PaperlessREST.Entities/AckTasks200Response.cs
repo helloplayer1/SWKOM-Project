@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20020.cs
-    public partial class InlineResponse20020 : IEquatable<InlineResponse20020>
-========
     public partial class AckTasks200Response : IEquatable<AckTasks200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/AckTasks200Response.cs
     {
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20020.cs
-
-        [DataMember(Name = "result")]
-        public int? Result { get; set; }
-========
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public int Result { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/AckTasks200Response.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,13 +95,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20020.cs
-                if (Result != null)
-                    hashCode = hashCode * 59 + Result.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Result.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/AckTasks200Response.cs
                 return hashCode;
             }
         }

@@ -24,74 +24,42 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-    public partial class InlineResponse2002Notes : IEquatable<InlineResponse2002Notes>
-========
     public partial class GetDocuments200ResponseResultsInnerNotesInner : IEquatable<GetDocuments200ResponseResultsInnerNotesInner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
 
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-
-        [DataMember(Name = "note")]
-========
         [DataMember(Name = "note", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
         public string Note { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-
-        [DataMember(Name = "created")]
-========
         [DataMember(Name = "created", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
         public string Created { get; set; }
 
         /// <summary>
         /// Gets or Sets Document
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-
-        [DataMember(Name = "document")]
-        public int? Document { get; set; }
-========
         [DataMember(Name = "document", EmitDefaultValue = true)]
         public int Document { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-
-        [DataMember(Name = "user")]
-        public int? User { get; set; }
-========
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public int User { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,7 +72,7 @@ namespace PaperlessREST.Entities
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  DocumentDto: ").Append(Document).Append("\n");
+            sb.Append("  Document: ").Append(Document).Append("\n");
             sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -179,28 +147,16 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
                 if (Note != null)
                     hashCode = hashCode * 59 + Note.GetHashCode();
                 if (Created != null)
                     hashCode = hashCode * 59 + Created.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Notes.cs
-                if (Document != null)
-                    hashCode = hashCode * 59 + Document.GetHashCode();
-                if (User != null)
-                    hashCode = hashCode * 59 + User.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Document.GetHashCode();
 
                 hashCode = hashCode * 59 + User.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInnerNotesInner.cs
                 return hashCode;
             }
         }

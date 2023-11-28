@@ -24,35 +24,20 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsView.cs
-    public partial class ApistoragePathsidPermissionsView : IEquatable<ApistoragePathsidPermissionsView>
-========
     public partial class GetCorrespondents200ResponseResultsInnerPermissionsView : IEquatable<GetCorrespondents200ResponseResultsInnerPermissionsView>
->>>>>>>> dev:src/PaperlessREST.Entities/GetCorrespondents200ResponseResultsInnerPermissionsView.cs
     {
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsView.cs
-
-        [DataMember(Name = "users")]
-        public List<int?> Users { get; set; }
-========
         [DataMember(Name = "users", EmitDefaultValue = false)]
         public List<object> Users { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetCorrespondents200ResponseResultsInnerPermissionsView.cs
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsView.cs
-
-        [DataMember(Name = "groups")]
-========
         [DataMember(Name = "groups", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetCorrespondents200ResponseResultsInnerPermissionsView.cs
         public List<object> Groups { get; set; }
 
         /// <summary>

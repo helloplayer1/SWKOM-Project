@@ -29,72 +29,38 @@ namespace PaperlessREST.Entities
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "name")]
-=======
         [DataMember(Name = "name", EmitDefaultValue = true)]
->>>>>>> dev
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "match")]
-=======
         [DataMember(Name = "match", EmitDefaultValue = true)]
->>>>>>> dev
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "matching_algorithm")]
-        public long? MatchingAlgorithm { get; set; }
-=======
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public long MatchingAlgorithm { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-=======
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets DocumentCount
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "document_count")]
-        public long? DocumentCount { get; set; }
-=======
         [DataMember(Name = "document_count", EmitDefaultValue = true)]
         public long DocumentCount { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets LastCorrespondence
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "last_correspondence")]
-        public DateTime? LastCorrespondence { get; set; }
-=======
         [DataMember(Name = "last_correspondence", EmitDefaultValue = false)]
         public DateTime LastCorrespondence { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -192,21 +158,12 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Match != null)
                     hashCode = hashCode * 59 + Match.GetHashCode();
-<<<<<<< HEAD
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-=======
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
 
                 hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
 
                 hashCode = hashCode * 59 + DocumentCount.GetHashCode();
->>>>>>> dev
                 if (LastCorrespondence != null)
                     hashCode = hashCode * 59 + LastCorrespondence.GetHashCode();
                 return hashCode;

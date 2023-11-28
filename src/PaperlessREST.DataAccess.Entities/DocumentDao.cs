@@ -1,10 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-<<<<<<< HEAD
-namespace PaperlessREST.BusinessLogic.Entities
-=======
 namespace PaperlessREST.DataAccess.Entities
->>>>>>> dev
 {
     public class DocumentDao
     {

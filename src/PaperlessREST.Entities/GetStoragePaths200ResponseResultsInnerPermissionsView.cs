@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidSetPermissionsView.cs
-    public partial class ApistoragePathsidSetPermissionsView : IEquatable<ApistoragePathsidSetPermissionsView>
-========
     public partial class GetStoragePaths200ResponseResultsInnerPermissionsView : IEquatable<GetStoragePaths200ResponseResultsInnerPermissionsView>
->>>>>>>> dev:src/PaperlessREST.Entities/GetStoragePaths200ResponseResultsInnerPermissionsView.cs
     {
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidSetPermissionsView.cs
-
-        [DataMember(Name = "users")]
-        public List<int?> Users { get; set; }
-========
         [DataMember(Name = "users", EmitDefaultValue = false)]
         public List<int> Users { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetStoragePaths200ResponseResultsInnerPermissionsView.cs
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidSetPermissionsView.cs
-
-        [DataMember(Name = "groups")]
-        public List<int?> Groups { get; set; }
-========
         [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<object> Groups { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetStoragePaths200ResponseResultsInnerPermissionsView.cs
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -24,36 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsUpdateChecking.cs
-    public partial class ApiuiSettingsSettingsUpdateChecking : IEquatable<ApiuiSettingsSettingsUpdateChecking>
-========
     public partial class CreateUISettingsRequestSettingsUpdateChecking : IEquatable<CreateUISettingsRequestSettingsUpdateChecking>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsUpdateChecking.cs
     {
         /// <summary>
         /// Gets or Sets BackendSetting
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsUpdateChecking.cs
-
-        [DataMember(Name = "backend_setting")]
-========
         [DataMember(Name = "backend_setting", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsUpdateChecking.cs
         public string BackendSetting { get; set; }
 
         /// <summary>
         /// Gets or Sets Enabled
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsUpdateChecking.cs
-
-        [DataMember(Name = "enabled")]
-        public bool? Enabled { get; set; }
-========
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsUpdateChecking.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,13 +110,8 @@ namespace PaperlessREST.Entities
                 // Suitable nullity checks etc, of course :)
                 if (BackendSetting != null)
                     hashCode = hashCode * 59 + BackendSetting.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsUpdateChecking.cs
-                if (Enabled != null)
-                    hashCode = hashCode * 59 + Enabled.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Enabled.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsUpdateChecking.cs
                 return hashCode;
             }
         }

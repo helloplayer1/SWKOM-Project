@@ -24,63 +24,35 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005.cs
-    public partial class InlineResponse2005 : IEquatable<InlineResponse2005>
-========
     public partial class SelectionData200Response : IEquatable<SelectionData200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200Response.cs
     {
         /// <summary>
         /// Gets or Sets SelectedCorrespondents
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005.cs
-
-        [DataMember(Name = "selected_correspondents")]
-        public List<InlineResponse2005SelectedCorrespondents> SelectedCorrespondents { get; set; }
-========
         [DataMember(Name = "selected_correspondents", EmitDefaultValue = false)]
         public List<SelectionData200ResponseSelectedCorrespondentsInner> SelectedCorrespondents { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200Response.cs
 
         /// <summary>
         /// Gets or Sets SelectedTags
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005.cs
-
-        [DataMember(Name = "selected_tags")]
-        public List<InlineResponse2005SelectedCorrespondents> SelectedTags { get; set; }
-========
         [DataMember(Name = "selected_tags", EmitDefaultValue = false)]
         public List<SelectionData200ResponseSelectedCorrespondentsInner> SelectedTags { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200Response.cs
 
         /// <summary>
         /// Gets or Sets SelectedDocumentTypes
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005.cs
-
-        [DataMember(Name = "selected_document_types")]
-        public List<InlineResponse2005SelectedCorrespondents> SelectedDocumentTypes { get; set; }
-========
         [DataMember(Name = "selected_document_types", EmitDefaultValue = false)]
         public List<SelectionData200ResponseSelectedCorrespondentsInner> SelectedDocumentTypes { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200Response.cs
 
         /// <summary>
         /// Gets or Sets SelectedStoragePaths
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005.cs
-
-        [DataMember(Name = "selected_storage_paths")]
-        public List<InlineResponse2005SelectedCorrespondents> SelectedStoragePaths { get; set; }
-========
         [DataMember(Name = "selected_storage_paths", EmitDefaultValue = false)]
         public List<SelectionData200ResponseSelectedCorrespondentsInner> SelectedStoragePaths { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200Response.cs
 
         /// <summary>
         /// Returns the string presentation of the object

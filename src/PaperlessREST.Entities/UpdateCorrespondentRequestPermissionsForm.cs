@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsForm.cs
-    public partial class ApicorrespondentsidPermissionsForm : IEquatable<ApicorrespondentsidPermissionsForm>
-========
     public partial class UpdateCorrespondentRequestPermissionsForm : IEquatable<UpdateCorrespondentRequestPermissionsForm>
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateCorrespondentRequestPermissionsForm.cs
     {
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsForm.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateCorrespondentRequestPermissionsForm.cs
 
         /// <summary>
         /// Gets or Sets SetPermissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsForm.cs
-
-        [DataMember(Name = "set_permissions")]
-        public ApicorrespondentsidPermissions SetPermissions { get; set; }
-========
         [DataMember(Name = "set_permissions", EmitDefaultValue = false)]
         public GetCorrespondents200ResponseResultsInnerPermissions SetPermissions { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateCorrespondentRequestPermissionsForm.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,13 +108,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsForm.cs
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateCorrespondentRequestPermissionsForm.cs
                 if (SetPermissions != null)
                     hashCode = hashCode * 59 + SetPermissions.GetHashCode();
                 return hashCode;

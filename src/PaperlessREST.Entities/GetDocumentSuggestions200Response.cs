@@ -24,70 +24,41 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2006.cs
-    public partial class InlineResponse2006 : IEquatable<InlineResponse2006>
-========
     public partial class GetDocumentSuggestions200Response : IEquatable<GetDocumentSuggestions200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentSuggestions200Response.cs
     {
         /// <summary>
         /// Gets or Sets Correspondents
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2006.cs
-
-        [DataMember(Name = "correspondents")]
-========
         [DataMember(Name = "correspondents", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentSuggestions200Response.cs
         public List<object> Correspondents { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2006.cs
-
-        [DataMember(Name = "tags")]
-========
         [DataMember(Name = "tags", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentSuggestions200Response.cs
         public List<object> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentTypes
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2006.cs
-
-        [DataMember(Name = "document_types")]
-========
         [DataMember(Name = "document_types", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentSuggestions200Response.cs
         public List<object> DocumentTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets StoragePaths
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2006.cs
-
-        [DataMember(Name = "storage_paths")]
-========
         [DataMember(Name = "storage_paths", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentSuggestions200Response.cs
         public List<object> StoragePaths { get; set; }
 
         /// <summary>
         /// Gets or Sets Dates
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2006.cs
-
-        [DataMember(Name = "dates")]
-========
         [DataMember(Name = "dates", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentSuggestions200Response.cs
         public List<object> Dates { get; set; }
 
         /// <summary>

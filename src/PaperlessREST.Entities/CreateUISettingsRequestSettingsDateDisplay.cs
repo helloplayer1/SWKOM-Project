@@ -24,34 +24,20 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDateDisplay.cs
-    public partial class ApiuiSettingsSettingsDateDisplay : IEquatable<ApiuiSettingsSettingsDateDisplay>
-========
     public partial class CreateUISettingsRequestSettingsDateDisplay : IEquatable<CreateUISettingsRequestSettingsDateDisplay>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDateDisplay.cs
     {
         /// <summary>
         /// Gets or Sets DateLocale
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDateDisplay.cs
-
-        [DataMember(Name = "date_locale")]
-========
         [DataMember(Name = "date_locale", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDateDisplay.cs
         public string DateLocale { get; set; }
 
         /// <summary>
         /// Gets or Sets DateFormat
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDateDisplay.cs
-
-        [DataMember(Name = "date_format")]
-========
         [DataMember(Name = "date_format", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDateDisplay.cs
         public string DateFormat { get; set; }
 
         /// <summary>

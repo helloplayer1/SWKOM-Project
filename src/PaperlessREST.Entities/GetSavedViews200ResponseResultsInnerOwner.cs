@@ -24,172 +24,98 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-    public partial class InlineResponse20021Owner : IEquatable<InlineResponse20021Owner>
-========
     public partial class GetSavedViews200ResponseResultsInnerOwner : IEquatable<GetSavedViews200ResponseResultsInnerOwner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "password")]
-========
         [DataMember(Name = "password", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string Password { get; set; }
 
         /// <summary>
         /// Gets or Sets LastLogin
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "last_login")]
-========
         [DataMember(Name = "last_login", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string LastLogin { get; set; }
 
         /// <summary>
         /// Gets or Sets IsSuperuser
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "is_superuser")]
-        public bool? IsSuperuser { get; set; }
-========
         [DataMember(Name = "is_superuser", EmitDefaultValue = true)]
         public bool IsSuperuser { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
 
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "username")]
-========
         [DataMember(Name = "username", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "first_name")]
-========
         [DataMember(Name = "first_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "last_name")]
-========
         [DataMember(Name = "last_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string LastName { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "email")]
-========
         [DataMember(Name = "email", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets IsStaff
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "is_staff")]
-        public bool? IsStaff { get; set; }
-========
         [DataMember(Name = "is_staff", EmitDefaultValue = true)]
         public bool IsStaff { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
 
         /// <summary>
         /// Gets or Sets IsActive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "is_active")]
-        public bool? IsActive { get; set; }
-========
         [DataMember(Name = "is_active", EmitDefaultValue = true)]
         public bool IsActive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
 
         /// <summary>
         /// Gets or Sets DateJoined
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "date_joined")]
-========
         [DataMember(Name = "date_joined", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public string DateJoined { get; set; }
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "groups")]
-========
         [DataMember(Name = "groups", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
         public List<object> Groups { get; set; }
 
         /// <summary>
         /// Gets or Sets UserPermissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-
-        [DataMember(Name = "user_permissions")]
-        public List<int?> UserPermissions { get; set; }
-========
         [DataMember(Name = "user_permissions", EmitDefaultValue = false)]
         public List<int> UserPermissions { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -327,24 +253,14 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
                 if (Password != null)
                     hashCode = hashCode * 59 + Password.GetHashCode();
                 if (LastLogin != null)
                     hashCode = hashCode * 59 + LastLogin.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-                if (IsSuperuser != null)
-                    hashCode = hashCode * 59 + IsSuperuser.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + IsSuperuser.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
                 if (Username != null)
                     hashCode = hashCode * 59 + Username.GetHashCode();
                 if (FirstName != null)
@@ -353,17 +269,10 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + LastName.GetHashCode();
                 if (Email != null)
                     hashCode = hashCode * 59 + Email.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Owner.cs
-                if (IsStaff != null)
-                    hashCode = hashCode * 59 + IsStaff.GetHashCode();
-                if (IsActive != null)
-                    hashCode = hashCode * 59 + IsActive.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + IsStaff.GetHashCode();
 
                 hashCode = hashCode * 59 + IsActive.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerOwner.cs
                 if (DateJoined != null)
                     hashCode = hashCode * 59 + DateJoined.GetHashCode();
                 if (Groups != null)

@@ -24,104 +24,55 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-    public partial class Correspondent : IEquatable<Correspondent>
-========
     public partial class CorrespondentDto : IEquatable<CorrespondentDto>
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "id")]
-        public long? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public long Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
 
         /// <summary>
         /// Gets or Sets Slug
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "slug")]
-========
         [DataMember(Name = "slug", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
         public string Slug { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public long? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public long MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
 
         /// <summary>
         /// Gets or Sets DocumentCount
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "document_count")]
-        public long? DocumentCount { get; set; }
-========
         [DataMember(Name = "document_count", EmitDefaultValue = true)]
         public long DocumentCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
 
         /// <summary>
         /// Gets or Sets LastCorrespondence
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-
-        [DataMember(Name = "last_correspondence")]
-        public DateTime? LastCorrespondence { get; set; }
-========
         [DataMember(Name = "last_correspondence", EmitDefaultValue = false)]
         public DateTime LastCorrespondence { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -227,34 +178,20 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
                 if (Slug != null)
                     hashCode = hashCode * 59 + Slug.GetHashCode();
                 if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Match != null)
                     hashCode = hashCode * 59 + Match.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/Correspondent.cs
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
 
                 hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
 
                 hashCode = hashCode * 59 + DocumentCount.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CorrespondentDto.cs
                 if (LastCorrespondence != null)
                     hashCode = hashCode * 59 + LastCorrespondence.GetHashCode();
                 return hashCode;

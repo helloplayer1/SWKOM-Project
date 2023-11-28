@@ -24,47 +24,27 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDarkMode.cs
-    public partial class ApiuiSettingsSettingsDarkMode : IEquatable<ApiuiSettingsSettingsDarkMode>
-========
     public partial class CreateUISettingsRequestSettingsDarkMode : IEquatable<CreateUISettingsRequestSettingsDarkMode>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDarkMode.cs
     {
         /// <summary>
         /// Gets or Sets UseSystem
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDarkMode.cs
-
-        [DataMember(Name = "use_system")]
-        public bool? UseSystem { get; set; }
-========
         [DataMember(Name = "use_system", EmitDefaultValue = true)]
         public bool UseSystem { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDarkMode.cs
 
         /// <summary>
         /// Gets or Sets Enabled
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDarkMode.cs
-
-        [DataMember(Name = "enabled")]
-========
         [DataMember(Name = "enabled", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDarkMode.cs
         public string Enabled { get; set; }
 
         /// <summary>
         /// Gets or Sets ThumbInverted
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDarkMode.cs
-
-        [DataMember(Name = "thumb_inverted")]
-========
         [DataMember(Name = "thumb_inverted", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDarkMode.cs
         public string ThumbInverted { get; set; }
 
         /// <summary>
@@ -141,13 +121,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDarkMode.cs
-                if (UseSystem != null)
-                    hashCode = hashCode * 59 + UseSystem.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + UseSystem.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDarkMode.cs
                 if (Enabled != null)
                     hashCode = hashCode * 59 + Enabled.GetHashCode();
                 if (ThumbInverted != null)

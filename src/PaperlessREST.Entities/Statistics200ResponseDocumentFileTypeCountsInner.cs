@@ -24,36 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011DocumentFileTypeCounts.cs
-    public partial class InlineResponse20011DocumentFileTypeCounts : IEquatable<InlineResponse20011DocumentFileTypeCounts>
-========
     public partial class Statistics200ResponseDocumentFileTypeCountsInner : IEquatable<Statistics200ResponseDocumentFileTypeCountsInner>
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200ResponseDocumentFileTypeCountsInner.cs
     {
         /// <summary>
         /// Gets or Sets MimeType
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011DocumentFileTypeCounts.cs
-
-        [DataMember(Name = "mime_type")]
-========
         [DataMember(Name = "mime_type", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200ResponseDocumentFileTypeCountsInner.cs
         public string MimeType { get; set; }
 
         /// <summary>
         /// Gets or Sets MimeTypeCount
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011DocumentFileTypeCounts.cs
-
-        [DataMember(Name = "mime_type_count")]
-        public int? MimeTypeCount { get; set; }
-========
         [DataMember(Name = "mime_type_count", EmitDefaultValue = true)]
         public int MimeTypeCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200ResponseDocumentFileTypeCountsInner.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,13 +110,8 @@ namespace PaperlessREST.Entities
                 // Suitable nullity checks etc, of course :)
                 if (MimeType != null)
                     hashCode = hashCode * 59 + MimeType.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011DocumentFileTypeCounts.cs
-                if (MimeTypeCount != null)
-                    hashCode = hashCode * 59 + MimeTypeCount.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MimeTypeCount.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200ResponseDocumentFileTypeCountsInner.cs
                 return hashCode;
             }
         }

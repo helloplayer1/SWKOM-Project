@@ -24,63 +24,35 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsNotifications.cs
-    public partial class ApiuiSettingsSettingsNotifications : IEquatable<ApiuiSettingsSettingsNotifications>
-========
     public partial class CreateUISettingsRequestSettingsNotifications : IEquatable<CreateUISettingsRequestSettingsNotifications>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsNotifications.cs
     {
         /// <summary>
         /// Gets or Sets ConsumerNewDocuments
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsNotifications.cs
-
-        [DataMember(Name = "consumer_new_documents")]
-        public bool? ConsumerNewDocuments { get; set; }
-========
         [DataMember(Name = "consumer_new_documents", EmitDefaultValue = true)]
         public bool ConsumerNewDocuments { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsNotifications.cs
 
         /// <summary>
         /// Gets or Sets ConsumerSuccess
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsNotifications.cs
-
-        [DataMember(Name = "consumer_success")]
-        public bool? ConsumerSuccess { get; set; }
-========
         [DataMember(Name = "consumer_success", EmitDefaultValue = true)]
         public bool ConsumerSuccess { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsNotifications.cs
 
         /// <summary>
         /// Gets or Sets ConsumerFailed
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsNotifications.cs
-
-        [DataMember(Name = "consumer_failed")]
-        public bool? ConsumerFailed { get; set; }
-========
         [DataMember(Name = "consumer_failed", EmitDefaultValue = true)]
         public bool ConsumerFailed { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsNotifications.cs
 
         /// <summary>
         /// Gets or Sets ConsumerSuppressOnDashboard
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsNotifications.cs
-
-        [DataMember(Name = "consumer_suppress_on_dashboard")]
-        public bool? ConsumerSuppressOnDashboard { get; set; }
-========
         [DataMember(Name = "consumer_suppress_on_dashboard", EmitDefaultValue = true)]
         public bool ConsumerSuppressOnDashboard { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsNotifications.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -162,16 +134,6 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsNotifications.cs
-                if (ConsumerNewDocuments != null)
-                    hashCode = hashCode * 59 + ConsumerNewDocuments.GetHashCode();
-                if (ConsumerSuccess != null)
-                    hashCode = hashCode * 59 + ConsumerSuccess.GetHashCode();
-                if (ConsumerFailed != null)
-                    hashCode = hashCode * 59 + ConsumerFailed.GetHashCode();
-                if (ConsumerSuppressOnDashboard != null)
-                    hashCode = hashCode * 59 + ConsumerSuppressOnDashboard.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + ConsumerNewDocuments.GetHashCode();
 
@@ -180,7 +142,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + ConsumerFailed.GetHashCode();
 
                 hashCode = hashCode * 59 + ConsumerSuppressOnDashboard.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsNotifications.cs
                 return hashCode;
             }
         }

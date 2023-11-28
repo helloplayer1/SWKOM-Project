@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidSetPermissions.cs
-    public partial class ApistoragePathsidSetPermissions : IEquatable<ApistoragePathsidSetPermissions>
-========
     public partial class GetDocument200ResponsePermissions : IEquatable<GetDocument200ResponsePermissions>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocument200ResponsePermissions.cs
     {
         /// <summary>
         /// Gets or Sets View
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidSetPermissions.cs
-
-        [DataMember(Name = "view")]
-        public ApistoragePathsidSetPermissionsView View { get; set; }
-========
         [DataMember(Name = "view", EmitDefaultValue = false)]
         public GetDocument200ResponsePermissionsView View { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocument200ResponsePermissions.cs
 
         /// <summary>
         /// Gets or Sets Change
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidSetPermissions.cs
-
-        [DataMember(Name = "change")]
-        public ApistoragePathsidSetPermissionsView Change { get; set; }
-========
         [DataMember(Name = "change", EmitDefaultValue = false)]
         public GetDocument200ResponsePermissionsView Change { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocument200ResponsePermissions.cs
 
         /// <summary>
         /// Returns the string presentation of the object

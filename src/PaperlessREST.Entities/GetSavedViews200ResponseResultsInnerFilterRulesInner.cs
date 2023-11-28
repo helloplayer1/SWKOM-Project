@@ -24,35 +24,20 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApisavedViewsFilterRules.cs
-    public partial class ApisavedViewsFilterRules : IEquatable<ApisavedViewsFilterRules>
-========
     public partial class GetSavedViews200ResponseResultsInnerFilterRulesInner : IEquatable<GetSavedViews200ResponseResultsInnerFilterRulesInner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerFilterRulesInner.cs
     {
         /// <summary>
         /// Gets or Sets RuleType
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApisavedViewsFilterRules.cs
-
-        [DataMember(Name = "rule_type")]
-        public int? RuleType { get; set; }
-========
         [DataMember(Name = "rule_type", EmitDefaultValue = true)]
         public int RuleType { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerFilterRulesInner.cs
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApisavedViewsFilterRules.cs
-
-        [DataMember(Name = "value")]
-========
         [DataMember(Name = "value", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerFilterRulesInner.cs
         public string Value { get; set; }
 
         /// <summary>
@@ -123,13 +108,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApisavedViewsFilterRules.cs
-                if (RuleType != null)
-                    hashCode = hashCode * 59 + RuleType.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + RuleType.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInnerFilterRulesInner.cs
                 if (Value != null)
                     hashCode = hashCode * 59 + Value.GetHashCode();
                 return hashCode;

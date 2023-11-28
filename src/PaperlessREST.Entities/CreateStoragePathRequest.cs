@@ -24,86 +24,49 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-    public partial class ApiStoragePathsBody : IEquatable<ApiStoragePathsBody>
-========
     public partial class CreateStoragePathRequest : IEquatable<CreateStoragePathRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
     {
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Path
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-
-        [DataMember(Name = "path")]
-========
         [DataMember(Name = "path", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
         public string Path { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public int? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public int MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -201,16 +164,6 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Path != null)
                     hashCode = hashCode * 59 + Path.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiStoragePathsBody.cs
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (Match != null)
-                    hashCode = hashCode * 59 + Match.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
                 if (Match != null)
@@ -219,7 +172,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateStoragePathRequest.cs
                 return hashCode;
             }
         }

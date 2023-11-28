@@ -24,126 +24,70 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-    public partial class InlineResponse20021Results : IEquatable<InlineResponse20021Results>
-========
     public partial class GetSavedViews200ResponseResultsInner : IEquatable<GetSavedViews200ResponseResultsInner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets ShowOnDashboard
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "show_on_dashboard")]
-        public bool? ShowOnDashboard { get; set; }
-========
         [DataMember(Name = "show_on_dashboard", EmitDefaultValue = true)]
         public bool ShowOnDashboard { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets ShowInSidebar
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "show_in_sidebar")]
-        public bool? ShowInSidebar { get; set; }
-========
         [DataMember(Name = "show_in_sidebar", EmitDefaultValue = true)]
         public bool ShowInSidebar { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets SortField
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "sort_field")]
-========
         [DataMember(Name = "sort_field", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
         public string SortField { get; set; }
 
         /// <summary>
         /// Gets or Sets SortReverse
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "sort_reverse")]
-        public bool? SortReverse { get; set; }
-========
         [DataMember(Name = "sort_reverse", EmitDefaultValue = true)]
         public bool SortReverse { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets FilterRules
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "filter_rules")]
-        public List<ApisavedViewsFilterRules> FilterRules { get; set; }
-========
         [DataMember(Name = "filter_rules", EmitDefaultValue = false)]
         public List<GetSavedViews200ResponseResultsInnerFilterRulesInner> FilterRules { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "owner")]
-        public InlineResponse20021Owner Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = false)]
         public GetSavedViews200ResponseResultsInnerOwner Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets UserCanChange
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-
-        [DataMember(Name = "user_can_change")]
-        public bool? UserCanChange { get; set; }
-========
         [DataMember(Name = "user_can_change", EmitDefaultValue = true)]
         public bool UserCanChange { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -256,20 +200,6 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                if (Name != null)
-                    hashCode = hashCode * 59 + Name.GetHashCode();
-                if (ShowOnDashboard != null)
-                    hashCode = hashCode * 59 + ShowOnDashboard.GetHashCode();
-                if (ShowInSidebar != null)
-                    hashCode = hashCode * 59 + ShowInSidebar.GetHashCode();
-                if (SortField != null)
-                    hashCode = hashCode * 59 + SortField.GetHashCode();
-                if (SortReverse != null)
-                    hashCode = hashCode * 59 + SortReverse.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
                 if (Name != null)
@@ -282,18 +212,12 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + SortField.GetHashCode();
 
                 hashCode = hashCode * 59 + SortReverse.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
                 if (FilterRules != null)
                     hashCode = hashCode * 59 + FilterRules.GetHashCode();
                 if (Owner != null)
                     hashCode = hashCode * 59 + Owner.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20021Results.cs
-                if (UserCanChange != null)
-                    hashCode = hashCode * 59 + UserCanChange.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + UserCanChange.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetSavedViews200ResponseResultsInner.cs
                 return hashCode;
             }
         }

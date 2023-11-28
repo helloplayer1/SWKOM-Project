@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsView.cs
-    public partial class ApicorrespondentsidPermissionsView : IEquatable<ApicorrespondentsidPermissionsView>
-========
     public partial class GetDocument200ResponsePermissionsView : IEquatable<GetDocument200ResponsePermissionsView>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocument200ResponsePermissionsView.cs
     {
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsView.cs
-
-        [DataMember(Name = "users")]
-        public List<object> Users { get; set; }
-========
         [DataMember(Name = "users", EmitDefaultValue = false)]
         public List<int> Users { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocument200ResponsePermissionsView.cs
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissionsView.cs
-
-        [DataMember(Name = "groups")]
-        public List<object> Groups { get; set; }
-========
         [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<int> Groups { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocument200ResponsePermissionsView.cs
 
         /// <summary>
         /// Returns the string presentation of the object

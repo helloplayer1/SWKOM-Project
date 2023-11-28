@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsSavedViews.cs
-    public partial class ApiuiSettingsSettingsSavedViews : IEquatable<ApiuiSettingsSettingsSavedViews>
-========
     public partial class CreateUISettingsRequestSettingsSavedViews : IEquatable<CreateUISettingsRequestSettingsSavedViews>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsSavedViews.cs
     {
         /// <summary>
         /// Gets or Sets WarnOnUnsavedChange
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsSavedViews.cs
-
-        [DataMember(Name = "warn_on_unsaved_change")]
-        public bool? WarnOnUnsavedChange { get; set; }
-========
         [DataMember(Name = "warn_on_unsaved_change", EmitDefaultValue = true)]
         public bool WarnOnUnsavedChange { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsSavedViews.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,13 +95,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsSavedViews.cs
-                if (WarnOnUnsavedChange != null)
-                    hashCode = hashCode * 59 + WarnOnUnsavedChange.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + WarnOnUnsavedChange.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsSavedViews.cs
                 return hashCode;
             }
         }

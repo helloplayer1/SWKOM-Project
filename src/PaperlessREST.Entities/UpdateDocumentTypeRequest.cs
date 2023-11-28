@@ -24,151 +24,84 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-    public partial class DocumentTypesIdBody : IEquatable<DocumentTypesIdBody>
-========
     public partial class UpdateDocumentTypeRequest : IEquatable<UpdateDocumentTypeRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets Slug
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "slug")]
-========
         [DataMember(Name = "slug", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
         public string Slug { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public int? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public int MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets DocumentCount
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "document_count")]
-        public int? DocumentCount { get; set; }
-========
         [DataMember(Name = "document_count", EmitDefaultValue = true)]
         public int DocumentCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets Permissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "permissions")]
-        public ApicorrespondentsidPermissions Permissions { get; set; }
-========
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
         public GetCorrespondents200ResponseResultsInnerPermissions Permissions { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets SetPermissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "set_permissions")]
-        public ApicorrespondentsidPermissions SetPermissions { get; set; }
-========
         [DataMember(Name = "set_permissions", EmitDefaultValue = false)]
         public GetCorrespondents200ResponseResultsInnerPermissions SetPermissions { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Gets or Sets PermissionsForm
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-
-        [DataMember(Name = "permissions_form")]
-        public ApicorrespondentsidPermissionsForm PermissionsForm { get; set; }
-========
         [DataMember(Name = "permissions_form", EmitDefaultValue = false)]
         public UpdateCorrespondentRequestPermissionsForm PermissionsForm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -292,29 +225,14 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
                 if (Slug != null)
                     hashCode = hashCode * 59 + Slug.GetHashCode();
                 if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Match != null)
                     hashCode = hashCode * 59 + Match.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentTypesIdBody.cs
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
 
@@ -323,7 +241,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + DocumentCount.GetHashCode();
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateDocumentTypeRequest.cs
                 if (Permissions != null)
                     hashCode = hashCode * 59 + Permissions.GetHashCode();
                 if (SetPermissions != null)

@@ -24,99 +24,56 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-    public partial class ApiTagsBody : IEquatable<ApiTagsBody>
-========
     public partial class CreateTagRequest : IEquatable<CreateTagRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
     {
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Color
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "color")]
-========
         [DataMember(Name = "color", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
         public string Color { get; set; }
 
         /// <summary>
         /// Gets or Sets IsInboxTag
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "is_inbox_tag")]
-        public bool? IsInboxTag { get; set; }
-========
         [DataMember(Name = "is_inbox_tag", EmitDefaultValue = true)]
         public bool IsInboxTag { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public int? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public int MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -220,18 +177,6 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Color != null)
                     hashCode = hashCode * 59 + Color.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiTagsBody.cs
-                if (IsInboxTag != null)
-                    hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (Match != null)
-                    hashCode = hashCode * 59 + Match.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
 
@@ -242,7 +187,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateTagRequest.cs
                 return hashCode;
             }
         }

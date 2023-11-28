@@ -24,178 +24,97 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-    public partial class ApiuiSettingsSettings : IEquatable<ApiuiSettingsSettings>
-========
     public partial class CreateUISettingsRequestSettings : IEquatable<CreateUISettingsRequestSettings>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
     {
         /// <summary>
         /// Gets or Sets UpdateChecking
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "update_checking")]
-        public ApiuiSettingsSettingsUpdateChecking UpdateChecking { get; set; }
-========
         [DataMember(Name = "update_checking", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsUpdateChecking UpdateChecking { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets TourComplete
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "tour_complete")]
-        public bool? TourComplete { get; set; }
-========
         [DataMember(Name = "tour_complete", EmitDefaultValue = true)]
         public bool TourComplete { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets BulkEdit
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "bulk_edit")]
-        public ApiuiSettingsSettingsBulkEdit BulkEdit { get; set; }
-========
         [DataMember(Name = "bulk_edit", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsBulkEdit BulkEdit { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets DocumentListSize
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "documentListSize")]
-        public int? DocumentListSize { get; set; }
-========
         [DataMember(Name = "documentListSize", EmitDefaultValue = true)]
         public int DocumentListSize { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets SlimSidebar
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "slim_sidebar")]
-        public bool? SlimSidebar { get; set; }
-========
         [DataMember(Name = "slim_sidebar", EmitDefaultValue = true)]
         public bool SlimSidebar { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets DarkMode
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "dark_mode")]
-        public ApiuiSettingsSettingsDarkMode DarkMode { get; set; }
-========
         [DataMember(Name = "dark_mode", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsDarkMode DarkMode { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets Theme
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "theme")]
-        public ApiuiSettingsSettingsTheme Theme { get; set; }
-========
         [DataMember(Name = "theme", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsTheme Theme { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets DocumentDetails
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "document_details")]
-        public ApiuiSettingsSettingsDocumentDetails DocumentDetails { get; set; }
-========
         [DataMember(Name = "document_details", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsDocumentDetails DocumentDetails { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets DateDisplay
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "date_display")]
-        public ApiuiSettingsSettingsDateDisplay DateDisplay { get; set; }
-========
         [DataMember(Name = "date_display", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsDateDisplay DateDisplay { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets Notifications
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "notifications")]
-        public ApiuiSettingsSettingsNotifications Notifications { get; set; }
-========
         [DataMember(Name = "notifications", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsNotifications Notifications { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets NotesEnabled
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "notes_enabled")]
-        public bool? NotesEnabled { get; set; }
-========
         [DataMember(Name = "notes_enabled", EmitDefaultValue = true)]
         public bool NotesEnabled { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets SavedViews
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "saved_views")]
-        public ApiuiSettingsSettingsSavedViews SavedViews { get; set; }
-========
         [DataMember(Name = "saved_views", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettingsSavedViews SavedViews { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
 
         /// <summary>
         /// Gets or Sets Language
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-
-        [DataMember(Name = "language")]
-========
         [DataMember(Name = "language", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
         public string Language { get; set; }
 
         /// <summary>
@@ -334,16 +253,6 @@ namespace PaperlessREST.Entities
                 // Suitable nullity checks etc, of course :)
                 if (UpdateChecking != null)
                     hashCode = hashCode * 59 + UpdateChecking.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-                if (TourComplete != null)
-                    hashCode = hashCode * 59 + TourComplete.GetHashCode();
-                if (BulkEdit != null)
-                    hashCode = hashCode * 59 + BulkEdit.GetHashCode();
-                if (DocumentListSize != null)
-                    hashCode = hashCode * 59 + DocumentListSize.GetHashCode();
-                if (SlimSidebar != null)
-                    hashCode = hashCode * 59 + SlimSidebar.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + TourComplete.GetHashCode();
                 if (BulkEdit != null)
@@ -352,7 +261,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + DocumentListSize.GetHashCode();
 
                 hashCode = hashCode * 59 + SlimSidebar.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
                 if (DarkMode != null)
                     hashCode = hashCode * 59 + DarkMode.GetHashCode();
                 if (Theme != null)
@@ -363,13 +271,8 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + DateDisplay.GetHashCode();
                 if (Notifications != null)
                     hashCode = hashCode * 59 + Notifications.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettings.cs
-                if (NotesEnabled != null)
-                    hashCode = hashCode * 59 + NotesEnabled.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + NotesEnabled.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettings.cs
                 if (SavedViews != null)
                     hashCode = hashCode * 59 + SavedViews.GetHashCode();
                 if (Language != null)

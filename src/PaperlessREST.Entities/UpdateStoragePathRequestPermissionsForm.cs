@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsForm.cs
-    public partial class ApistoragePathsidPermissionsForm : IEquatable<ApistoragePathsidPermissionsForm>
-========
     public partial class UpdateStoragePathRequestPermissionsForm : IEquatable<UpdateStoragePathRequestPermissionsForm>
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateStoragePathRequestPermissionsForm.cs
     {
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsForm.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateStoragePathRequestPermissionsForm.cs
 
         /// <summary>
         /// Gets or Sets SetPermissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsForm.cs
-
-        [DataMember(Name = "set_permissions")]
-        public ApistoragePathsidPermissions SetPermissions { get; set; }
-========
         [DataMember(Name = "set_permissions", EmitDefaultValue = false)]
         public GetStoragePaths200ResponseResultsInnerPermissions SetPermissions { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateStoragePathRequestPermissionsForm.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,13 +108,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApistoragePathsidPermissionsForm.cs
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateStoragePathRequestPermissionsForm.cs
                 if (SetPermissions != null)
                     hashCode = hashCode * 59 + SetPermissions.GetHashCode();
                 return hashCode;

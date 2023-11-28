@@ -24,162 +24,91 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-    public partial class InlineResponse20018 : IEquatable<InlineResponse20018>
-========
     public partial class UpdateTag200Response : IEquatable<UpdateTag200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Gets or Sets Slug
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "slug")]
-========
         [DataMember(Name = "slug", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
         public string Slug { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Color
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "color")]
-========
         [DataMember(Name = "color", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
         public string Color { get; set; }
 
         /// <summary>
         /// Gets or Sets TextColor
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "text_color")]
-========
         [DataMember(Name = "text_color", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
         public string TextColor { get; set; }
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public int? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public int MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Gets or Sets IsInboxTag
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "is_inbox_tag")]
-        public bool? IsInboxTag { get; set; }
-========
         [DataMember(Name = "is_inbox_tag", EmitDefaultValue = true)]
         public bool IsInboxTag { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Gets or Sets DocumentCount
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "document_count")]
-        public int? DocumentCount { get; set; }
-========
         [DataMember(Name = "document_count", EmitDefaultValue = true)]
         public int DocumentCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Gets or Sets UserCanChange
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-
-        [DataMember(Name = "user_can_change")]
-        public bool? UserCanChange { get; set; }
-========
         [DataMember(Name = "user_can_change", EmitDefaultValue = true)]
         public bool UserCanChange { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -309,13 +238,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
                 if (Slug != null)
                     hashCode = hashCode * 59 + Slug.GetHashCode();
                 if (Name != null)
@@ -326,20 +250,6 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + TextColor.GetHashCode();
                 if (Match != null)
                     hashCode = hashCode * 59 + Match.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20018.cs
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (IsInboxTag != null)
-                    hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
-                if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-                if (UserCanChange != null)
-                    hashCode = hashCode * 59 + UserCanChange.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
 
@@ -352,7 +262,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + Owner.GetHashCode();
 
                 hashCode = hashCode * 59 + UserCanChange.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateTag200Response.cs
                 return hashCode;
             }
         }

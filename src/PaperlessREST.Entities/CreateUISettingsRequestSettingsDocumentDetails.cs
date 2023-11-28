@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDocumentDetails.cs
-    public partial class ApiuiSettingsSettingsDocumentDetails : IEquatable<ApiuiSettingsSettingsDocumentDetails>
-========
     public partial class CreateUISettingsRequestSettingsDocumentDetails : IEquatable<CreateUISettingsRequestSettingsDocumentDetails>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDocumentDetails.cs
     {
         /// <summary>
         /// Gets or Sets NativePdfViewer
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDocumentDetails.cs
-
-        [DataMember(Name = "native_pdf_viewer")]
-        public bool? NativePdfViewer { get; set; }
-========
         [DataMember(Name = "native_pdf_viewer", EmitDefaultValue = true)]
         public bool NativePdfViewer { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDocumentDetails.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,13 +95,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiuiSettingsSettingsDocumentDetails.cs
-                if (NativePdfViewer != null)
-                    hashCode = hashCode * 59 + NativePdfViewer.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + NativePdfViewer.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequestSettingsDocumentDetails.cs
                 return hashCode;
             }
         }

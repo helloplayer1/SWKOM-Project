@@ -24,86 +24,48 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-    public partial class ApiSavedViewsBody : IEquatable<ApiSavedViewsBody>
-========
     public partial class CreateSavedViewsRequest : IEquatable<CreateSavedViewsRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
     {
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets ShowOnDashboard
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-
-        [DataMember(Name = "show_on_dashboard")]
-        public bool? ShowOnDashboard { get; set; }
-========
         [DataMember(Name = "show_on_dashboard", EmitDefaultValue = true)]
         public bool ShowOnDashboard { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
 
         /// <summary>
         /// Gets or Sets ShowInSidebar
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-
-        [DataMember(Name = "show_in_sidebar")]
-        public bool? ShowInSidebar { get; set; }
-========
         [DataMember(Name = "show_in_sidebar", EmitDefaultValue = true)]
         public bool ShowInSidebar { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
 
         /// <summary>
         /// Gets or Sets FilterRules
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-
-        [DataMember(Name = "filter_rules")]
-        public List<ApisavedViewsFilterRules> FilterRules { get; set; }
-========
         [DataMember(Name = "filter_rules", EmitDefaultValue = false)]
         public List<GetSavedViews200ResponseResultsInnerFilterRulesInner> FilterRules { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
 
         /// <summary>
         /// Gets or Sets SortReverse
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-
-        [DataMember(Name = "sort_reverse")]
-        public bool? SortReverse { get; set; }
-========
         [DataMember(Name = "sort_reverse", EmitDefaultValue = true)]
         public bool SortReverse { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
 
         /// <summary>
         /// Gets or Sets SortField
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-
-        [DataMember(Name = "sort_field")]
-========
         [DataMember(Name = "sort_field", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
         public string SortField { get; set; }
 
         /// <summary>
@@ -201,16 +163,6 @@ namespace PaperlessREST.Entities
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiSavedViewsBody.cs
-                if (ShowOnDashboard != null)
-                    hashCode = hashCode * 59 + ShowOnDashboard.GetHashCode();
-                if (ShowInSidebar != null)
-                    hashCode = hashCode * 59 + ShowInSidebar.GetHashCode();
-                if (FilterRules != null)
-                    hashCode = hashCode * 59 + FilterRules.GetHashCode();
-                if (SortReverse != null)
-                    hashCode = hashCode * 59 + SortReverse.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + ShowOnDashboard.GetHashCode();
 
@@ -219,7 +171,6 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + FilterRules.GetHashCode();
 
                 hashCode = hashCode * 59 + SortReverse.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateSavedViewsRequest.cs
                 if (SortField != null)
                     hashCode = hashCode * 59 + SortField.GetHashCode();
                 return hashCode;

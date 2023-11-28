@@ -24,60 +24,34 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025.cs
-    public partial class InlineResponse20025 : IEquatable<InlineResponse20025>
-========
     public partial class GetUISettings200Response : IEquatable<GetUISettings200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200Response.cs
     {
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025.cs
-
-        [DataMember(Name = "display_name")]
-========
         [DataMember(Name = "display_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200Response.cs
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025.cs
-
-        [DataMember(Name = "user")]
-        public InlineResponse20025User User { get; set; }
-========
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public GetUISettings200ResponseUser User { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200Response.cs
 
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025.cs
-
-        [DataMember(Name = "settings")]
-        public InlineResponse20025Settings Settings { get; set; }
-========
         [DataMember(Name = "settings", EmitDefaultValue = false)]
         public GetUISettings200ResponseSettings Settings { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200Response.cs
 
         /// <summary>
         /// Gets or Sets Permissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025.cs
-
-        [DataMember(Name = "permissions")]
-========
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200Response.cs
         public List<string> Permissions { get; set; }
 
         /// <summary>

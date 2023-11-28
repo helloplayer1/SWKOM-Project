@@ -24,76 +24,42 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-    public partial class InlineResponse2002 : IEquatable<InlineResponse2002>
-========
     public partial class GetTags200Response : IEquatable<GetTags200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
     {
         /// <summary>
         /// Gets or Sets Count
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-
-        [DataMember(Name = "count")]
-        public int? Count { get; set; }
-========
         [DataMember(Name = "count", EmitDefaultValue = true)]
         public int Count { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
 
         /// <summary>
         /// Gets or Sets Next
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-
-        [DataMember(Name = "next")]
-        public int? Next { get; set; }
-========
         [DataMember(Name = "next", EmitDefaultValue = true)]
         public int Next { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
 
         /// <summary>
         /// Gets or Sets Previous
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-
-        [DataMember(Name = "previous")]
-        public int? Previous { get; set; }
-========
         [DataMember(Name = "previous", EmitDefaultValue = true)]
         public int Previous { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
 
         /// <summary>
         /// Gets or Sets All
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-
-        [DataMember(Name = "all")]
-        public List<int?> All { get; set; }
-========
         [DataMember(Name = "all", EmitDefaultValue = false)]
         public List<int> All { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
 
         /// <summary>
         /// Gets or Sets Results
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-
-        [DataMember(Name = "results")]
-        public List<InlineResponse2002Results> Results { get; set; }
-========
         [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<GetTags200ResponseResultsInner> Results { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -183,21 +149,12 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002.cs
-                if (Count != null)
-                    hashCode = hashCode * 59 + Count.GetHashCode();
-                if (Next != null)
-                    hashCode = hashCode * 59 + Next.GetHashCode();
-                if (Previous != null)
-                    hashCode = hashCode * 59 + Previous.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Count.GetHashCode();
 
                 hashCode = hashCode * 59 + Next.GetHashCode();
 
                 hashCode = hashCode * 59 + Previous.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetTags200Response.cs
                 if (All != null)
                     hashCode = hashCode * 59 + All.GetHashCode();
                 if (Results != null)

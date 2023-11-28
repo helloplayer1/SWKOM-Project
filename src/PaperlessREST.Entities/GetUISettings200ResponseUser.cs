@@ -24,60 +24,34 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025User.cs
-    public partial class InlineResponse20025User : IEquatable<InlineResponse20025User>
-========
     public partial class GetUISettings200ResponseUser : IEquatable<GetUISettings200ResponseUser>
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseUser.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025User.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseUser.cs
 
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025User.cs
-
-        [DataMember(Name = "username")]
-========
         [DataMember(Name = "username", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseUser.cs
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets IsSuperuser
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025User.cs
-
-        [DataMember(Name = "is_superuser")]
-        public bool? IsSuperuser { get; set; }
-========
         [DataMember(Name = "is_superuser", EmitDefaultValue = true)]
         public bool IsSuperuser { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseUser.cs
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025User.cs
-
-        [DataMember(Name = "groups")]
-========
         [DataMember(Name = "groups", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseUser.cs
         public List<object> Groups { get; set; }
 
         /// <summary>
@@ -161,21 +135,12 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025User.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                if (Username != null)
-                    hashCode = hashCode * 59 + Username.GetHashCode();
-                if (IsSuperuser != null)
-                    hashCode = hashCode * 59 + IsSuperuser.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
                 if (Username != null)
                     hashCode = hashCode * 59 + Username.GetHashCode();
 
                 hashCode = hashCode * 59 + IsSuperuser.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseUser.cs
                 if (Groups != null)
                     hashCode = hashCode * 59 + Groups.GetHashCode();
                 return hashCode;

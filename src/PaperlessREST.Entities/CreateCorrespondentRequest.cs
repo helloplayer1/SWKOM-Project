@@ -24,74 +24,42 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-    public partial class ApiDocumentTypesBody : IEquatable<ApiDocumentTypesBody>
-========
     public partial class CreateCorrespondentRequest : IEquatable<CreateCorrespondentRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
     {
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public int? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public int MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -181,16 +149,6 @@ namespace PaperlessREST.Entities
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiDocumentTypesBody.cs
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (Match != null)
-                    hashCode = hashCode * 59 + Match.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
                 if (Match != null)
@@ -199,7 +157,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateCorrespondentRequest.cs
                 return hashCode;
             }
         }

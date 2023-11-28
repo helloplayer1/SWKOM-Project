@@ -24,130 +24,74 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-    public partial class InlineResponse20019 : IEquatable<InlineResponse20019>
-========
     public partial class GetTasks200ResponseInner : IEquatable<GetTasks200ResponseInner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
 
         /// <summary>
         /// Gets or Sets TaskId
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "task_id")]
-========
         [DataMember(Name = "task_id", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string TaskId { get; set; }
 
         /// <summary>
         /// Gets or Sets TaskFileName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "task_file_name")]
-========
         [DataMember(Name = "task_file_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string TaskFileName { get; set; }
 
         /// <summary>
         /// Gets or Sets DateCreated
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "date_created")]
-========
         [DataMember(Name = "date_created", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string DateCreated { get; set; }
 
         /// <summary>
         /// Gets or Sets DateDone
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "date_done")]
-========
         [DataMember(Name = "date_done", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string DateDone { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "type")]
-========
         [DataMember(Name = "type", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "status")]
-========
         [DataMember(Name = "status", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "result")]
-========
         [DataMember(Name = "result", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string Result { get; set; }
 
         /// <summary>
         /// Gets or Sets Acknowledged
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "acknowledged")]
-        public bool? Acknowledged { get; set; }
-========
         [DataMember(Name = "acknowledged", EmitDefaultValue = true)]
         public bool Acknowledged { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
 
         /// <summary>
         /// Gets or Sets RelatedDocument
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-
-        [DataMember(Name = "related_document")]
-========
         [DataMember(Name = "related_document", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
         public string RelatedDocument { get; set; }
 
         /// <summary>
@@ -266,13 +210,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
                 if (TaskId != null)
                     hashCode = hashCode * 59 + TaskId.GetHashCode();
                 if (TaskFileName != null)
@@ -287,13 +226,8 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Status.GetHashCode();
                 if (Result != null)
                     hashCode = hashCode * 59 + Result.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20019.cs
-                if (Acknowledged != null)
-                    hashCode = hashCode * 59 + Acknowledged.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Acknowledged.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetTasks200ResponseInner.cs
                 if (RelatedDocument != null)
                     hashCode = hashCode * 59 + RelatedDocument.GetHashCode();
                 return hashCode;

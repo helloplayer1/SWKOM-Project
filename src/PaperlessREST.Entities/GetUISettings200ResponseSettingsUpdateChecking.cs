@@ -24,22 +24,13 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025SettingsUpdateChecking.cs
-    public partial class InlineResponse20025SettingsUpdateChecking : IEquatable<InlineResponse20025SettingsUpdateChecking>
-========
     public partial class GetUISettings200ResponseSettingsUpdateChecking : IEquatable<GetUISettings200ResponseSettingsUpdateChecking>
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseSettingsUpdateChecking.cs
     {
         /// <summary>
         /// Gets or Sets BackendSetting
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025SettingsUpdateChecking.cs
-
-        [DataMember(Name = "backend_setting")]
-========
         [DataMember(Name = "backend_setting", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseSettingsUpdateChecking.cs
         public string BackendSetting { get; set; }
 
         /// <summary>

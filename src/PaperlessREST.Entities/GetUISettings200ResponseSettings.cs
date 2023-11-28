@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025Settings.cs
-    public partial class InlineResponse20025Settings : IEquatable<InlineResponse20025Settings>
-========
     public partial class GetUISettings200ResponseSettings : IEquatable<GetUISettings200ResponseSettings>
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseSettings.cs
     {
         /// <summary>
         /// Gets or Sets UpdateChecking
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20025Settings.cs
-
-        [DataMember(Name = "update_checking")]
-        public InlineResponse20025SettingsUpdateChecking UpdateChecking { get; set; }
-========
         [DataMember(Name = "update_checking", EmitDefaultValue = false)]
         public GetUISettings200ResponseSettingsUpdateChecking UpdateChecking { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetUISettings200ResponseSettings.cs
 
         /// <summary>
         /// Returns the string presentation of the object

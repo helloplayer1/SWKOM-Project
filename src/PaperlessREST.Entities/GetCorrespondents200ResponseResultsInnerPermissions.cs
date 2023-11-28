@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissions.cs
-    public partial class ApicorrespondentsidPermissions : IEquatable<ApicorrespondentsidPermissions>
-========
     public partial class GetCorrespondents200ResponseResultsInnerPermissions : IEquatable<GetCorrespondents200ResponseResultsInnerPermissions>
->>>>>>>> dev:src/PaperlessREST.Entities/GetCorrespondents200ResponseResultsInnerPermissions.cs
     {
         /// <summary>
         /// Gets or Sets View
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissions.cs
-
-        [DataMember(Name = "view")]
-        public ApicorrespondentsidPermissionsView View { get; set; }
-========
         [DataMember(Name = "view", EmitDefaultValue = false)]
         public GetCorrespondents200ResponseResultsInnerPermissionsView View { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetCorrespondents200ResponseResultsInnerPermissions.cs
 
         /// <summary>
         /// Gets or Sets Change
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApicorrespondentsidPermissions.cs
-
-        [DataMember(Name = "change")]
-        public ApicorrespondentsidPermissionsView Change { get; set; }
-========
         [DataMember(Name = "change", EmitDefaultValue = false)]
         public GetCorrespondents200ResponseResultsInnerPermissionsView Change { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetCorrespondents200ResponseResultsInnerPermissions.cs
 
         /// <summary>
         /// Returns the string presentation of the object

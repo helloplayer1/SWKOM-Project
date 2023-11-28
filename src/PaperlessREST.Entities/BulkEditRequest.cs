@@ -24,47 +24,27 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentsBulkEditBody.cs
-    public partial class DocumentsBulkEditBody : IEquatable<DocumentsBulkEditBody>
-========
     public partial class BulkEditRequest : IEquatable<BulkEditRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/BulkEditRequest.cs
     {
         /// <summary>
         /// Gets or Sets Documents
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentsBulkEditBody.cs
-
-        [DataMember(Name = "documents")]
-        public List<int?> Documents { get; set; }
-========
         [DataMember(Name = "documents", EmitDefaultValue = false)]
         public List<int> Documents { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/BulkEditRequest.cs
 
         /// <summary>
         /// Gets or Sets Method
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentsBulkEditBody.cs
-
-        [DataMember(Name = "method")]
-========
         [DataMember(Name = "method", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/BulkEditRequest.cs
         public string Method { get; set; }
 
         /// <summary>
         /// Gets or Sets Parameters
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocumentsBulkEditBody.cs
-
-        [DataMember(Name = "parameters")]
-========
         [DataMember(Name = "parameters", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/BulkEditRequest.cs
         public object Parameters { get; set; }
 
         /// <summary>

@@ -24,76 +24,42 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-    public partial class InlineResponse20011 : IEquatable<InlineResponse20011>
-========
     public partial class Statistics200Response : IEquatable<Statistics200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
     {
         /// <summary>
         /// Gets or Sets DocumentsTotal
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-
-        [DataMember(Name = "documents_total")]
-        public int? DocumentsTotal { get; set; }
-========
         [DataMember(Name = "documents_total", EmitDefaultValue = true)]
         public int DocumentsTotal { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
 
         /// <summary>
         /// Gets or Sets DocumentsInbox
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-
-        [DataMember(Name = "documents_inbox")]
-        public int? DocumentsInbox { get; set; }
-========
         [DataMember(Name = "documents_inbox", EmitDefaultValue = true)]
         public int DocumentsInbox { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
 
         /// <summary>
         /// Gets or Sets InboxTag
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-
-        [DataMember(Name = "inbox_tag")]
-        public int? InboxTag { get; set; }
-========
         [DataMember(Name = "inbox_tag", EmitDefaultValue = true)]
         public int InboxTag { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
 
         /// <summary>
         /// Gets or Sets DocumentFileTypeCounts
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-
-        [DataMember(Name = "document_file_type_counts")]
-        public List<InlineResponse20011DocumentFileTypeCounts> DocumentFileTypeCounts { get; set; }
-========
         [DataMember(Name = "document_file_type_counts", EmitDefaultValue = false)]
         public List<Statistics200ResponseDocumentFileTypeCountsInner> DocumentFileTypeCounts { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
 
         /// <summary>
         /// Gets or Sets CharacterCount
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-
-        [DataMember(Name = "character_count")]
-        public int? CharacterCount { get; set; }
-========
         [DataMember(Name = "character_count", EmitDefaultValue = true)]
         public int CharacterCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -182,18 +148,6 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20011.cs
-                if (DocumentsTotal != null)
-                    hashCode = hashCode * 59 + DocumentsTotal.GetHashCode();
-                if (DocumentsInbox != null)
-                    hashCode = hashCode * 59 + DocumentsInbox.GetHashCode();
-                if (InboxTag != null)
-                    hashCode = hashCode * 59 + InboxTag.GetHashCode();
-                if (DocumentFileTypeCounts != null)
-                    hashCode = hashCode * 59 + DocumentFileTypeCounts.GetHashCode();
-                if (CharacterCount != null)
-                    hashCode = hashCode * 59 + CharacterCount.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + DocumentsTotal.GetHashCode();
 
@@ -204,7 +158,6 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + DocumentFileTypeCounts.GetHashCode();
 
                 hashCode = hashCode * 59 + CharacterCount.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/Statistics200Response.cs
                 return hashCode;
             }
         }

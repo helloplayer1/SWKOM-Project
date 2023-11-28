@@ -24,115 +24,61 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-    public partial class DocTagDto : IEquatable<DocTagDto>
-========
     public partial class DocTag : IEquatable<DocTag>
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "id")]
-        public long? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public long Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
 
         /// <summary>
         /// Gets or Sets Slug
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "slug")]
-========
         [DataMember(Name = "slug", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
         public string Slug { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Color
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "color")]
-========
         [DataMember(Name = "color", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
         public string Color { get; set; }
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "match")]
-========
         [DataMember(Name = "match", EmitDefaultValue = true)]
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "matching_algorithm")]
-        public long? MatchingAlgorithm { get; set; }
-========
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public long MatchingAlgorithm { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-========
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
 
         /// <summary>
         /// Gets or Sets IsInboxTag
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "is_inbox_tag")]
-        public bool? IsInboxTag { get; set; }
-========
         [DataMember(Name = "is_inbox_tag", EmitDefaultValue = true)]
         public bool IsInboxTag { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
 
         /// <summary>
         /// Gets or Sets DocumentCount
         /// </summary>
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-
-        [DataMember(Name = "document_count")]
-        public long? DocumentCount { get; set; }
-========
         [DataMember(Name = "document_count", EmitDefaultValue = true)]
         public long DocumentCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -141,7 +87,7 @@ namespace PaperlessREST.Entities
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocTagDto {\n");
+            sb.Append("class DocTag {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Slug: ").Append(Slug).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -173,7 +119,7 @@ namespace PaperlessREST.Entities
         {
             if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DocTagDto)obj);
+            return obj.GetType() == GetType() && Equals((DocTag)obj);
         }
 
         /// <summary>
@@ -181,7 +127,7 @@ namespace PaperlessREST.Entities
         /// </summary>
         /// <param name="other">Instance of DocTag to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocTagDto other)
+        public bool Equals(DocTag other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -244,13 +190,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
                 if (Slug != null)
                     hashCode = hashCode * 59 + Slug.GetHashCode();
                 if (Name != null)
@@ -259,16 +200,6 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Color.GetHashCode();
                 if (Match != null)
                     hashCode = hashCode * 59 + Match.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/DocTagDto.cs
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (IsInboxTag != null)
-                    hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
-                if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
 
@@ -277,7 +208,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
 
                 hashCode = hashCode * 59 + DocumentCount.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/DocTag.cs
                 return hashCode;
             }
         }
@@ -285,12 +215,12 @@ namespace PaperlessREST.Entities
         #region Operators
 #pragma warning disable 1591
 
-        public static bool operator ==(DocTagDto left, DocTagDto right)
+        public static bool operator ==(DocTag left, DocTag right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DocTagDto left, DocTagDto right)
+        public static bool operator !=(DocTag left, DocTag right)
         {
             return !Equals(left, right);
         }

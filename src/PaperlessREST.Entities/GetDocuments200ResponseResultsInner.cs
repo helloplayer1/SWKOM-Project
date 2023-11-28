@@ -24,224 +24,126 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-    public partial class InlineResponse2002Results : IEquatable<InlineResponse2002Results>
-========
     public partial class GetDocuments200ResponseResultsInner : IEquatable<GetDocuments200ResponseResultsInner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets Correspondent
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "correspondent")]
-        public int? Correspondent { get; set; }
-========
         [DataMember(Name = "correspondent", EmitDefaultValue = true)]
         public int Correspondent { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets DocumentType
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "document_type")]
-        public int? DocumentType { get; set; }
-========
         [DataMember(Name = "document_type", EmitDefaultValue = true)]
         public int DocumentType { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets StoragePath
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "storage_path")]
-        public int? StoragePath { get; set; }
-========
         [DataMember(Name = "storage_path", EmitDefaultValue = true)]
         public int StoragePath { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "title")]
-========
         [DataMember(Name = "title", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "content")]
-========
         [DataMember(Name = "content", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string Content { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "tags")]
-        public List<int?> Tags { get; set; }
-========
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<int> Tags { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "created")]
-========
         [DataMember(Name = "created", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string Created { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedDate
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "created_date")]
-========
         [DataMember(Name = "created_date", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string CreatedDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Modified
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "modified")]
-========
         [DataMember(Name = "modified", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string Modified { get; set; }
 
         /// <summary>
         /// Gets or Sets Added
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "added")]
-========
         [DataMember(Name = "added", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string Added { get; set; }
 
         /// <summary>
         /// Gets or Sets ArchiveSerialNumber
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "archive_serial_number")]
-        public int? ArchiveSerialNumber { get; set; }
-========
         [DataMember(Name = "archive_serial_number", EmitDefaultValue = true)]
         public int ArchiveSerialNumber { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets OriginalFileName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "original_file_name")]
-========
         [DataMember(Name = "original_file_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string OriginalFileName { get; set; }
 
         /// <summary>
         /// Gets or Sets ArchivedFileName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "archived_file_name")]
-========
         [DataMember(Name = "archived_file_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
         public string ArchivedFileName { get; set; }
 
         /// <summary>
         /// Gets or Sets Owner
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "owner")]
-        public int? Owner { get; set; }
-========
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public int Owner { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets UserCanChange
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "user_can_change")]
-        public bool? UserCanChange { get; set; }
-========
         [DataMember(Name = "user_can_change", EmitDefaultValue = true)]
         public bool UserCanChange { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Gets or Sets Notes
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-
-        [DataMember(Name = "notes")]
-        public List<InlineResponse2002Notes> Notes { get; set; }
-========
         [DataMember(Name = "notes", EmitDefaultValue = false)]
         public List<GetDocuments200ResponseResultsInnerNotesInner> Notes { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -403,16 +305,6 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                if (Correspondent != null)
-                    hashCode = hashCode * 59 + Correspondent.GetHashCode();
-                if (DocumentType != null)
-                    hashCode = hashCode * 59 + DocumentType.GetHashCode();
-                if (StoragePath != null)
-                    hashCode = hashCode * 59 + StoragePath.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
 
@@ -421,7 +313,6 @@ namespace PaperlessREST.Entities
                 hashCode = hashCode * 59 + DocumentType.GetHashCode();
 
                 hashCode = hashCode * 59 + StoragePath.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
                 if (Title != null)
                     hashCode = hashCode * 59 + Title.GetHashCode();
                 if (Content != null)
@@ -436,28 +327,16 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Modified.GetHashCode();
                 if (Added != null)
                     hashCode = hashCode * 59 + Added.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-                if (ArchiveSerialNumber != null)
-                    hashCode = hashCode * 59 + ArchiveSerialNumber.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + ArchiveSerialNumber.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
                 if (OriginalFileName != null)
                     hashCode = hashCode * 59 + OriginalFileName.GetHashCode();
                 if (ArchivedFileName != null)
                     hashCode = hashCode * 59 + ArchivedFileName.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2002Results.cs
-                if (Owner != null)
-                    hashCode = hashCode * 59 + Owner.GetHashCode();
-                if (UserCanChange != null)
-                    hashCode = hashCode * 59 + UserCanChange.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Owner.GetHashCode();
 
                 hashCode = hashCode * 59 + UserCanChange.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocuments200ResponseResultsInner.cs
                 if (Notes != null)
                     hashCode = hashCode * 59 + Notes.GetHashCode();
                 return hashCode;

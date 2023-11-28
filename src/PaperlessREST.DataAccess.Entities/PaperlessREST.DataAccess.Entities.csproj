@@ -6,11 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-<<<<<<< HEAD
-  <ItemGroup>
-    <PackageReference Include="Npgsql" Version="8.0.0" />
-  </ItemGroup>
-
-=======
->>>>>>> dev
 </Project>

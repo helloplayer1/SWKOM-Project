@@ -24,22 +24,13 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApigroupsidPermissionsForm.cs
-    public partial class ApigroupsidPermissionsForm : IEquatable<ApigroupsidPermissionsForm>
-========
     public partial class UpdateGroupRequestPermissionsForm : IEquatable<UpdateGroupRequestPermissionsForm>
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroupRequestPermissionsForm.cs
     {
         /// <summary>
         /// Gets or Sets SetPermissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApigroupsidPermissionsForm.cs
-
-        [DataMember(Name = "set_permissions")]
-========
         [DataMember(Name = "set_permissions", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroupRequestPermissionsForm.cs
         public List<string> SetPermissions { get; set; }
 
         /// <summary>

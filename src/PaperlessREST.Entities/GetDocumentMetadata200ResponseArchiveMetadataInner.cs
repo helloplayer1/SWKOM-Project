@@ -24,59 +24,34 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-    public partial class InlineResponse2007ArchiveMetadata : IEquatable<InlineResponse2007ArchiveMetadata>
-========
     public partial class GetDocumentMetadata200ResponseArchiveMetadataInner : IEquatable<GetDocumentMetadata200ResponseArchiveMetadataInner>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
     {
         /// <summary>
         /// Gets or Sets VarNamespace
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-
-        [DataMember(Name = "namespace")]
-        public string _Namespace { get; set; }
-========
         [DataMember(Name = "namespace", EmitDefaultValue = false)]
         public string VarNamespace { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
 
         /// <summary>
         /// Gets or Sets Prefix
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-
-        [DataMember(Name = "prefix")]
-========
         [DataMember(Name = "prefix", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
         public string Prefix { get; set; }
 
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-
-        [DataMember(Name = "key")]
-========
         [DataMember(Name = "key", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
         public string Key { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-
-        [DataMember(Name = "value")]
-========
         [DataMember(Name = "value", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
         public string Value { get; set; }
 
         /// <summary>
@@ -128,15 +103,9 @@ namespace PaperlessREST.Entities
 
             return
                 (
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-                    _Namespace == other._Namespace ||
-                    _Namespace != null &&
-                    _Namespace.Equals(other._Namespace)
-========
                     VarNamespace == other.VarNamespace ||
                     VarNamespace != null &&
                     VarNamespace.Equals(other.VarNamespace)
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
                 ) &&
                 (
                     Prefix == other.Prefix ||
@@ -165,13 +134,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007ArchiveMetadata.cs
-                if (_Namespace != null)
-                    hashCode = hashCode * 59 + _Namespace.GetHashCode();
-========
                 if (VarNamespace != null)
                     hashCode = hashCode * 59 + VarNamespace.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200ResponseArchiveMetadataInner.cs
                 if (Prefix != null)
                     hashCode = hashCode * 59 + Prefix.GetHashCode();
                 if (Key != null)

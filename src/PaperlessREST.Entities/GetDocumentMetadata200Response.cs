@@ -24,159 +24,91 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-    public partial class InlineResponse2007 : IEquatable<InlineResponse2007>
-========
     public partial class GetDocumentMetadata200Response : IEquatable<GetDocumentMetadata200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
     {
         /// <summary>
         /// Gets or Sets OriginalChecksum
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "original_checksum")]
-========
         [DataMember(Name = "original_checksum", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string OriginalChecksum { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginalSize
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "original_size")]
-        public int? OriginalSize { get; set; }
-========
         [DataMember(Name = "original_size", EmitDefaultValue = true)]
         public int OriginalSize { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
 
         /// <summary>
         /// Gets or Sets OriginalMimeType
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "original_mime_type")]
-========
         [DataMember(Name = "original_mime_type", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string OriginalMimeType { get; set; }
 
         /// <summary>
         /// Gets or Sets MediaFilename
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "media_filename")]
-========
         [DataMember(Name = "media_filename", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string MediaFilename { get; set; }
 
         /// <summary>
         /// Gets or Sets HasArchiveVersion
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "has_archive_version")]
-        public bool? HasArchiveVersion { get; set; }
-========
         [DataMember(Name = "has_archive_version", EmitDefaultValue = true)]
         public bool HasArchiveVersion { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
 
         /// <summary>
         /// Gets or Sets OriginalMetadata
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "original_metadata")]
-========
         [DataMember(Name = "original_metadata", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public List<object> OriginalMetadata { get; set; }
 
         /// <summary>
         /// Gets or Sets ArchiveChecksum
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "archive_checksum")]
-========
         [DataMember(Name = "archive_checksum", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string ArchiveChecksum { get; set; }
 
         /// <summary>
         /// Gets or Sets ArchiveMediaFilename
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "archive_media_filename")]
-========
         [DataMember(Name = "archive_media_filename", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string ArchiveMediaFilename { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginalFilename
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "original_filename")]
-========
         [DataMember(Name = "original_filename", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string OriginalFilename { get; set; }
 
         /// <summary>
         /// Gets or Sets Lang
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "lang")]
-========
         [DataMember(Name = "lang", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
         public string Lang { get; set; }
 
         /// <summary>
         /// Gets or Sets ArchiveSize
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "archive_size")]
-        public int? ArchiveSize { get; set; }
-========
         [DataMember(Name = "archive_size", EmitDefaultValue = true)]
         public int ArchiveSize { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
 
         /// <summary>
         /// Gets or Sets ArchiveMetadata
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-
-        [DataMember(Name = "archive_metadata")]
-        public List<InlineResponse2007ArchiveMetadata> ArchiveMetadata { get; set; }
-========
         [DataMember(Name = "archive_metadata", EmitDefaultValue = false)]
         public List<GetDocumentMetadata200ResponseArchiveMetadataInner> ArchiveMetadata { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -310,24 +242,14 @@ namespace PaperlessREST.Entities
                 // Suitable nullity checks etc, of course :)
                 if (OriginalChecksum != null)
                     hashCode = hashCode * 59 + OriginalChecksum.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-                if (OriginalSize != null)
-                    hashCode = hashCode * 59 + OriginalSize.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + OriginalSize.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
                 if (OriginalMimeType != null)
                     hashCode = hashCode * 59 + OriginalMimeType.GetHashCode();
                 if (MediaFilename != null)
                     hashCode = hashCode * 59 + MediaFilename.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-                if (HasArchiveVersion != null)
-                    hashCode = hashCode * 59 + HasArchiveVersion.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + HasArchiveVersion.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
                 if (OriginalMetadata != null)
                     hashCode = hashCode * 59 + OriginalMetadata.GetHashCode();
                 if (ArchiveChecksum != null)
@@ -338,13 +260,8 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + OriginalFilename.GetHashCode();
                 if (Lang != null)
                     hashCode = hashCode * 59 + Lang.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2007.cs
-                if (ArchiveSize != null)
-                    hashCode = hashCode * 59 + ArchiveSize.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + ArchiveSize.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/GetDocumentMetadata200Response.cs
                 if (ArchiveMetadata != null)
                     hashCode = hashCode * 59 + ArchiveMetadata.GetHashCode();
                 return hashCode;

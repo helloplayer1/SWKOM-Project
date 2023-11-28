@@ -29,161 +29,85 @@ namespace PaperlessREST.Entities
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-=======
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets Correspondent
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "correspondent")]
-=======
         [DataMember(Name = "correspondent", EmitDefaultValue = true)]
->>>>>>> dev
         public int? Correspondent { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentType
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "document_type")]
-=======
         [DataMember(Name = "document_type", EmitDefaultValue = true)]
->>>>>>> dev
         public int? DocumentType { get; set; }
 
         /// <summary>
         /// Gets or Sets StoragePath
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "storage_path")]
-=======
         [DataMember(Name = "storage_path", EmitDefaultValue = true)]
->>>>>>> dev
         public int? StoragePath { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "title")]
-=======
         [DataMember(Name = "title", EmitDefaultValue = true)]
->>>>>>> dev
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "content")]
-=======
         [DataMember(Name = "content", EmitDefaultValue = true)]
->>>>>>> dev
         public string Content { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "tags")]
-        public List<int?> Tags { get; set; }
-=======
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<int> Tags { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "created")]
-        public DateTime? Created { get; set; }
-=======
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public DateTime Created { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets CreatedDate
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "created_date")]
-        public DateTime? CreatedDate { get; set; }
-=======
         [DataMember(Name = "created_date", EmitDefaultValue = false)]
         public DateTime CreatedDate { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets Modified
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "modified")]
-        public DateTime? Modified { get; set; }
-=======
         [DataMember(Name = "modified", EmitDefaultValue = false)]
         public DateTime Modified { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets Added
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "added")]
-        public DateTime? Added { get; set; }
-=======
         [DataMember(Name = "added", EmitDefaultValue = false)]
         public DateTime Added { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets ArchiveSerialNumber
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "archive_serial_number")]
-=======
         [DataMember(Name = "archive_serial_number", EmitDefaultValue = true)]
->>>>>>> dev
         public string ArchiveSerialNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginalFileName
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "original_file_name")]
-=======
         [DataMember(Name = "original_file_name", EmitDefaultValue = true)]
->>>>>>> dev
         public string OriginalFileName { get; set; }
 
         /// <summary>
         /// Gets or Sets ArchivedFileName
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "archived_file_name")]
-=======
         [DataMember(Name = "archived_file_name", EmitDefaultValue = true)]
->>>>>>> dev
         public string ArchivedFileName { get; set; }
 
         /// <summary>
@@ -193,7 +117,7 @@ namespace PaperlessREST.Entities
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentDto {\n");
+            sb.Append("class Document {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Correspondent: ").Append(Correspondent).Append("\n");
             sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
@@ -327,13 +251,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<< HEAD
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-=======
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>> dev
                 if (Correspondent != null)
                     hashCode = hashCode * 59 + Correspondent.GetHashCode();
                 if (DocumentType != null)

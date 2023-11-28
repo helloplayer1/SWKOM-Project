@@ -29,23 +29,13 @@ namespace PaperlessREST.Entities
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "username")]
-=======
         [DataMember(Name = "username", EmitDefaultValue = true)]
->>>>>>> dev
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "password")]
-=======
         [DataMember(Name = "password", EmitDefaultValue = true)]
->>>>>>> dev
         public string Password { get; set; }
 
         /// <summary>

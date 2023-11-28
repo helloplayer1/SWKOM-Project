@@ -24,47 +24,27 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20013.cs
-    public partial class InlineResponse20013 : IEquatable<InlineResponse20013>
-========
     public partial class UpdateGroup200Response : IEquatable<UpdateGroup200Response>
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroup200Response.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20013.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroup200Response.cs
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20013.cs
-
-        [DataMember(Name = "name")]
-========
         [DataMember(Name = "name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroup200Response.cs
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Permissions
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20013.cs
-
-        [DataMember(Name = "permissions")]
-========
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroup200Response.cs
         public List<string> Permissions { get; set; }
 
         /// <summary>
@@ -142,13 +122,8 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse20013.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/UpdateGroup200Response.cs
                 if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Permissions != null)

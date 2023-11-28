@@ -29,71 +29,38 @@ namespace PaperlessREST.Entities
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "name")]
-=======
         [DataMember(Name = "name", EmitDefaultValue = true)]
->>>>>>> dev
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Color
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "color")]
-=======
         [DataMember(Name = "color", EmitDefaultValue = true)]
->>>>>>> dev
         public string Color { get; set; }
 
         /// <summary>
         /// Gets or Sets Match
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "match")]
-=======
         [DataMember(Name = "match", EmitDefaultValue = true)]
->>>>>>> dev
         public string Match { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchingAlgorithm
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "matching_algorithm")]
-        public long? MatchingAlgorithm { get; set; }
-=======
         [DataMember(Name = "matching_algorithm", EmitDefaultValue = true)]
         public long MatchingAlgorithm { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets IsInsensitive
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "is_insensitive")]
-        public bool? IsInsensitive { get; set; }
-=======
         [DataMember(Name = "is_insensitive", EmitDefaultValue = true)]
         public bool IsInsensitive { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Gets or Sets IsInboxTag
         /// </summary>
-<<<<<<< HEAD
-
-        [DataMember(Name = "is_inbox_tag")]
-        public bool? IsInboxTag { get; set; }
-=======
         [DataMember(Name = "is_inbox_tag", EmitDefaultValue = true)]
         public bool IsInboxTag { get; set; }
->>>>>>> dev
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -193,21 +160,12 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + Color.GetHashCode();
                 if (Match != null)
                     hashCode = hashCode * 59 + Match.GetHashCode();
-<<<<<<< HEAD
-                if (MatchingAlgorithm != null)
-                    hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
-                if (IsInsensitive != null)
-                    hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
-                if (IsInboxTag != null)
-                    hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
-=======
 
                 hashCode = hashCode * 59 + MatchingAlgorithm.GetHashCode();
 
                 hashCode = hashCode * 59 + IsInsensitive.GetHashCode();
 
                 hashCode = hashCode * 59 + IsInboxTag.GetHashCode();
->>>>>>> dev
                 return hashCode;
             }
         }

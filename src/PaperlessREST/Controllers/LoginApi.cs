@@ -18,11 +18,6 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaperlessREST.Attributes;
-<<<<<<< HEAD
-
-using Microsoft.AspNetCore.Authorization;
-=======
->>>>>>> dev
 using PaperlessREST.Entities;
 
 namespace PaperlessREST.Controllers

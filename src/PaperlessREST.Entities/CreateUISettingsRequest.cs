@@ -24,24 +24,14 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUiSettingsBody.cs
-    public partial class ApiUiSettingsBody : IEquatable<ApiUiSettingsBody>
-========
     public partial class CreateUISettingsRequest : IEquatable<CreateUISettingsRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequest.cs
     {
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUiSettingsBody.cs
-
-        [DataMember(Name = "settings")]
-        public ApiuiSettingsSettings Settings { get; set; }
-========
         [DataMember(Name = "settings", EmitDefaultValue = false)]
         public CreateUISettingsRequestSettings Settings { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUISettingsRequest.cs
 
         /// <summary>
         /// Returns the string presentation of the object

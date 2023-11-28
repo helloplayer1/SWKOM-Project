@@ -24,37 +24,21 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005SelectedCorrespondents.cs
-    public partial class InlineResponse2005SelectedCorrespondents : IEquatable<InlineResponse2005SelectedCorrespondents>
-========
     public partial class SelectionData200ResponseSelectedCorrespondentsInner : IEquatable<SelectionData200ResponseSelectedCorrespondentsInner>
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200ResponseSelectedCorrespondentsInner.cs
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005SelectedCorrespondents.cs
-
-        [DataMember(Name = "id")]
-        public int? Id { get; set; }
-========
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public int Id { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200ResponseSelectedCorrespondentsInner.cs
 
         /// <summary>
         /// Gets or Sets DocumentCount
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005SelectedCorrespondents.cs
-
-        [DataMember(Name = "document_count")]
-        public int? DocumentCount { get; set; }
-========
         [DataMember(Name = "document_count", EmitDefaultValue = true)]
         public int DocumentCount { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200ResponseSelectedCorrespondentsInner.cs
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,17 +108,10 @@ namespace PaperlessREST.Entities
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-<<<<<<<< HEAD:src/PaperlessREST.Entities/InlineResponse2005SelectedCorrespondents.cs
-                if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                if (DocumentCount != null)
-                    hashCode = hashCode * 59 + DocumentCount.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + Id.GetHashCode();
 
                 hashCode = hashCode * 59 + DocumentCount.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/SelectionData200ResponseSelectedCorrespondentsInner.cs
                 return hashCode;
             }
         }

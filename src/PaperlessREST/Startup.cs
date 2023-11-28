@@ -103,10 +103,6 @@ namespace PaperlessREST
                     // Use [ValidateModelState] on Actions to actually validate it in C# as well!
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
-<<<<<<< HEAD
-
-            services.AddAutoMapper(typeof(RestProfile));
-=======
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddAutoMapper(typeof(RestProfile));
             services.AddSingleton<IDocumentLogic, DocumentLogic>();
@@ -119,7 +115,6 @@ namespace PaperlessREST
             services.AddScoped<IValidator<Tag>, TagValidator>();
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
 
->>>>>>> dev
         }
 
         /// <summary>

@@ -24,108 +24,62 @@ namespace PaperlessREST.Entities
     /// 
     /// </summary>
     [DataContract]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-    public partial class ApiUsersBody : IEquatable<ApiUsersBody>
-========
     public partial class CreateUserRequest : IEquatable<CreateUserRequest>
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
     {
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "username")]
-========
         [DataMember(Name = "username", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "email")]
-========
         [DataMember(Name = "email", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
         public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets Password
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "password")]
-========
         [DataMember(Name = "password", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
         public string Password { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "first_name")]
-========
         [DataMember(Name = "first_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
         public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "last_name")]
-========
         [DataMember(Name = "last_name", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
         public string LastName { get; set; }
 
         /// <summary>
         /// Gets or Sets IsActive
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "is_active")]
-        public bool? IsActive { get; set; }
-========
         [DataMember(Name = "is_active", EmitDefaultValue = true)]
         public bool IsActive { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
 
         /// <summary>
         /// Gets or Sets IsSuperuser
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "is_superuser")]
-        public bool? IsSuperuser { get; set; }
-========
         [DataMember(Name = "is_superuser", EmitDefaultValue = true)]
         public bool IsSuperuser { get; set; }
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
         [Required]
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-
-        [DataMember(Name = "groups")]
-========
         [DataMember(Name = "groups", EmitDefaultValue = false)]
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
         public List<object> Groups { get; set; }
 
         /// <summary>
@@ -243,17 +197,10 @@ namespace PaperlessREST.Entities
                     hashCode = hashCode * 59 + FirstName.GetHashCode();
                 if (LastName != null)
                     hashCode = hashCode * 59 + LastName.GetHashCode();
-<<<<<<<< HEAD:src/PaperlessREST.Entities/ApiUsersBody.cs
-                if (IsActive != null)
-                    hashCode = hashCode * 59 + IsActive.GetHashCode();
-                if (IsSuperuser != null)
-                    hashCode = hashCode * 59 + IsSuperuser.GetHashCode();
-========
 
                 hashCode = hashCode * 59 + IsActive.GetHashCode();
 
                 hashCode = hashCode * 59 + IsSuperuser.GetHashCode();
->>>>>>>> dev:src/PaperlessREST.Entities/CreateUserRequest.cs
                 if (Groups != null)
                     hashCode = hashCode * 59 + Groups.GetHashCode();
                 return hashCode;
