@@ -5,7 +5,11 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+<<<<<<< HEAD
 namespace PaperlessREST.BusinessLogic.Entities
+=======
+namespace PaperlessREST.DataAccess.Entities
+>>>>>>> dev
 {
     public class DocumentTypeDao
     {

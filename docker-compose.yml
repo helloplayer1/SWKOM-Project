@@ -10,9 +10,9 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./src/PaperlessREST/:/app/src
-      - /app/src/bin
-      - /app/src/obj
+      - ./src:/src
+      - /src/bin
+      - /src/obj
 
   angular-app:
     image: nginx
