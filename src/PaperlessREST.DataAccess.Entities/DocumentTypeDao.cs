@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaperlessREST.BusinessLogic.Entities
+namespace PaperlessREST.DataAccess.Entities
 {
     public class DocumentTypeDao
     {

@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
+
 namespace PaperlessREST.BusinessLogic.Entities
 {
     public class Document
