@@ -6,7 +6,7 @@ public class RestProfile : Profile
 {
     public RestProfile()
     {
-        CreateMap<DocumentsIdBody,Document>().ReverseMap();
+        //CreateMap<DocumentsIdBody,Document>().ReverseMap();
         CreateMap<DocumentDto,Document>().ReverseMap();
 
     }
