@@ -5,23 +5,29 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST", "src\PaperlessREST\PaperlessREST.csproj", "{FBBEEEEB-F3F5-45FA-9442-C8800E72FD75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic", "src\PaperlessREST.BusinessLogic\PaperlessREST.BusinessLogic.csproj", "{32918C03-575A-454C-9239-51EE1B6C5DB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.BusinessLogic", "src\PaperlessREST.BusinessLogic\PaperlessREST.BusinessLogic.csproj", "{32918C03-575A-454C-9239-51EE1B6C5DB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic.Entities", "src\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj", "{BB152068-F164-41C5-83DC-9ED786985D06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.BusinessLogic.Entities", "src\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj", "{BB152068-F164-41C5-83DC-9ED786985D06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic.Interfaces", "src\PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj", "{9A60C026-297A-4370-9831-A81754AF86CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.BusinessLogic.Interfaces", "src\PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj", "{9A60C026-297A-4370-9831-A81754AF86CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.BusinessLogic.Tests", "src\PaperlessREST.BusinessLogic.Tests\PaperlessREST.BusinessLogic.Tests.csproj", "{278D9010-9D4F-4839-9CC5-BAEAFB409B96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.BusinessLogic.Tests", "src\PaperlessREST.BusinessLogic.Tests\PaperlessREST.BusinessLogic.Tests.csproj", "{278D9010-9D4F-4839-9CC5-BAEAFB409B96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.DataAccess.Entities", "src\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj", "{4E83142A-9F82-4CB6-AB5C-78AAEEB3C278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.DataAccess.Entities", "src\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj", "{4E83142A-9F82-4CB6-AB5C-78AAEEB3C278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.DataAccess.Interfaces", "src\PaperlessREST.DataAccess.Interfaces\PaperlessREST.DataAccess.Interfaces.csproj", "{88C41F6E-3C31-475B-8BBA-477E4EDAFB47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.DataAccess.Interfaces", "src\PaperlessREST.DataAccess.Interfaces\PaperlessREST.DataAccess.Interfaces.csproj", "{88C41F6E-3C31-475B-8BBA-477E4EDAFB47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.DataAccess.Sql", "src\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj", "{A1637DB6-3DE9-4DEF-B8C3-7FD8A503F96C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.DataAccess.Sql", "src\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj", "{A1637DB6-3DE9-4DEF-B8C3-7FD8A503F96C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.DataAccess.Tests", "src\PaperlessREST.DataAccess.Tests\PaperlessREST.DataAccess.Tests.csproj", "{5119E03D-698D-4A3E-8E33-4FB44D322865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.DataAccess.Tests", "src\PaperlessREST.DataAccess.Tests\PaperlessREST.DataAccess.Tests.csproj", "{5119E03D-698D-4A3E-8E33-4FB44D322865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.Entities", "src\PaperlessREST.Entities\PaperlessREST.Entities.csproj", "{7BD07E36-3E63-412E-AFEF-F335D3C5DC30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.Entities", "src\PaperlessREST.Entities\PaperlessREST.Entities.csproj", "{7BD07E36-3E63-412E-AFEF-F335D3C5DC30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ServiceAgents", "PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{C1E4122B-5D60-4462-BB13-2737AC62FC5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ServiceAgents.Interfaces", "PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj", "{F94BD860-9B36-467F-B919-1E0A3E3BC2EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ServiceAgents.Tests", "PaperlessREST.ServiceAgents.Tests\PaperlessREST.ServiceAgents.Tests.csproj", "{5A83D4FF-F296-4E5A-991C-84F7CFADBABF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,8 +75,23 @@ Global
 		{7BD07E36-3E63-412E-AFEF-F335D3C5DC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BD07E36-3E63-412E-AFEF-F335D3C5DC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BD07E36-3E63-412E-AFEF-F335D3C5DC30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E4122B-5D60-4462-BB13-2737AC62FC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E4122B-5D60-4462-BB13-2737AC62FC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E4122B-5D60-4462-BB13-2737AC62FC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E4122B-5D60-4462-BB13-2737AC62FC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94BD860-9B36-467F-B919-1E0A3E3BC2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94BD860-9B36-467F-B919-1E0A3E3BC2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94BD860-9B36-467F-B919-1E0A3E3BC2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94BD860-9B36-467F-B919-1E0A3E3BC2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A83D4FF-F296-4E5A-991C-84F7CFADBABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A83D4FF-F296-4E5A-991C-84F7CFADBABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A83D4FF-F296-4E5A-991C-84F7CFADBABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A83D4FF-F296-4E5A-991C-84F7CFADBABF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {311A4373-4795-4C3B-A816-3F8A40083CDA}
 	EndGlobalSection
 EndGlobal

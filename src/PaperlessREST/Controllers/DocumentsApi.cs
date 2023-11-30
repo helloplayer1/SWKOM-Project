@@ -19,6 +19,9 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaperlessREST.Attributes;
 using PaperlessREST.Entities;
+using PaperlessREST.BusinessLogic.Entities;
+using System.IO;
+using PaperlessREST.BusinessLogic.Interfaces;
 
 namespace PaperlessREST.Controllers
 { 
@@ -27,7 +30,14 @@ namespace PaperlessREST.Controllers
     /// </summary>
     [ApiController]
     public class DocumentsApiController : ControllerBase
-    { 
+    {
+        private IDocumentLogic _documentLogic;
+
+        public DocumentsApiController(IDocumentLogic documentLogic)
+        {
+            _documentLogic = documentLogic;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -316,13 +326,22 @@ namespace PaperlessREST.Controllers
         [Consumes("multipart/form-data")]
         [ValidateModelState]
         [SwaggerOperation("UploadDocument")]
-        public virtual IActionResult UploadDocument([FromForm (Name = "title")]string title, [FromForm (Name = "created")]DateTime? created, [FromForm (Name = "document_type")]int? documentType, [FromForm (Name = "tags")]List<int> tags, [FromForm (Name = "correspondent")]int? correspondent, [FromForm (Name = "document")]List<System.IO.Stream> document)
+        public virtual IActionResult UploadDocument([FromForm (Name = "title")]string title, [FromForm (Name = "created")]DateTime? created, [FromForm (Name = "document_type")]int? documentType, [FromForm (Name = "tags")]List<int> tags, [FromForm (Name = "correspondent")]int? correspondent, [FromForm (Name = "document")]IFormFile documentData)
         {
+            Document document = new Document()
+            {
+                Title = title,
+                Created = created,
+                DocumentType = documentType,
+                Tags = tags,
+                Correspondent = correspondent,
+            };
 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
+            using Stream documentStream = documentData.OpenReadStream();
 
-            throw new NotImplementedException();
+            _documentLogic.IndexDocument(document, documentStream);
+
+            return Ok();
         }
     }
 }
