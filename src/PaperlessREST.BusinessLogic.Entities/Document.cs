@@ -45,7 +45,7 @@ namespace PaperlessREST.BusinessLogic.Entities
         /// Gets or Sets Tags
         /// </summary>
 
-        public List<int?> Tags { get; set; }
+        public List<int> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
