@@ -29,6 +29,8 @@ using PaperlessREST.BusinessLogic;
 using FluentValidation;
 using PaperlessREST.BusinessLogic.Entities;
 using PaperlessREST.BusinessLogic.Entities.Validators;
+using PaperlessREST.DataAccess.Sql;
+using Microsoft.EntityFrameworkCore;
 
 namespace PaperlessREST
 {
@@ -57,8 +59,12 @@ namespace PaperlessREST
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("BloggingDatabase");
+
 
             // Add framework services.
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(connectionString));
             services
                 // Don't need the full MVC stack for an API, see https://andrewlock.net/comparing-startup-between-the-asp-net-core-3-templates/
                 .AddControllers(options =>

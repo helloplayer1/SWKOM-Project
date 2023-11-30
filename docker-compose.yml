@@ -33,7 +33,7 @@ services:
       POSTGRES_USER: paperless
       POSTGRES_PASSWWORD: paperless
     ports:
-      - 1433:1433
+      - 1433:5432  
     volumes:
       - db-data:/var/lib/postgressql/data
 
