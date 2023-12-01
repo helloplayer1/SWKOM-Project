@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.DataAccess.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.Entities", "src\PaperlessREST.Entities\PaperlessREST.Entities.csproj", "{7BD07E36-3E63-412E-AFEF-F335D3C5DC30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.ServiceAgents", "src\PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{7357F755-D764-4892-8138-1AD8594E3816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.ServiceAgents_old", "src\PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents_old.csproj", "{7357F755-D764-4892-8138-1AD8594E3816}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.ServiceAgents.Interfaces", "src\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj", "{227B5EAC-DA5B-413E-AE31-7922270EB7F1}"
 EndProject
@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 	ProjectSection(SolutionItems) = preProject
 		src\PaperlessREST.ServiceAgents.Tests\PaperlessREST.ServiceAgents.Tests.csproj = src\PaperlessREST.ServiceAgents.Tests\PaperlessREST.ServiceAgents.Tests.csproj
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ServiceAgents", "PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{DC14B886-F971-4113-94B4-666FFB236A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{227B5EAC-DA5B-413E-AE31-7922270EB7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{227B5EAC-DA5B-413E-AE31-7922270EB7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{227B5EAC-DA5B-413E-AE31-7922270EB7F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC14B886-F971-4113-94B4-666FFB236A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC14B886-F971-4113-94B4-666FFB236A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC14B886-F971-4113-94B4-666FFB236A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC14B886-F971-4113-94B4-666FFB236A06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

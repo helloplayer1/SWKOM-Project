@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PaperlessREST.DataAccess.Sql;
 
 namespace PaperlessREST
 {
@@ -14,7 +16,11 @@ namespace PaperlessREST
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var app = CreateHostBuilder(args).Build();
+            using var scope = app.Services.CreateScope();
+            using var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+            context.Database.EnsureCreated();
+            app.Run();
         }
 
         /// <summary>

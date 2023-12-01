@@ -31,7 +31,7 @@ services:
     environment:
       POSTGRES_DB: paperless
       POSTGRES_USER: paperless
-      POSTGRES_PASSWWORD: paperless
+      POSTGRES_PASSWORD: paperless
     ports:
       - 1433:5432  
     volumes:
