@@ -34,6 +34,7 @@
     <PackageReference Include="JsonSubTypes" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj" />
     <ProjectReference Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj" />
     <ProjectReference Include="..\PaperlessREST.BusinessLogic\PaperlessREST.BusinessLogic.csproj" />

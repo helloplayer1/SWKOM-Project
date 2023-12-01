@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Magick.NET.Core" Version="13.4.0" />
+    <PackageReference Include="Magick.NET-Q16-x64" Version="13.4.0" />
     <PackageReference Include="Tesseract" Version="5.2.0" />
   </ItemGroup>
 

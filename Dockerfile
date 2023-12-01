@@ -22,6 +22,11 @@ COPY ["src/PaperlessREST.Entities","./PaperlessREST.Entities"]
 COPY ["src/PaperlessREST.BusinessLogic.Entities","./PaperlessREST.BusinessLogic.Entities"]
 COPY ["src/PaperlessREST.BusinessLogic","./PaperlessREST.BusinessLogic"]
 COPY ["src/PaperlessREST.BusinessLogic.Interfaces","./PaperlessREST.BusinessLogic.Interfaces"]
+COPY ["src/PaperlessREST.DataAccess.Sql","./PaperlessREST.DataAccess.Sql"]
+COPY ["src/PaperlessREST.DataAccess.Entities","./PaperlessREST.DataAccess.Entities"]
+COPY ["src/PaperlessREST.DataAccess.Interfaces","./PaperlessREST.DataAccess.Interfaces"]
+COPY ["src/PaperlessREST.ServiceAgents.Interfaces","./PaperlessREST.ServiceAgents.Interfaces"]
+COPY ["src/PaperlessREST.ServiceAgents","./PaperlessREST.ServiceAgents"]
 
 # Build the API
 WORKDIR "/src/PaperlessREST"
