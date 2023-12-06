@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 		src\PaperlessREST.ServiceAgents.Tests\PaperlessREST.ServiceAgents.Tests.csproj = src\PaperlessREST.ServiceAgents.Tests\PaperlessREST.ServiceAgents.Tests.csproj
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ServiceAgents", "PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{DC14B886-F971-4113-94B4-666FFB236A06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ServiceAgents", "src\PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{DC14B886-F971-4113-94B4-666FFB236A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

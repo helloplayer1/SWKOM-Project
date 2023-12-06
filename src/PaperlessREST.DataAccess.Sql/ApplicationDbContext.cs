@@ -32,6 +32,6 @@ namespace PaperlessREST.DataAccess.Sql
 //    .AddJsonFile("appsettings.json")
 //    .Build();
 
-//    optionsBuilder.UseNpgsql(Configuration.GetConnectionString("BloggingDatabase"));
+//    optionsBuilder.UseNpgsql(Configuration.GetConnectionString("Database"));
 //    */
 //}

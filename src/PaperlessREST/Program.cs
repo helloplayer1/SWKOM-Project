@@ -16,11 +16,7 @@ namespace PaperlessREST
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            var app = CreateHostBuilder(args).Build();
-            using var scope = app.Services.CreateScope();
-            using var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
-            context.Database.EnsureCreated();
-            app.Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         /// <summary>

@@ -63,7 +63,7 @@ namespace PaperlessREST
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("BloggingDatabase");
+            string connectionString = Configuration.GetConnectionString("Database");
 
 
             // Add framework services.
@@ -125,8 +125,8 @@ namespace PaperlessREST
             services.AddScoped<IValidator<Tag>, TagValidator>();
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
-            //services.AddScoped<OCROptions>(_ => new OCROptions());
-            //services.AddScoped<IOCRService, GhostScriptOCRService>();
+            services.AddScoped<OCROptions>(_ => new OCROptions());
+            services.AddScoped<IOCRService, GhostScriptOCRService>();
 
 
         }
@@ -136,16 +136,19 @@ namespace PaperlessREST
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
             }
             else
             {
                 app.UseHsts();
             }
+
 
             app.UseHttpsRedirection();
             app.UseDefaultFiles();

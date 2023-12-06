@@ -27,6 +27,7 @@ COPY ["src/PaperlessREST.DataAccess.Entities","./PaperlessREST.DataAccess.Entiti
 COPY ["src/PaperlessREST.DataAccess.Interfaces","./PaperlessREST.DataAccess.Interfaces"]
 COPY ["src/PaperlessREST.ServiceAgents.Interfaces","./PaperlessREST.ServiceAgents.Interfaces"]
 COPY ["src/PaperlessREST.ServiceAgents","./PaperlessREST.ServiceAgents"]
+COPY ["src/PaperlessREST.ServiceAgents_old","./PaperlessREST.ServiceAgents_old"]
 
 # Build the API
 WORKDIR "/src/PaperlessREST"
