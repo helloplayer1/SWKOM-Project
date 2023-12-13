@@ -9,16 +9,10 @@ EXPOSE 443
 # Build container
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
-#add imagemagick and ghostscript
-RUN apt-get update && \
-    apt-get install -y ghostscript
-
 # Copy the code into the container
 WORKDIR /src
 COPY ["src/PaperlessREST/PaperlessREST.csproj", "PaperlessREST/"]
 
-# Install Ghostscript
-RUN apt-get update && apt-get install -y ghostscript
 
 # NuGet restore
 RUN dotnet restore "PaperlessREST/PaperlessREST.csproj"
@@ -44,10 +38,16 @@ RUN dotnet build "PaperlessREST.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "PaperlessREST.csproj" -c Release -o /app/publish
 
+
 # Make the final image for publishing
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Install Ghostscript
+RUN apt-get update && apt-get install -y ghostscript
+#RUN apt-get update -y && apt-get install -y libc6-dev libgdiplus libx11-dev libleptonica-dev software-properties-common wget gnupg2 libleptonica-dev
+
 ENTRYPOINT ["dotnet", "PaperlessREST.dll"]
 
 #FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
