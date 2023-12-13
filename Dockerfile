@@ -9,6 +9,10 @@ EXPOSE 443
 # Build container
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
+#add imagemagick and ghostscript
+RUN apt-get update && \
+    apt-get install -y ghostscript
+
 # Copy the code into the container
 WORKDIR /src
 COPY ["src/PaperlessREST/PaperlessREST.csproj", "PaperlessREST/"]
