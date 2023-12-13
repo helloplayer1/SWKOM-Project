@@ -17,6 +17,9 @@ RUN apt-get update && \
 WORKDIR /src
 COPY ["src/PaperlessREST/PaperlessREST.csproj", "PaperlessREST/"]
 
+# Install Ghostscript
+RUN apt-get update && apt-get install -y ghostscript
+
 # NuGet restore
 RUN dotnet restore "PaperlessREST/PaperlessREST.csproj"
 COPY ["src/PaperlessREST", "PaperlessREST/"]
