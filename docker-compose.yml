@@ -36,6 +36,14 @@ services:
       - 1433:5432  
     volumes:
       - db-data:/var/lib/postgressql/data
+  
+  rabbit:
+    image: "rabbitmq:3-management"
+    restart: always
+    ports:
+      - "8150:15672"
+      - "5672:5672"
+    hostname: rabbit
 
 volumes:
   db-data:
