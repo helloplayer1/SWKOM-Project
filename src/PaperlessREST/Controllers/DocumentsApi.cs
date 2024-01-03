@@ -22,6 +22,7 @@ using PaperlessREST.Entities;
 using PaperlessREST.BusinessLogic.Entities;
 using System.IO;
 using PaperlessREST.BusinessLogic.Interfaces;
+using EasyNetQ;
 
 namespace PaperlessREST.Controllers
 {
@@ -36,6 +37,7 @@ namespace PaperlessREST.Controllers
         public DocumentsApiController(IDocumentLogic documentLogic)
         {
             _documentLogic = documentLogic;
+     
         }
 
         /// <summary>
@@ -339,8 +341,13 @@ namespace PaperlessREST.Controllers
 
             using Stream documentStream = documentData.OpenReadStream();
 
-            _documentLogic.IndexDocument(document, documentStream);
+           // _documentLogic.IndexDocument(document, documentStream);
 
+            //publish mssg that document has been uploaded using EasyNetQ
+            
+            var bus = RabbitHutch.CreateBus("host=localhost");
+            bus.PubSub.Publish((document,"Document has been uploaded!"));
+         
             return Ok();
         }
     }
