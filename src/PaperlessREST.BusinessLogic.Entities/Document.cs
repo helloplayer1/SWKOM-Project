@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
+
 namespace PaperlessREST.BusinessLogic.Entities
 {
     public class Document
@@ -44,7 +45,7 @@ namespace PaperlessREST.BusinessLogic.Entities
         /// Gets or Sets Tags
         /// </summary>
 
-        public List<int?> Tags { get; set; }
+        public List<int> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets Created

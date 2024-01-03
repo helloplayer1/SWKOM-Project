@@ -16,8 +16,17 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="EasyNetQ" Version="7.8.0" />
     <PackageReference Include="FluentValidation" Version="11.8.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+    <PackageReference Include="IronOcr" Version="2024.1.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
@@ -30,6 +39,8 @@
     <ProjectReference Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj" />
     <ProjectReference Include="..\PaperlessREST.BusinessLogic\PaperlessREST.BusinessLogic.csproj" />
+    <ProjectReference Include="..\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj" />
     <ProjectReference Include="..\PaperlessREST.Entities\PaperlessREST.Entities.csproj" />
+    <ProjectReference Include="..\PaperlessREST.ServiceAgents_old\PaperlessREST.ServiceAgents_old.csproj" />
   </ItemGroup>
 </Project>

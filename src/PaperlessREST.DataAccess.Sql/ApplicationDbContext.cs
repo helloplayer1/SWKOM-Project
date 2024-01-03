@@ -1,23 +1,37 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PaperlessREST.BusinessLogic.Entities;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using PaperlessREST.DataAccess.Entities;
 
 namespace PaperlessREST.DataAccess.Sql
 {
     public class ApplicationDbContext : DbContext
     {
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            /*
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
-            .Build();
+        public DbSet<CorrespondentDao> Correspondents { get; set; }
+        public DbSet<TagDao> Tags { get; set;  }
+        public DbSet<DocumentDao> Documents { get; set; }
 
-            optionsBuilder.UseNpgsql(Configuration.GetConnectionString("BloggingDatabase"));
-            */
+        public DbSet<DocumentTypeDao> DocumentTypes { get; set; }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+
         }
+
+       
     }
 }
+
+
+//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//{
+//    /*
+//    IConfigurationRoot configuration = new ConfigurationBuilder()
+//    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+//    .AddJsonFile("appsettings.json")
+//    .Build();
+
+//    optionsBuilder.UseNpgsql(Configuration.GetConnectionString("Database"));
+//    */
+//}

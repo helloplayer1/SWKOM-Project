@@ -13,7 +13,9 @@ services:
       - ./src:/src
       - /src/bin
       - /src/obj
-
+    networks:
+      - rabbitmq_go_net
+      
   angular-app:
     image: nginx
     container_name: paperless-ui
@@ -31,11 +33,25 @@ services:
     environment:
       POSTGRES_DB: paperless
       POSTGRES_USER: paperless
-      POSTGRES_PASSWWORD: paperless
+      POSTGRES_PASSWORD: paperless
     ports:
-      - 1433:1433
+      - 1433:5432  
     volumes:
       - db-data:/var/lib/postgressql/data
+  
+  rabbit:
+    image: "rabbitmq:3-management"
+    restart: always
+    ports:
+      - "8150:15672"
+      - "5672:5672"
+    hostname: rabbit
+    networks:
+        - rabbitmq_go_net
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
 
 volumes:
   db-data:

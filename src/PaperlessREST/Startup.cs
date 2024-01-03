@@ -29,6 +29,12 @@ using PaperlessREST.BusinessLogic;
 using FluentValidation;
 using PaperlessREST.BusinessLogic.Entities;
 using PaperlessREST.BusinessLogic.Entities.Validators;
+using PaperlessREST.DataAccess.Sql;
+using Microsoft.EntityFrameworkCore;
+using PaperlessREST.ServiceAgents.Interfaces;
+using PaperlessREST.ServiceAgents;
+using PaperlessREST.DataAccess.Interfaces;
+using PaperlessREST.DataAccess.Sql.Repositories;
 
 namespace PaperlessREST
 {
@@ -57,8 +63,12 @@ namespace PaperlessREST
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("Database");
+
 
             // Add framework services.
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(connectionString));
             services
                 // Don't need the full MVC stack for an API, see https://andrewlock.net/comparing-startup-between-the-asp-net-core-3-templates/
                 .AddControllers(options =>
@@ -105,15 +115,19 @@ namespace PaperlessREST
                 });
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddAutoMapper(typeof(RestProfile));
-            services.AddSingleton<IDocumentLogic, DocumentLogic>();
-            services.AddSingleton<IDocumentTypeLogic, DocumentTypeLogic>();
-            services.AddSingleton<ITagLogic, TagLogic>();
-            services.AddSingleton<ICorrespondentLogic, CorrespondentLogic>();
+            services.AddScoped<IDocumentLogic, DocumentLogic>();
+            services.AddScoped<IDocumentTypeLogic, DocumentTypeLogic>();
+            services.AddScoped<ITagLogic, TagLogic>();
+            services.AddScoped<ICorrespondentLogic, CorrespondentLogic>();
             services.AddScoped<IValidator<Document>, DocumentValidator>();
             services.AddScoped<IValidator<DocumentType>, DocumentTypeValidator>();
             services.AddScoped<IValidator<Correspondent>, CorrespondentValidator>();
             services.AddScoped<IValidator<Tag>, TagValidator>();
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<OCROptions>(_ => new OCROptions());
+            services.AddScoped<IOCRService, IronOCRService/*GhostScriptOCRService*/>();
+
 
         }
 
@@ -122,16 +136,19 @@ namespace PaperlessREST
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
             }
             else
             {
                 app.UseHsts();
             }
+
 
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
