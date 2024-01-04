@@ -9,6 +9,6 @@ namespace PaperlessREST.ServiceAgents
     public class OCROptions
     {
         public string Language { get; set; } = "eng";
-        public string TessDataPath { get; set; } = "./eng.tessdata";
+        public string TessDataPath { get; set; } = "./tessdata";
     }
 }

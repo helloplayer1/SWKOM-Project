@@ -25,7 +25,7 @@ using PaperlessREST.BusinessLogic.Interfaces;
 using EasyNetQ;
 
 namespace PaperlessREST.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
@@ -50,7 +50,7 @@ namespace PaperlessREST.Controllers
         [Consumes("application/json")]
         [ValidateModelState]
         [SwaggerOperation("BulkEdit")]
-        public virtual IActionResult BulkEdit([FromBody]BulkEditRequest bulkEditRequest)
+        public virtual IActionResult BulkEdit([FromBody] BulkEditRequest bulkEditRequest)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -68,7 +68,7 @@ namespace PaperlessREST.Controllers
         [Route("/api/documents/{id}")]
         [ValidateModelState]
         [SwaggerOperation("DeleteDocument")]
-        public virtual IActionResult DeleteDocument([FromRoute (Name = "id")][Required]int id)
+        public virtual IActionResult DeleteDocument([FromRoute(Name = "id")][Required] int id)
         {
 
             //TODO: Uncomment the next line to return response 204 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -88,13 +88,13 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("DownloadDocument")]
         [SwaggerResponse(statusCode: 200, type: typeof(System.IO.Stream), description: "Success")]
-        public virtual IActionResult DownloadDocument([FromRoute (Name = "id")][Required]int id, [FromQuery (Name = "original")]bool? original)
+        public virtual IActionResult DownloadDocument([FromRoute(Name = "id")][Required] int id, [FromQuery(Name = "original")] bool? original)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(System.IO.Stream));
             string exampleJson = null;
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<System.IO.Stream>(exampleJson)
             : default(System.IO.Stream);
@@ -114,14 +114,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocument")]
         [SwaggerResponse(statusCode: 200, type: typeof(GetDocument200Response), description: "Success")]
-        public virtual IActionResult GetDocument([FromRoute (Name = "id")][Required]int id, [FromQuery (Name = "page")]int? page, [FromQuery (Name = "full_perms")]bool? fullPerms)
+        public virtual IActionResult GetDocument([FromRoute(Name = "id")][Required] int id, [FromQuery(Name = "page")] int? page, [FromQuery(Name = "full_perms")] bool? fullPerms)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(GetDocument200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"owner\" : 7,\r\n  \"archive_serial_number\" : 2,\r\n  \"notes\" : [ {\r\n    \"note\" : \"note\",\r\n    \"created\" : \"created\",\r\n    \"document\" : 1,\r\n    \"id\" : 7,\r\n    \"user\" : 1\r\n  }, {\r\n    \"note\" : \"note\",\r\n    \"created\" : \"created\",\r\n    \"document\" : 1,\r\n    \"id\" : 7,\r\n    \"user\" : 1\r\n  } ],\r\n  \"added\" : \"added\",\r\n  \"created\" : \"created\",\r\n  \"title\" : \"title\",\r\n  \"content\" : \"content\",\r\n  \"tags\" : [ 5, 5 ],\r\n  \"storage_path\" : 5,\r\n  \"permissions\" : {\r\n    \"view\" : {\r\n      \"groups\" : [ 3, 3 ],\r\n      \"users\" : [ 9, 9 ]\r\n    },\r\n    \"change\" : {\r\n      \"groups\" : [ 3, 3 ],\r\n      \"users\" : [ 9, 9 ]\r\n    }\r\n  },\r\n  \"archived_file_name\" : \"archived_file_name\",\r\n  \"modified\" : \"modified\",\r\n  \"correspondent\" : 6,\r\n  \"original_file_name\" : \"original_file_name\",\r\n  \"id\" : 0,\r\n  \"created_date\" : \"created_date\",\r\n  \"document_type\" : 1\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<GetDocument200Response>(exampleJson)
             : default(GetDocument200Response);
@@ -139,14 +139,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentMetadata")]
         [SwaggerResponse(statusCode: 200, type: typeof(GetDocumentMetadata200Response), description: "Success")]
-        public virtual IActionResult GetDocumentMetadata([FromRoute (Name = "id")][Required]int id)
+        public virtual IActionResult GetDocumentMetadata([FromRoute(Name = "id")][Required] int id)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(GetDocumentMetadata200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"archive_size\" : 6,\r\n  \"archive_metadata\" : [ {\r\n    \"prefix\" : \"prefix\",\r\n    \"namespace\" : \"namespace\",\r\n    \"value\" : \"value\",\r\n    \"key\" : \"key\"\r\n  }, {\r\n    \"prefix\" : \"prefix\",\r\n    \"namespace\" : \"namespace\",\r\n    \"value\" : \"value\",\r\n    \"key\" : \"key\"\r\n  } ],\r\n  \"original_metadata\" : [ \"\", \"\" ],\r\n  \"original_filename\" : \"original_filename\",\r\n  \"original_mime_type\" : \"original_mime_type\",\r\n  \"archive_checksum\" : \"archive_checksum\",\r\n  \"original_checksum\" : \"original_checksum\",\r\n  \"lang\" : \"lang\",\r\n  \"media_filename\" : \"media_filename\",\r\n  \"has_archive_version\" : true,\r\n  \"archive_media_filename\" : \"archive_media_filename\",\r\n  \"original_size\" : 0\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<GetDocumentMetadata200Response>(exampleJson)
             : default(GetDocumentMetadata200Response);
@@ -164,13 +164,13 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentPreview")]
         [SwaggerResponse(statusCode: 200, type: typeof(System.IO.Stream), description: "Success")]
-        public virtual IActionResult GetDocumentPreview([FromRoute (Name = "id")][Required]int id)
+        public virtual IActionResult GetDocumentPreview([FromRoute(Name = "id")][Required] int id)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(System.IO.Stream));
             string exampleJson = null;
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<System.IO.Stream>(exampleJson)
             : default(System.IO.Stream);
@@ -188,14 +188,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentSuggestions")]
         [SwaggerResponse(statusCode: 200, type: typeof(GetDocumentSuggestions200Response), description: "Success")]
-        public virtual IActionResult GetDocumentSuggestions([FromRoute (Name = "id")][Required]int id)
+        public virtual IActionResult GetDocumentSuggestions([FromRoute(Name = "id")][Required] int id)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(GetDocumentSuggestions200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"storage_paths\" : [ \"\", \"\" ],\r\n  \"document_types\" : [ \"\", \"\" ],\r\n  \"dates\" : [ \"\", \"\" ],\r\n  \"correspondents\" : [ \"\", \"\" ],\r\n  \"tags\" : [ \"\", \"\" ]\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<GetDocumentSuggestions200Response>(exampleJson)
             : default(GetDocumentSuggestions200Response);
@@ -213,13 +213,13 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentThumb")]
         [SwaggerResponse(statusCode: 200, type: typeof(System.IO.Stream), description: "Success")]
-        public virtual IActionResult GetDocumentThumb([FromRoute (Name = "id")][Required]int id)
+        public virtual IActionResult GetDocumentThumb([FromRoute(Name = "id")][Required] int id)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(System.IO.Stream));
             string exampleJson = null;
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<System.IO.Stream>(exampleJson)
             : default(System.IO.Stream);
@@ -245,14 +245,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocuments")]
         [SwaggerResponse(statusCode: 200, type: typeof(GetDocuments200Response), description: "Success")]
-        public virtual IActionResult GetDocuments([FromQuery (Name = "Page")]int? page, [FromQuery (Name = "page_size")]int? pageSize, [FromQuery (Name = "query")]string query, [FromQuery (Name = "ordering")]string ordering, [FromQuery (Name = "tags__id__all")]List<int> tagsIdAll, [FromQuery (Name = "document_type__id")]int? documentTypeId, [FromQuery (Name = "storage_path__id__in")]int? storagePathIdIn, [FromQuery (Name = "correspondent__id")]int? correspondentId, [FromQuery (Name = "truncate_content")]bool? truncateContent)
+        public virtual IActionResult GetDocuments([FromQuery(Name = "Page")] int? page, [FromQuery(Name = "page_size")] int? pageSize, [FromQuery(Name = "query")] string query, [FromQuery(Name = "ordering")] string ordering, [FromQuery(Name = "tags__id__all")] List<int> tagsIdAll, [FromQuery(Name = "document_type__id")] int? documentTypeId, [FromQuery(Name = "storage_path__id__in")] int? storagePathIdIn, [FromQuery(Name = "correspondent__id")] int? correspondentId, [FromQuery(Name = "truncate_content")] bool? truncateContent)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(GetDocuments200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"next\" : 6,\r\n  \"all\" : [ 5, 5 ],\r\n  \"previous\" : 1,\r\n  \"count\" : 0,\r\n  \"results\" : [ {\r\n    \"owner\" : 4,\r\n    \"user_can_change\" : true,\r\n    \"archive_serial_number\" : 2,\r\n    \"notes\" : [ {\r\n      \"note\" : \"note\",\r\n      \"created\" : \"created\",\r\n      \"document\" : 1,\r\n      \"id\" : 7,\r\n      \"user\" : 1\r\n    }, {\r\n      \"note\" : \"note\",\r\n      \"created\" : \"created\",\r\n      \"document\" : 1,\r\n      \"id\" : 7,\r\n      \"user\" : 1\r\n    } ],\r\n    \"added\" : \"added\",\r\n    \"created\" : \"created\",\r\n    \"title\" : \"title\",\r\n    \"content\" : \"content\",\r\n    \"tags\" : [ 3, 3 ],\r\n    \"storage_path\" : 9,\r\n    \"archived_file_name\" : \"archived_file_name\",\r\n    \"modified\" : \"modified\",\r\n    \"correspondent\" : 2,\r\n    \"original_file_name\" : \"original_file_name\",\r\n    \"id\" : 5,\r\n    \"created_date\" : \"created_date\",\r\n    \"document_type\" : 7\r\n  }, {\r\n    \"owner\" : 4,\r\n    \"user_can_change\" : true,\r\n    \"archive_serial_number\" : 2,\r\n    \"notes\" : [ {\r\n      \"note\" : \"note\",\r\n      \"created\" : \"created\",\r\n      \"document\" : 1,\r\n      \"id\" : 7,\r\n      \"user\" : 1\r\n    }, {\r\n      \"note\" : \"note\",\r\n      \"created\" : \"created\",\r\n      \"document\" : 1,\r\n      \"id\" : 7,\r\n      \"user\" : 1\r\n    } ],\r\n    \"added\" : \"added\",\r\n    \"created\" : \"created\",\r\n    \"title\" : \"title\",\r\n    \"content\" : \"content\",\r\n    \"tags\" : [ 3, 3 ],\r\n    \"storage_path\" : 9,\r\n    \"archived_file_name\" : \"archived_file_name\",\r\n    \"modified\" : \"modified\",\r\n    \"correspondent\" : 2,\r\n    \"original_file_name\" : \"original_file_name\",\r\n    \"id\" : 5,\r\n    \"created_date\" : \"created_date\",\r\n    \"document_type\" : 7\r\n  } ]\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<GetDocuments200Response>(exampleJson)
             : default(GetDocuments200Response);
@@ -271,14 +271,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("SelectionData")]
         [SwaggerResponse(statusCode: 200, type: typeof(SelectionData200Response), description: "Success")]
-        public virtual IActionResult SelectionData([FromBody]SelectionDataRequest selectionDataRequest)
+        public virtual IActionResult SelectionData([FromBody] SelectionDataRequest selectionDataRequest)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(SelectionData200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"selected_storage_paths\" : [ {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  }, {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  } ],\r\n  \"selected_document_types\" : [ {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  }, {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  } ],\r\n  \"selected_correspondents\" : [ {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  }, {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  } ],\r\n  \"selected_tags\" : [ {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  }, {\r\n    \"document_count\" : 6,\r\n    \"id\" : 0\r\n  } ]\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<SelectionData200Response>(exampleJson)
             : default(SelectionData200Response);
@@ -298,14 +298,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateDocument")]
         [SwaggerResponse(statusCode: 200, type: typeof(UpdateDocument200Response), description: "Success")]
-        public virtual IActionResult UpdateDocument([FromRoute (Name = "id")][Required]int id, [FromBody]UpdateDocumentRequest updateDocumentRequest)
+        public virtual IActionResult UpdateDocument([FromRoute(Name = "id")][Required] int id, [FromBody] UpdateDocumentRequest updateDocumentRequest)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(UpdateDocument200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"owner\" : 7,\r\n  \"user_can_change\" : true,\r\n  \"archive_serial_number\" : 2,\r\n  \"notes\" : [ \"\", \"\" ],\r\n  \"added\" : \"added\",\r\n  \"created\" : \"created\",\r\n  \"title\" : \"title\",\r\n  \"content\" : \"content\",\r\n  \"tags\" : [ 5, 5 ],\r\n  \"storage_path\" : 5,\r\n  \"archived_file_name\" : \"archived_file_name\",\r\n  \"modified\" : \"modified\",\r\n  \"correspondent\" : 6,\r\n  \"original_file_name\" : \"original_file_name\",\r\n  \"id\" : 0,\r\n  \"created_date\" : \"created_date\",\r\n  \"document_type\" : 1\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<UpdateDocument200Response>(exampleJson)
             : default(UpdateDocument200Response);
@@ -328,7 +328,7 @@ namespace PaperlessREST.Controllers
         [Consumes("multipart/form-data")]
         [ValidateModelState]
         [SwaggerOperation("UploadDocument")]
-        public virtual IActionResult UploadDocument([FromForm (Name = "title")]string title, [FromForm (Name = "created")]DateTime? created, [FromForm (Name = "document_type")]int? documentType, [FromForm (Name = "tags")]List<int> tags, [FromForm (Name = "correspondent")]int? correspondent, [FromForm (Name = "document")]IFormFile documentData)
+        public virtual IActionResult UploadDocument([FromForm(Name = "title")] string title, [FromForm(Name = "created")] DateTime? created, [FromForm(Name = "document_type")] int? documentType, [FromForm(Name = "tags")] List<int> tags, [FromForm(Name = "correspondent")] int? correspondent, [FromForm(Name = "document")] IFormFile documentData)
         {
             Document document = new Document()
             {
@@ -341,7 +341,7 @@ namespace PaperlessREST.Controllers
 
             using Stream documentStream = documentData.OpenReadStream();
 
-            // _documentLogic.IndexDocument(document, documentStream);
+            _documentLogic.IndexDocument(document, documentStream);
 
             //publish mssg that document has been uploaded using EasyNetQ
 

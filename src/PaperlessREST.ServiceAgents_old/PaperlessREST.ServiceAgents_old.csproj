@@ -12,7 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
+    <ProjectReference
+      Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="tessdata\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 
 </Project>
