@@ -13,8 +13,6 @@ services:
       - ./src:/src
       - /src/bin
       - /src/obj
-    networks:
-      - rabbitmq_go_net
       
   angular-app:
     image: nginx
@@ -46,12 +44,6 @@ services:
       - "8150:15672"
       - "5672:5672"
     hostname: rabbit
-    networks:
-        - rabbitmq_go_net
-
-networks:
-  rabbitmq_go_net:
-    driver: bridge
 
 volumes:
   db-data:
