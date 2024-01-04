@@ -44,9 +44,9 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# # Install Ghostscript
-# RUN apt-get update && apt-get install -y ghostscript
-# #RUN apt-get update -y && apt-get install -y libc6-dev libgdiplus libx11-dev libleptonica-dev software-properties-common wget gnupg2 libleptonica-dev
+# Install Ghostscript
+RUN apt-get update && apt-get install -y ghostscript
+#RUN apt-get update -y && apt-get install -y libc6-dev libgdiplus libx11-dev libleptonica-dev software-properties-common wget gnupg2 libleptonica-dev
 
 ENTRYPOINT ["dotnet", "PaperlessREST.dll"]
 

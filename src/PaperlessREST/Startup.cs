@@ -126,7 +126,7 @@ namespace PaperlessREST
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
             services.AddScoped<OCROptions>(_ => new OCROptions());
-            services.AddScoped<IOCRService, IronOCRService/*GhostScriptOCRService*/>();
+            services.AddScoped<IOCRService, GhostScriptOCRService>();
 
 
         }
