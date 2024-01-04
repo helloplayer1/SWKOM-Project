@@ -36,7 +36,7 @@ RUN dotnet build "PaperlessREST.csproj" -c Release -o /app/build
 
 # Publish it
 FROM build AS publish
-RUN dotnet publish "PaperlessREST.csproj" -c Release -o /app/publish
+RUN dotnet publish "PaperlessREST.csproj" -c Release -o /app/publish 
 
 
 # Make the final image for publishing
@@ -44,10 +44,14 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# Install Ghostscript
-RUN apt-get update && apt-get install -y ghostscript
-#RUN apt-get update -y && apt-get install -y libc6-dev libgdiplus libx11-dev libleptonica-dev software-properties-common wget gnupg2 libleptonica-dev
+# Install Ghostscript and libleptonica-dev
+RUN apt-get update && apt-get install -y ghostscript libleptonica-dev libtesseract-dev libc6-dev
+# Link libs for Tesseract
+WORKDIR /app/x64
+RUN ln -s /usr/lib/x86_64-linux-gnu/liblept.so libleptonica-1.82.0.so
+RUN ln -s /usr/lib/x86_64-linux-gnu/libtesseract.so.4.0.1 libtesseract50.so
 
+WORKDIR /app
 ENTRYPOINT ["dotnet", "PaperlessREST.dll"]
 
 #FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build

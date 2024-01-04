@@ -35,6 +35,7 @@ using PaperlessREST.ServiceAgents.Interfaces;
 using PaperlessREST.ServiceAgents;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.DataAccess.Sql.Repositories;
+using System.Text;
 
 namespace PaperlessREST
 {
@@ -64,6 +65,11 @@ namespace PaperlessREST
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("Database");
+
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new InvalidOperationException("No connection string found in appsettings.json");
+            }
 
 
             // Add framework services.
@@ -138,11 +144,14 @@ namespace PaperlessREST
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
             }
             else
             {
