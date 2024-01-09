@@ -38,7 +38,7 @@ namespace PaperlessREST.DataAccess.Entities
         /// Gets or Sets Content
         /// </summary>
 
-        public string Content { get; set; }
+        public string? Content { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
@@ -74,7 +74,7 @@ namespace PaperlessREST.DataAccess.Entities
         /// Gets or Sets ArchiveSerialNumber
         /// </summary>
 
-        public string ArchiveSerialNumber { get; set; }
+        public string? ArchiveSerialNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets OriginalFileName
@@ -86,7 +86,7 @@ namespace PaperlessREST.DataAccess.Entities
         /// Gets or Sets ArchivedFileName
         /// </summary>
 
-        public string ArchivedFileName { get; set; }
+        public string? ArchivedFileName { get; set; }
 
     }
 }

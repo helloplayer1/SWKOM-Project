@@ -23,6 +23,7 @@ using PaperlessREST.BusinessLogic.Entities;
 using System.IO;
 using PaperlessREST.BusinessLogic.Interfaces;
 using EasyNetQ;
+using Microsoft.Extensions.Configuration;
 
 namespace PaperlessREST.Controllers
 {
@@ -337,6 +338,7 @@ namespace PaperlessREST.Controllers
                 DocumentType = documentType,
                 Tags = tags,
                 Correspondent = correspondent,
+                OriginalFileName = documentData.FileName
             };
 
             using Stream documentStream = documentData.OpenReadStream();

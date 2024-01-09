@@ -13,6 +13,9 @@ services:
       - ./src:/src
       - /src/bin
       - /src/obj
+    depends_on:
+      - paperless-db
+      - paperless-rabbitmq
       
   angular-app:
     image: nginx
@@ -37,7 +40,8 @@ services:
     volumes:
       - db-data:/var/lib/postgressql/data
   
-  rabbit:
+  paperless-rabbitmq:
+    container_name: paperless-rabbitmq
     image: "rabbitmq:3-management"
     restart: always
     ports:
