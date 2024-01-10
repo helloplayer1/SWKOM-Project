@@ -5,6 +5,7 @@ services:
     container_name: paperless-rest
     build:
       context: .
+      dockerfile: ./PaperlessREST.Dockerfile
       args:
         - configuration=Debug
     ports:
@@ -14,8 +15,10 @@ services:
       - /src/bin
       - /src/obj
     depends_on:
-      - paperless-db
-      - paperless-rabbitmq
+      paperless-db:
+        condition: service_healthy
+      paperless-rabbitmq:
+        condition: service_started
       
   angular-app:
     image: nginx
@@ -36,7 +39,11 @@ services:
       POSTGRES_USER: paperless
       POSTGRES_PASSWORD: paperless
     ports:
-      - 1433:5432  
+      - 1433:5432
+    healthcheck:
+      test: "pg_isready --username=paperless && psql --username=paperless --list"
+      timeout: 10s
+      retries: 20
     volumes:
       - db-data:/var/lib/postgressql/data
   
@@ -48,6 +55,25 @@ services:
       - "8150:15672"
       - "5672:5672"
     hostname: rabbit
+
+  paperless-ocr:
+    container_name: paperless-ocr
+    build:
+      context: .
+      dockerfile: ./ServiceAgent.Dockerfile
+      args:
+        - configuration=Debug
+    volumes:
+      - ./src:/src
+      - /src/bin
+      - /src/obj
+    depends_on:
+      paperless-db:
+        condition: service_healthy
+      paperless-rest:
+        condition: service_started
+      paperless-rabbitmq:
+        condition: service_started
 
 volumes:
   db-data:

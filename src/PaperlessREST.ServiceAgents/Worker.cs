@@ -26,6 +26,7 @@ namespace PaperlessREST.ServiceAgents
         private void HandleMessage(Document document)
         {
             _logger.LogInformation($"Received document {document.OriginalFileName} for processing");
+            throw new Exception();
         }
     }
 }

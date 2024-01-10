@@ -348,7 +348,7 @@ namespace PaperlessREST.Controllers
             //publish mssg that document has been uploaded using EasyNetQ
 
             var bus = RabbitHutch.CreateBus("host=host.docker.internal");
-            bus.PubSub.Publish(new TextMessage { Text = "Hello World!" });
+            bus.PubSub.Publish(document); ;
 
             return Ok();
         }
