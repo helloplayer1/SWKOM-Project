@@ -17,6 +17,7 @@ namespace PaperlessREST.ServiceAgents
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            //maybe bus is disposed?
             using var bus = RabbitHutch.CreateBus("host=host.docker.internal");
             bus.PubSub.Subscribe<Document>("OCR Service Worker", HandleMessage, stoppingToken);
 
@@ -25,6 +26,7 @@ namespace PaperlessREST.ServiceAgents
 
         private void HandleMessage(Document document)
         {
+            //ocr, save to db
             _logger.LogInformation($"Received document {document.OriginalFileName} for processing");
             throw new Exception();
         }
