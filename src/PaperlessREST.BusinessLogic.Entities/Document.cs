@@ -89,5 +89,7 @@ namespace PaperlessREST.BusinessLogic.Entities
 
         public string ArchivedFileName { get; set; }
 
+
+        
     }
 }

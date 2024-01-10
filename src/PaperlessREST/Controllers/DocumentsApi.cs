@@ -24,6 +24,7 @@ using System.IO;
 using PaperlessREST.BusinessLogic.Interfaces;
 using EasyNetQ;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace PaperlessREST.Controllers
 {
@@ -329,7 +330,7 @@ namespace PaperlessREST.Controllers
         [Consumes("multipart/form-data")]
         [ValidateModelState]
         [SwaggerOperation("UploadDocument")]
-        public virtual IActionResult UploadDocument([FromForm(Name = "title")] string title, [FromForm(Name = "created")] DateTime? created, [FromForm(Name = "document_type")] int? documentType, [FromForm(Name = "tags")] List<int> tags, [FromForm(Name = "correspondent")] int? correspondent, [FromForm(Name = "document")] IFormFile documentData)
+        public virtual async Task<IActionResult> UploadDocument([FromForm(Name = "title")] string title, [FromForm(Name = "created")] DateTime? created, [FromForm(Name = "document_type")] int? documentType, [FromForm(Name = "tags")] List<int> tags, [FromForm(Name = "correspondent")] int? correspondent, [FromForm(Name = "document")] IFormFile documentData)
         {
             Document document = new Document()
             {
@@ -343,12 +344,13 @@ namespace PaperlessREST.Controllers
 
             using Stream documentStream = documentData.OpenReadStream();
 
-            _documentLogic.IndexDocument(document, documentStream);
+            await _documentLogic.IndexDocument(document, documentStream);
 
             //publish mssg that document has been uploaded using EasyNetQ
 
-            var bus = RabbitHutch.CreateBus("host=host.docker.internal");
-            bus.PubSub.Publish(new TextMessage { Text = "Hello World!" });
+            //var bus = RabbitHutch.CreateBus("host=host.docker.internal");
+            //bus.PubSub.Publish(new TextMessage { Text = "Hello World!" });
+
 
             return Ok();
         }
