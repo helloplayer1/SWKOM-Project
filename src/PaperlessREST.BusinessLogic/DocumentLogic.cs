@@ -79,7 +79,7 @@ namespace PaperlessREST.BusinessLogic
                             .WithObjectSize(memoryStream.Length)
                             .WithContentType(contentType);
 
-                    await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
+                    //await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
 
                 }
             }

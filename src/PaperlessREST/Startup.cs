@@ -146,8 +146,8 @@ namespace PaperlessREST
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-            // context.Database.EnsureDeleted();
-            // context.Database.EnsureCreated();
+             context.Database.EnsureDeleted();
+             context.Database.EnsureCreated();
 
             if (env.IsDevelopment())
             {
