@@ -26,7 +26,8 @@ namespace PaperlessREST.BusinessLogic
         //private IDocumentRepository
         private IOCRService _OCRService;
         private IMapper _mapper;
-        private readonly IMinioClient _minioClient;
+        private readonly IMinioClient _minioClient; //Initialize client --> Startup.cs dependency injection
+        //Docker compose file minIo server erstellen
         private IDocumentRepository _documentRepository;
         public DocumentLogic(IOCRService oCRService, IMapper mapper, IDocumentRepository documentRepository)
         {

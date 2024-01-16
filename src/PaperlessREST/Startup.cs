@@ -133,7 +133,7 @@ namespace PaperlessREST
             services.AddScoped<IDocumentRepository, DocumentRepository>();
             services.AddScoped<OCROptions>(_ => new OCROptions());
             services.AddScoped<IOCRService, GhostScriptOCRService>();
-
+            //services.AddScoped MinIo
 
         }
 
