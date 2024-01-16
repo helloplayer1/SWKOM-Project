@@ -346,8 +346,6 @@ namespace PaperlessREST.Controllers
 
             await _documentLogic.IndexDocument(document, documentStream);
 
-            //publish mssg that document has been uploaded using EasyNetQ
-
             return Ok();
         }
     }

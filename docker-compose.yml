@@ -36,15 +36,17 @@ services:
     container_name: minio-server
     restart: always
     environment:
-      MINIO_ACCESS_KEY: test_key_123
-      MINIO_SECRET_KEY: test_key_123
+      MINIO_ROOT_USER: paperless
+      MINIO_ROOT_PASSWORD: paperless
     ports:
       - "9000:9000"
+      - "9001:9001"
     volumes:
       - ./data:/data
       - ./config:/root/.minio
-    command: server /data
-  
+    command: server --console-address ":9001" /data
+    networks:
+      - minio-net
   paperless-db:
     container_name: paperless-db
     image: postgres
@@ -88,6 +90,8 @@ services:
         condition: service_started
       paperless-rabbitmq:
         condition: service_started
-
+networks:
+  minio-net:
+    driver: bridge
 volumes:
   db-data:
