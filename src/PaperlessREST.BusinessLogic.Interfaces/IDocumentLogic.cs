@@ -5,6 +5,6 @@ namespace PaperlessREST.BusinessLogic.Interfaces
 {
     public interface IDocumentLogic
     {
-        public Task IndexDocument(Document document, Stream pdfStream);
+        Task IndexDocument(Document document, Stream pdfStream);
     }
 }

@@ -49,10 +49,10 @@ namespace PaperlessREST.BusinessLogic
             //saving
             var uploadedName = await SaveFile(document);
 
-            
+
 
             var bus = RabbitHutch.CreateBus("host=host.docker.internal");
-            bus.PubSub.Publish(new TextMessage { Text = "Document added: " + uploadedName });
+            bus.PubSub.Publish(document);
 
             _documentRepository.Add(documentDao);
         }
@@ -80,7 +80,7 @@ namespace PaperlessREST.BusinessLogic
                             .WithObjectSize(memoryStream.Length)
                             .WithContentType(contentType);
 
-                    await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
+                    //await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
 
                 }
             }
