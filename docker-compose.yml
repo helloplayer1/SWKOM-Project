@@ -30,6 +30,20 @@ services:
       - ./src/config/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - paperless-rest
+
+  minio:
+    image: minio/minio
+    container_name: minio-server
+    restart: always
+    environment:
+      MINIO_ACCESS_KEY: test_key_123
+      MINIO_SECRET_KEY: test_key_123
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data:/data
+      - ./config:/root/.minio
+    command: server /data
   
   paperless-db:
     container_name: paperless-db
