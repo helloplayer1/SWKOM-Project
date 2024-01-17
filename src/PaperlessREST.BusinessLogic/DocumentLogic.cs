@@ -29,11 +29,12 @@ namespace PaperlessREST.BusinessLogic
         private readonly IMinioClient _minioClient; //Initialize client --> Startup.cs dependency injection
         //Docker compose file minIo server erstellen
         private IDocumentRepository _documentRepository;
-        public DocumentLogic(IOCRService oCRService, IMapper mapper, IDocumentRepository documentRepository)
+        public DocumentLogic(IOCRService oCRService, IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient)
         {
             _OCRService = oCRService;
             _mapper = mapper;
             _documentRepository = documentRepository;
+            _minioClient = minioClient;
         }
         public async Task IndexDocument(Document document, Stream pdfStream)
         {
@@ -80,7 +81,7 @@ namespace PaperlessREST.BusinessLogic
                             .WithObjectSize(memoryStream.Length)
                             .WithContentType(contentType);
 
-                    //await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
+                    await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
 
                 }
             }

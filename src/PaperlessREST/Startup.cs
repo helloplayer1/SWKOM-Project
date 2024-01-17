@@ -36,6 +36,7 @@ using PaperlessREST.ServiceAgents;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.DataAccess.Sql.Repositories;
 using System.Text;
+using Minio;
 
 namespace PaperlessREST
 {
@@ -64,12 +65,11 @@ namespace PaperlessREST
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("Database");
+            string connectionString = Configuration.GetConnectionString("Database") ?? throw new InvalidOperationException("No connection string found in appsettings.json");
 
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                throw new InvalidOperationException("No connection string found in appsettings.json");
-            }
+            string minioEndpoint = Configuration["MinIO:Endpoint"] ?? throw new InvalidOperationException("No MinIO endpoint found in appsettings.json");
+            string minioAccessKey = Configuration["MinIO:AccessKey"] ?? throw new InvalidOperationException("No MinIO access key found in appsettings.json");
+            string minioSecretKey = Configuration["MinIO:SecretKey"] ?? throw new InvalidOperationException("No MinIO secret key found in appsettings.json");
 
 
             // Add framework services.
@@ -89,6 +89,11 @@ namespace PaperlessREST
                         NamingStrategy = new CamelCaseNamingStrategy()
                     });
                 });
+            services.AddMinio(configureClient =>
+            {
+                configureClient.WithEndpoint(minioEndpoint);
+                configureClient.WithCredentials(minioAccessKey, minioSecretKey);
+            });
             services
                 .AddSwaggerGen(c =>
                 {
@@ -146,8 +151,8 @@ namespace PaperlessREST
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-             context.Database.EnsureDeleted();
-             context.Database.EnsureCreated();
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
 
             if (env.IsDevelopment())
             {
