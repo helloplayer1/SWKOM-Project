@@ -36,6 +36,7 @@ namespace PaperlessREST.BusinessLogic
             _documentRepository = documentRepository;
             _minioClient = minioClient;
         }
+
         public async Task IndexDocument(Document document, Stream pdfStream)
         {
             document.Content = _OCRService.PerformORC(pdfStream);
@@ -48,48 +49,47 @@ namespace PaperlessREST.BusinessLogic
 
 
             //saving
-            var uploadedName = await SaveFile(document);
-
-
-
+            var uploadedName = await SaveFile(document, pdfStream);
             var bus = RabbitHutch.CreateBus("host=host.docker.internal");
             bus.PubSub.Publish(document);
 
             _documentRepository.Add(documentDao);
         }
 
-        protected async Task<string> SaveFile(Document file)
+        protected async Task<string> SaveFile(Document file, Stream pdfStream)
         {
             var bucketName = "paperless-bucket";
-
             string originalName = file.OriginalFileName;
             string UID = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff");
             string uniqueName = $"{UID}_{originalName}";
-
             var contentType = "application/octet-stream";
 
             try
             {
-
-                using (var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(file.Content)))
+                // Make a bucket on the server, if not already present.
+                var beArgs = new BucketExistsArgs()
+                    .WithBucket(bucketName);
+                bool found = await _minioClient.BucketExistsAsync(beArgs).ConfigureAwait(false);
+                if (!found)
                 {
-
-                    var putObjectArgs = new PutObjectArgs()
-                            .WithBucket(bucketName)
-                            .WithObject(uniqueName)
-                            .WithStreamData(memoryStream)
-                            .WithObjectSize(memoryStream.Length)
-                            .WithContentType(contentType);
-
-                    await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
-
+                    var mbArgs = new MakeBucketArgs()
+                        .WithBucket(bucketName);
+                    await _minioClient.MakeBucketAsync(mbArgs).ConfigureAwait(false);
                 }
+                pdfStream.Position = 0;
+                var putObjectArgs = new PutObjectArgs()
+                        .WithBucket(bucketName)
+                        .WithObject(uniqueName)
+                        .WithStreamData(pdfStream)
+                        .WithObjectSize(pdfStream.Length)
+                        .WithContentType(contentType);
+
+                await _minioClient.PutObjectAsync(putObjectArgs).ConfigureAwait(false);
             }
             catch (MinioException e)
             {
                 Console.WriteLine($"Minio Error: {e.Message}");
             }
-
             return uniqueName;
         }
     }

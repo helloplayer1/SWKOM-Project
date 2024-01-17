@@ -92,6 +92,7 @@ namespace PaperlessREST
             services.AddMinio(configureClient =>
             {
                 configureClient.WithEndpoint(minioEndpoint);
+                configureClient.WithSSL(false);
                 configureClient.WithCredentials(minioAccessKey, minioSecretKey);
             });
             services

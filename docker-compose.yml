@@ -19,6 +19,8 @@ services:
         condition: service_healthy
       paperless-rabbitmq:
         condition: service_started
+      paperless-minio:
+        condition: service_started
       
   angular-app:
     image: nginx
@@ -31,9 +33,9 @@ services:
     depends_on:
       - paperless-rest
 
-  minio:
+  paperless-minio:
     image: minio/minio
-    container_name: minio-server
+    container_name: paperless-minio
     restart: always
     environment:
       MINIO_ROOT_USER: paperless
@@ -89,6 +91,8 @@ services:
       paperless-rest:
         condition: service_started
       paperless-rabbitmq:
+        condition: service_started
+      paperless-minio:
         condition: service_started
 networks:
   minio-net:
