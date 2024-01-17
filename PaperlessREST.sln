@@ -32,8 +32,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.ServiceAgents", "src\PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{DC14B886-F971-4113-94B4-666FFB236A06}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.ServiceAgents_old", "src\PaperlessREST.ServiceAgents_old\PaperlessREST.ServiceAgents_old.csproj", "{1465AE54-0046-4635-BC64-967C248A2C21}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,10 +86,6 @@ Global
 		{DC14B886-F971-4113-94B4-666FFB236A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC14B886-F971-4113-94B4-666FFB236A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC14B886-F971-4113-94B4-666FFB236A06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1465AE54-0046-4635-BC64-967C248A2C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1465AE54-0046-4635-BC64-967C248A2C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1465AE54-0046-4635-BC64-967C248A2C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1465AE54-0046-4635-BC64-967C248A2C21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

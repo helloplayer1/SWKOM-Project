@@ -1,6 +1,11 @@
 using EasyNetQ;
+using Minio;
+using Minio.DataModel;
+using Minio.DataModel.Args;
 using PaperlessREST.BusinessLogic.Entities;
 using PaperlessREST.DataAccess.Interfaces;
+using PaperlessREST.ServiceAgents.Interfaces;
+using PaperlessREST.Entities;
 
 namespace PaperlessREST.ServiceAgents
 {
@@ -9,11 +14,15 @@ namespace PaperlessREST.ServiceAgents
         private readonly IDocumentRepository _documentRepository;
         private readonly ILogger<Worker> _logger;
         private readonly IBus _bus;
-        public Worker(ILogger<Worker> logger, IDocumentRepository documentRepository)
+        private readonly IOCRService _ocrService;
+        private readonly IMinioClient _minioClient;
+        public Worker(ILogger<Worker> logger, IDocumentRepository documentRepository, IOCRService ocrService, IMinioClient minioClient)
         {
             _documentRepository = documentRepository;
             _logger = logger;
             _bus = RabbitHutch.CreateBus("host=host.docker.internal");
+            _ocrService = ocrService;
+            _minioClient = minioClient;
         }
 
 
@@ -22,18 +31,33 @@ namespace PaperlessREST.ServiceAgents
             //bus.PubSub.Subscribe<Document>("OCR Service Worker", HandleMessage, stoppingToken);
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-            await _bus.PubSub.SubscribeAsync<Document>("OCR Service Worker", HandleMessage, stoppingToken);
+            await _bus.PubSub.SubscribeAsync<DocumentQueueMessage>("OCR Service Worker", HandleMessage, stoppingToken);
         }
 
-        private void HandleMessage(Document document)
+        private async void HandleMessage(DocumentQueueMessage message)
         {
+            var document = _documentRepository.GetById(message.DocumentID);
             //ocr, save to db
+            var bucketName = "paperless-bucket";
+            string uniqueName = $"{document.ArchiveSerialNumber}_{document.OriginalFileName}";
+
+
+            var getObjectArgs = new GetObjectArgs()
+                .WithBucket(bucketName)
+                .WithObject(uniqueName)
+                .WithCallbackStream((stream) =>
+                {
+                    document.Content = _ocrService.PerformORC(stream);
+                    _documentRepository.Update(document);
+                });
+
             _logger.LogInformation($"Received document {document.OriginalFileName} for processing");
+            ObjectStat result = await _minioClient.GetObjectAsync(getObjectArgs);
         }
-        
+
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-           _bus.Dispose();
+            _bus.Dispose();
         }
     }
 }

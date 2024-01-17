@@ -49,6 +49,7 @@ services:
     command: server --console-address ":9001" /data
     networks:
       - minio-net
+      
   paperless-db:
     container_name: paperless-db
     image: postgres

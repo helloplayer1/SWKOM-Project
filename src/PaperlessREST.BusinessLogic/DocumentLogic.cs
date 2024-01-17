@@ -1,4 +1,5 @@
 ﻿using PaperlessREST.BusinessLogic.Entities;
+using PaperlessREST.Entities;
 using PaperlessREST.BusinessLogic.Interfaces;
 using PaperlessREST.ServiceAgents.Interfaces;
 using AutoMapper;
@@ -24,14 +25,12 @@ namespace PaperlessREST.BusinessLogic
     public class DocumentLogic : IDocumentLogic
     {
         //private IDocumentRepository
-        private IOCRService _OCRService;
         private IMapper _mapper;
         private readonly IMinioClient _minioClient; //Initialize client --> Startup.cs dependency injection
         //Docker compose file minIo server erstellen
         private IDocumentRepository _documentRepository;
-        public DocumentLogic(IOCRService oCRService, IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient)
+        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient)
         {
-            _OCRService = oCRService;
             _mapper = mapper;
             _documentRepository = documentRepository;
             _minioClient = minioClient;
@@ -39,29 +38,26 @@ namespace PaperlessREST.BusinessLogic
 
         public async Task IndexDocument(Document document, Stream pdfStream)
         {
-            document.Content = _OCRService.PerformORC(pdfStream);
 
+            document.ArchiveSerialNumber = Guid.NewGuid().ToString();
             //save File to disk
 
             //write path to document dao
 
             DocumentDao documentDao = _mapper.Map<Document, DocumentDao>(document);
-
+            _documentRepository.Add(documentDao);
 
             //saving
             var uploadedName = await SaveFile(document, pdfStream);
-            var bus = RabbitHutch.CreateBus("host=host.docker.internal");
-            bus.PubSub.Publish(document);
 
-            _documentRepository.Add(documentDao);
+            var bus = RabbitHutch.CreateBus("host=host.docker.internal");
+            bus.PubSub.Publish(new DocumentQueueMessage(){ DocumentID = (int)documentDao.Id! });
         }
 
-        protected async Task<string> SaveFile(Document file, Stream pdfStream)
+        protected async Task<string> SaveFile(Document document, Stream pdfStream)
         {
             var bucketName = "paperless-bucket";
-            string originalName = file.OriginalFileName;
-            string UID = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff");
-            string uniqueName = $"{UID}_{originalName}";
+            string uniqueName = $"{document.ArchiveSerialNumber}_{document.OriginalFileName}";
             var contentType = "application/octet-stream";
 
             try

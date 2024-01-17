@@ -8,17 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference
-      Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
-    <ProjectReference
-      Include="..\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj" />
-    <ProjectReference
-      Include="..\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj" />
+    <ProjectReference Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
+    <ProjectReference Include="..\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj" />
+    <ProjectReference Include="..\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj" />
+    <ProjectReference Include="..\PaperlessREST.Entities\PaperlessREST.Entities.csproj" />
+    <ProjectReference Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.4.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Minio" Version="6.0.1" />
     <PackageReference Include="Tesseract" Version="5.2.0" />
     <PackageReference Include="EasyNetQ" Version="7.8.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
@@ -34,4 +34,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
+    <ItemGroup>
+	    <None Include="tessdata\**" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
 </Project>

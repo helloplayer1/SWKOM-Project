@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PaperlessREST.Entities\PaperlessREST.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
     <ProjectReference Include="..\PaperlessREST.BusinessLogic.Interfaces\PaperlessREST.BusinessLogic.Interfaces.csproj" />
     <ProjectReference Include="..\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj" />

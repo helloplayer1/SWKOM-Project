@@ -37,5 +37,12 @@ FROM build AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
+# Install Ghostscript and libleptonica-de   v
+RUN apt-get update && apt-get install -y ghostscript libleptonica-dev libtesseract-dev libc6-dev
+# Link libs for Tesseract
+WORKDIR /app/x64
+RUN ln -s /usr/lib/x86_64-linux-gnu/liblept.so libleptonica-1.82.0.so
+RUN ln -s /usr/lib/x86_64-linux-gnu/libtesseract.so.4.0.1 libtesseract50.so
+
 WORKDIR /app
 ENTRYPOINT ["dotnet", "PaperlessREST.ServiceAgents.dll"]

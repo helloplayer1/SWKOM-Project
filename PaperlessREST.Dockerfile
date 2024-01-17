@@ -28,7 +28,6 @@ COPY ["src/PaperlessREST.DataAccess.Entities","./PaperlessREST.DataAccess.Entiti
 COPY ["src/PaperlessREST.DataAccess.Interfaces","./PaperlessREST.DataAccess.Interfaces"]
 COPY ["src/PaperlessREST.ServiceAgents.Interfaces","./PaperlessREST.ServiceAgents.Interfaces"]
 COPY ["src/PaperlessREST.ServiceAgents","./PaperlessREST.ServiceAgents"]
-COPY ["src/PaperlessREST.ServiceAgents_old","./PaperlessREST.ServiceAgents_old"]
 
 # Build the API
 WORKDIR "/src/PaperlessREST"
@@ -44,12 +43,12 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# Install Ghostscript and libleptonica-dev
-RUN apt-get update && apt-get install -y ghostscript libleptonica-dev libtesseract-dev libc6-dev
-# Link libs for Tesseract
-WORKDIR /app/x64
-RUN ln -s /usr/lib/x86_64-linux-gnu/liblept.so libleptonica-1.82.0.so
-RUN ln -s /usr/lib/x86_64-linux-gnu/libtesseract.so.4.0.1 libtesseract50.so
+# # Install Ghostscript and libleptonica-dev
+# RUN apt-get update && apt-get install -y ghostscript libleptonica-dev libtesseract-dev libc6-dev
+# # Link libs for Tesseract
+# WORKDIR /app/x64
+# RUN ln -s /usr/lib/x86_64-linux-gnu/liblept.so libleptonica-1.82.0.so
+# RUN ln -s /usr/lib/x86_64-linux-gnu/libtesseract.so.4.0.1 libtesseract50.so
 
 WORKDIR /app
 ENTRYPOINT ["dotnet", "PaperlessREST.dll"]
