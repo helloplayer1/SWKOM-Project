@@ -95,6 +95,19 @@ services:
         condition: service_started
       paperless-minio:
         condition: service_started
+        
+  paperless-elasticsearch:
+    container_name: paperless-elasticsearch
+    image: elasticsearch:8.12.0
+    environment:
+      - discovery.type=single-node
+      - cluster.name=elasticsearch-cluster
+      - bootstrap.memory_lock=true
+      - "xpack.security.enabled=false"
+    ports:
+      - 9200:9200
+      - 9300:9300
+      
 networks:
   minio-net:
     driver: bridge
