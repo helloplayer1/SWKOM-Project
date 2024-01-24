@@ -45,6 +45,12 @@ namespace PaperlessREST.BusinessLogic
 
         public async Task IndexDocument(Document document, Stream pdfStream)
         {
+            var validationResult = _validator.Validate(document);
+
+            if (!validationResult.IsValid)
+            {
+                //throw custom exception here
+            }
 
             document.ArchiveSerialNumber = Guid.NewGuid().ToString();
             //save File to disk

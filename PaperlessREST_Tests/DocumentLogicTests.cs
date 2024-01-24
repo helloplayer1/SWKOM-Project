@@ -50,7 +50,7 @@ namespace PaperlessREST_Tests
             minioClientMock = new Mock<IMinioClient>();
             mapperMock = new Mock<IMapper>();
             busMock = new Mock<IBus>();
-            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object);
+            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object);
 
         }
 
