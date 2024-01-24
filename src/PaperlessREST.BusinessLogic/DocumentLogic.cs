@@ -33,7 +33,7 @@ namespace PaperlessREST.BusinessLogic
         private IDocumentRepository _documentRepository;
         private readonly IBus _rabbitMq;
 
-        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq, ILogger<DocumentLogic> logger, ElasticsearchClient elasticSearchClient,IValidator<Document> validator)
+        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq, ILogger<DocumentLogic> logger, ElasticsearchClient elasticSearchClient, IValidator<Document> validator)
         {
             _validator = validator ?? throw new ArgumentNullException(nameof(_validator));
             _rabbitMq = rabbitMq;
@@ -123,7 +123,6 @@ namespace PaperlessREST.BusinessLogic
         public async Task<IEnumerable<Document>> SearchDocuments(string query)
         {
             _logger.LogInformation($"Elastic called, staring search.");
-            var elasticClient = new ElasticsearchClient(new Uri("host.docker.internal:9200/"));
 
             var searchResponse = await _elasticSearchClient.SearchAsync<ElasticDocument>(s => s
              .Index("documents")
