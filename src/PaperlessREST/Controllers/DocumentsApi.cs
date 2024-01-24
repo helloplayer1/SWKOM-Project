@@ -343,9 +343,19 @@ namespace PaperlessREST.Controllers
             };
 
             using Stream documentStream = documentData.OpenReadStream();
-
-            await _documentLogic.IndexDocument(document, documentStream);
-
+            
+            try
+            {
+                await _documentLogic.IndexDocument(document, documentStream);
+            }
+            catch (BLValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
             return Ok();
         }
     }

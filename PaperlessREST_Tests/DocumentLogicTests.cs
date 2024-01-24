@@ -20,8 +20,10 @@ using PaperlessREST.DataAccess.Entities;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.Entities;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.Extensions.Logging;
 using EasyNetQ;
 using Minio.DataModel.Response;
+using Castle.Core.Logging;
 
 namespace PaperlessREST_Tests
 {
@@ -42,6 +44,7 @@ namespace PaperlessREST_Tests
         private Mock<IMinioClient> minioClientMock;
         private Mock<IMapper> mapperMock;
         private Mock<IBus> busMock;
+        private Mock<ILogger<DocumentLogic>> loggerMock;
 
         [SetUp]
         public void Setup()
@@ -50,7 +53,8 @@ namespace PaperlessREST_Tests
             minioClientMock = new Mock<IMinioClient>();
             mapperMock = new Mock<IMapper>();
             busMock = new Mock<IBus>();
-            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object);
+            loggerMock = new Mock<ILogger<DocumentLogic>>();
+            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object, loggerMock.Object);
 
         }
 

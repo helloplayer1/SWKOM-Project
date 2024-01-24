@@ -47,8 +47,17 @@ namespace PaperlessREST.Controllers
         [SwaggerResponse(statusCode: 200, type: typeof(List<string>), description: "Success")]
         public virtual IActionResult AutoComplete([FromQuery(Name = "term")] string term, [FromQuery(Name = "limit")] int? limit)
         {
-            var results = _documentLogic.SearchDocuments(term);
-            return new ObjectResult(results);
+            try
+            {
+                var results = _documentLogic.SearchDocuments(term);
+                return new ObjectResult(results);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

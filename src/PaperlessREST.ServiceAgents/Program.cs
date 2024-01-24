@@ -42,6 +42,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         });
         services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient(new Uri(elasticSearchEndpoint)));
         services.AddScoped<IBus>(_ => RabbitHutch.CreateBus($"host={rabbitMQHost}"));
+        services.AddLogging();
     })
     .Build();
 

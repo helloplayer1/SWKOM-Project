@@ -143,6 +143,8 @@ namespace PaperlessREST
             services.AddScoped<IValidator<Tag>, TagValidator>();
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddLogging();
+            //services.AddScoped MinIo
 
         }
 
