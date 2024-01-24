@@ -24,13 +24,20 @@ namespace PaperlessREST.BusinessLogic
 {
     public class DocumentLogic : IDocumentLogic
     {
+        private readonly IValidator<Document> _validator;
         //private IDocumentRepository
         private IMapper _mapper;
         private readonly IMinioClient _minioClient; //Initialize client --> Startup.cs dependency injection
         //Docker compose file minIo server erstellen
         private IDocumentRepository _documentRepository;
-        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient)
+        private readonly IBus _rabbitMq;
+
+        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq)
         {
+            //hier kommt der logger hin
+            //IValidator<Document> validator
+            //_validator = validator ?? throw new ArgumentNullException(nameof(_validator));
+            _rabbitMq = rabbitMq;
             _mapper = mapper;
             _documentRepository = documentRepository;
             _minioClient = minioClient;
@@ -50,11 +57,12 @@ namespace PaperlessREST.BusinessLogic
             //saving
             var uploadedName = await SaveFile(document, pdfStream);
 
-            var bus = RabbitHutch.CreateBus("host=host.docker.internal");
-            bus.PubSub.Publish(new DocumentQueueMessage(){ DocumentID = (int)documentDao.Id! });
+            
+            _rabbitMq.PubSub.Publish(new DocumentQueueMessage(){ DocumentID = (int)documentDao.Id! });
         }
 
-        protected async Task<string> SaveFile(Document document, Stream pdfStream)
+        //changed to public for testing
+        public async Task<string> SaveFile(Document document, Stream pdfStream)
         {
             var bucketName = "paperless-bucket";
             string uniqueName = $"{document.ArchiveSerialNumber}_{document.OriginalFileName}";
