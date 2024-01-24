@@ -18,7 +18,7 @@ using Minio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using System.Text;
 using EasyNetQ;
-
+using Elastic.Clients.Elasticsearch;
 
 namespace PaperlessREST.BusinessLogic
 {
@@ -27,8 +27,8 @@ namespace PaperlessREST.BusinessLogic
         private readonly IValidator<Document> _validator;
         //private IDocumentRepository
         private IMapper _mapper;
-        private readonly IMinioClient _minioClient; //Initialize client --> Startup.cs dependency injection
-        //Docker compose file minIo server erstellen
+        private readonly IMinioClient _minioClient;
+        private readonly ElasticsearchClient _elasticSearchClient;
         private IDocumentRepository _documentRepository;
         private readonly IBus _rabbitMq;
 
@@ -101,6 +101,17 @@ namespace PaperlessREST.BusinessLogic
                 Console.WriteLine($"Minio Error: {e.Message}");
             }
             return uniqueName;
+        }
+
+        public async Task<IEnumerable<Document>> SearchDocuments(string query)
+        {
+            var elasticClient = new ElasticsearchClient(new Uri("host.docker.internal:9200/"));
+
+            var searchResponse = await elasticClient.SearchAsync<ElasticDocument>(s => s
+                .Index("documents")
+                .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
+
+            return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }
     }
 }
