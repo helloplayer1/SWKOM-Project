@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,11 +11,14 @@
     <ProjectReference Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj" />
     <ProjectReference Include="..\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj" />
+    <ProjectReference Include="..\PaperlessREST.ElasticSearch.Interfaces\PaperlessREST.ElasticSearch.Interfaces.csproj" />
     <ProjectReference Include="..\PaperlessREST.Entities\PaperlessREST.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.11.0" />
+    <PackageReference Include="Elasticsearch.Net" Version="7.17.5" />
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.4.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="Minio" Version="6.0.1" />
