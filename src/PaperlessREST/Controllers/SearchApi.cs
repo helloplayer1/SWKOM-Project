@@ -19,7 +19,6 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaperlessREST.Attributes;
 using PaperlessREST.BusinessLogic.Interfaces;
-using System.Threading.Tasks;
 
 namespace PaperlessREST.Controllers
 {
@@ -46,11 +45,10 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("AutoComplete")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<string>), description: "Success")]
-        public async virtual Task<IActionResult> AutoComplete([FromQuery(Name = "term")] string term, [FromQuery(Name = "limit")] int? limit)
+        public virtual IActionResult AutoComplete([FromQuery(Name = "term")] string term, [FromQuery(Name = "limit")] int? limit)
         {
-            var results = await _documentLogic.SearchDocuments(term);
-            var serializedResults = JsonConvert.SerializeObject(results);
-            return new ObjectResult(serializedResults);
+            var results = _documentLogic.SearchDocuments(term);
+            return new ObjectResult(results);
         }
     }
 }

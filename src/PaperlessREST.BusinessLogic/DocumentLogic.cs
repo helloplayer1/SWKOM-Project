@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Http;
 using System.Text;
 using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
+using Newtonsoft.Json;
 
 namespace PaperlessREST.BusinessLogic
 {
@@ -129,6 +130,7 @@ namespace PaperlessREST.BusinessLogic
              .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
 
             _logger.LogInformation($"Search finished.");
+            _logger.LogInformation(JsonConvert.SerializeObject(searchResponse.Documents, Formatting.Indented));
             return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }
     }
