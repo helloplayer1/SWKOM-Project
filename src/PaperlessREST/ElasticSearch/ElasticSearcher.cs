@@ -20,7 +20,7 @@ namespace PaperlessREST.ElasticSearch
 
         IEnumerable<ElasticDocument> IElasticSearcher.SearchDocument(string searchTerm)
         {
-            var elasticClient = new ElasticsearchClient(new Uri("http://localhost:9200/"));
+            var elasticClient = new ElasticsearchClient(new Uri("host.docker.internal:9200/"));
 
             var searchResponse = elasticClient.Search<ElasticDocument>(s => s
                 .Index("documents")
