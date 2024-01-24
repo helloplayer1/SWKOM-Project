@@ -19,6 +19,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaperlessREST.Attributes;
 using PaperlessREST.Entities;
+using PaperlessREST.ElasticSearch.Interfaces;
 
 namespace PaperlessREST.Controllers
 { 
@@ -28,6 +29,12 @@ namespace PaperlessREST.Controllers
     [ApiController]
     public class SearchApiController : ControllerBase
     { 
+        private readonly IElasticSearcher elasticSearch;
+        public SearchApiController(IElasticSearcher elasticSearch)
+        {
+            this.elasticSearch = elasticSearch;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -44,14 +51,15 @@ namespace PaperlessREST.Controllers
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(List<string>));
-            string exampleJson = null;
-            exampleJson = "[ \"\", \"\" ]";
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            : default(List<string>);
+            //string exampleJson = null;
+            //exampleJson = "[ \"\", \"\" ]";
+
+            //var example = exampleJson != null
+            //? JsonConvert.DeserializeObject<List<string>>(exampleJson)
+            //: default(List<string>);
             //TODO: Change the data returned
-            return new ObjectResult(example);
+            var foundDocument = this.elasticSearch.SearchDocument(term);
+            return new ObjectResult(foundDocument);
         }
     }
 }

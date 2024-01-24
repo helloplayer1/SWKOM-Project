@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperlessREST.ServiceAgents", "src\PaperlessREST.ServiceAgents\PaperlessREST.ServiceAgents.csproj", "{DC14B886-F971-4113-94B4-666FFB236A06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperlessREST.ElasticSearch.Interfaces", "src\PaperlessREST.ElasticSearch.Interfaces\PaperlessREST.ElasticSearch.Interfaces.csproj", "{F3820A25-F753-4863-9221-7CB7B54151D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{DC14B886-F971-4113-94B4-666FFB236A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC14B886-F971-4113-94B4-666FFB236A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC14B886-F971-4113-94B4-666FFB236A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3820A25-F753-4863-9221-7CB7B54151D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3820A25-F753-4863-9221-7CB7B54151D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3820A25-F753-4863-9221-7CB7B54151D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3820A25-F753-4863-9221-7CB7B54151D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
