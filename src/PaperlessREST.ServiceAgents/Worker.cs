@@ -39,12 +39,12 @@ namespace PaperlessREST.ServiceAgents
             await _rabbitMq.PubSub.SubscribeAsync<DocumentQueueMessage>("OCR Service Worker", HandleMessage, stoppingToken);
         }
 
-        public void AddDocumentAsync(ElasticDocument document)
+        public async Task AddDocumentAsync(ElasticDocument document)
         {
             if (!_elasticsearchClient.Indices.Exists("documents").Exists)
                 _elasticsearchClient.Indices.Create("documents");
 
-            var indexResponse = _elasticsearchClient.Index(document, "documents");
+            var indexResponse = await _elasticsearchClient.IndexAsync(document, "documents");
             if (!indexResponse.IsSuccess())
             {
                 // Handle errors
@@ -74,7 +74,7 @@ namespace PaperlessREST.ServiceAgents
                         Id = document.Id,
                         Content = document.Content,
                         Title = document.Title,
-                    });
+                    }).Wait();
                 });
 
             _logger.LogInformation($"Received document {document.OriginalFileName} for processing");
