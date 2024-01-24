@@ -32,7 +32,8 @@ namespace PaperlessREST.BusinessLogic
         private IDocumentRepository _documentRepository;
         private readonly IBus _rabbitMq;
 
-        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq)
+
+        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq, ElasticsearchClient elasticSearchClient)
         {
             //hier kommt der logger hin
             //IValidator<Document> validator
@@ -41,6 +42,7 @@ namespace PaperlessREST.BusinessLogic
             _mapper = mapper;
             _documentRepository = documentRepository;
             _minioClient = minioClient;
+            _elasticSearchClient = elasticSearchClient;
         }
 
         public async Task IndexDocument(Document document, Stream pdfStream)
@@ -63,8 +65,8 @@ namespace PaperlessREST.BusinessLogic
             //saving
             var uploadedName = await SaveFile(document, pdfStream);
 
-            
-            _rabbitMq.PubSub.Publish(new DocumentQueueMessage(){ DocumentID = (int)documentDao.Id! });
+
+            _rabbitMq.PubSub.Publish(new DocumentQueueMessage() { DocumentID = (int)documentDao.Id! });
         }
 
         //changed to public for testing
@@ -105,11 +107,9 @@ namespace PaperlessREST.BusinessLogic
 
         public async Task<IEnumerable<Document>> SearchDocuments(string query)
         {
-            var elasticClient = new ElasticsearchClient(new Uri("host.docker.internal:9200/"));
-
-            var searchResponse = await elasticClient.SearchAsync<ElasticDocument>(s => s
-                .Index("documents")
-                .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
+            var searchResponse = await _elasticSearchClient.SearchAsync<ElasticDocument>(s => s
+             .Index("documents")
+             .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
 
             return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }

@@ -20,6 +20,8 @@ string connectionString = configuration.GetConnectionString("Database") ?? throw
 string minioEndpoint = configuration["MinIO:Endpoint"] ?? throw new InvalidOperationException("No MinIO endpoint found in appsettings.json");
 string minioAccessKey = configuration["MinIO:AccessKey"] ?? throw new InvalidOperationException("No MinIO access key found in appsettings.json");
 string minioSecretKey = configuration["MinIO:SecretKey"] ?? throw new InvalidOperationException("No MinIO secret key found in appsettings.json");
+string rabbitMQHost = configuration["RabbitMQ:Host"] ?? throw new InvalidOperationException("No RabbitMQ host found in appsettings.json");
+string elasticSearchEndpoint = configuration["ElasticSearch:Endpoint"] ?? throw new InvalidOperationException("No ElasticSearch endpoint found in appsettings.json");
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 IHost host = Host.CreateDefaultBuilder(args)
@@ -38,8 +40,8 @@ IHost host = Host.CreateDefaultBuilder(args)
             configureClient.WithSSL(false);
             configureClient.WithCredentials(minioAccessKey, minioSecretKey);
         });
-        services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient(new Uri("host.docker.internal:9200")));
-        services.AddScoped<IBus>(_ => RabbitHutch.CreateBus("host=host.docker.internal"));
+        services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient(new Uri(elasticSearchEndpoint)));
+        services.AddScoped<IBus>(_ => RabbitHutch.CreateBus($"host={rabbitMQHost}"));
     })
     .Build();
 
