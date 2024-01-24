@@ -32,11 +32,11 @@ namespace PaperlessREST.BusinessLogic
         private IDocumentRepository _documentRepository;
         private readonly IBus _rabbitMq;
 
-        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq)
+        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq, IValidator<Document> validator)
         {
             //hier kommt der logger hin
             //IValidator<Document> validator
-            //_validator = validator ?? throw new ArgumentNullException(nameof(_validator));
+            _validator = validator ?? throw new ArgumentNullException(nameof(_validator));
             _rabbitMq = rabbitMq;
             _mapper = mapper;
             _documentRepository = documentRepository;
@@ -47,10 +47,7 @@ namespace PaperlessREST.BusinessLogic
         {
             var validationResult = _validator.Validate(document);
 
-            if (!validationResult.IsValid)
-            {
-                //throw custom exception here
-            }
+           
 
             document.ArchiveSerialNumber = Guid.NewGuid().ToString();
             //save File to disk

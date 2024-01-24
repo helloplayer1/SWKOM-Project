@@ -1,10 +1,12 @@
 
 using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Minio;
+using PaperlessREST.BusinessLogic.Entities;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.DataAccess.Sql;
 using PaperlessREST.DataAccess.Sql.Repositories;

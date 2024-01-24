@@ -31,14 +31,11 @@ namespace PaperlessREST_Tests
         [Test]
         public void GetDocuments_ValidParameters_ReturnsDocuments()
         {
-            // Arrange
             int page = 1;
             int pageSize = 10;
 
-            // Act
             var result = controller.GetDocuments(page, pageSize, null, null, null, null, null, null, null);
 
-            // Assert
             Assert.That(result, Is.InstanceOf<ObjectResult>());
             var objectResult = (ObjectResult)result;
             Assert.That(objectResult.Value, Is.InstanceOf<GetDocuments200Response>());
@@ -47,14 +44,11 @@ namespace PaperlessREST_Tests
         [Test]
         public void UpdateDocument_ValidData_ReturnsUpdatedDocument()
         {
-            // Arrange
             int documentId = 1;
-            var updateRequest = new UpdateDocumentRequest { /* populate request properties */ };
+            var updateRequest = new UpdateDocumentRequest {};
 
-            // Act
             var result = controller.UpdateDocument(documentId, updateRequest);
 
-            // Assert
             Assert.That(result, Is.InstanceOf<ObjectResult>());
             var objectResult = (ObjectResult)result;
             Assert.That(objectResult.Value, Is.InstanceOf<UpdateDocument200Response>());
@@ -63,7 +57,6 @@ namespace PaperlessREST_Tests
         [Test]
         public async Task UploadDocument_ValidData_ReturnsOk()
         {
-            // Arrange
             var title = "Sample Title";
             var created = DateTime.Now;
             var documentType = 1;
@@ -71,10 +64,8 @@ namespace PaperlessREST_Tests
             var correspondent = 4;
             var documentData = new Mock<IFormFile>();
 
-            // Act
             var result = await controller.UploadDocument(title, created, documentType, tags, correspondent, documentData.Object);
 
-            // Assert
             Assert.That(result, Is.InstanceOf<OkResult>());
             documentLogicMock.Verify(x => x.IndexDocument(It.IsAny<Document>(), It.IsAny<Stream>()), Times.Once);
         }

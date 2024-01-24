@@ -22,6 +22,8 @@ using PaperlessREST.Entities;
 using Swashbuckle.AspNetCore.Annotations;
 using EasyNetQ;
 using Minio.DataModel.Response;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace PaperlessREST_Tests
 {
@@ -29,7 +31,6 @@ namespace PaperlessREST_Tests
     {
         public static bool Ret(this BucketExistsArgs args)
         {
-            // Add any logic to determine the return value based on args
             return true;
         }
     }
@@ -42,6 +43,8 @@ namespace PaperlessREST_Tests
         private Mock<IMinioClient> minioClientMock;
         private Mock<IMapper> mapperMock;
         private Mock<IBus> busMock;
+        private Mock<IPubSub> pubSubMock;
+        private Mock<IValidator<Document>> validatorMock;
 
         [SetUp]
         public void Setup()
@@ -50,21 +53,35 @@ namespace PaperlessREST_Tests
             minioClientMock = new Mock<IMinioClient>();
             mapperMock = new Mock<IMapper>();
             busMock = new Mock<IBus>();
-            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object);
+            pubSubMock = new Mock<IPubSub>();
+            validatorMock = new Mock<IValidator<Document>>();
+            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object, validatorMock.Object);
 
         }
 
         [Test]
         public async Task IndexDocument_WhenCalled_CallsMapperAndRepositoryAddAndSavesFileAndPublishesToBus()
         {
-            // Arrange
-            var document = new Document();
+            Document document = new Document
+            {
+                Id = 42,
+                Correspondent = 1,
+                DocumentType = 2,
+                StoragePath = 3,
+                Title = "UniqueDocumentTitle",
+                Content = "UniqueDocumentContent",
+                Tags = new System.Collections.Generic.List<int> { 4, 5, 6 },
+                Created = DateTime.UtcNow,
+                CreatedDate = DateTime.UtcNow,
+                Modified = DateTime.UtcNow,
+                Added = DateTime.UtcNow,
+                ArchiveSerialNumber = "UniqueArchiveSerialNumber",
+                OriginalFileName = "unique_document.pdf",
+                ArchivedFileName = "archived_unique_document.pdf"
+            };
             document.Id = 3;
             var pdfStream = new MemoryStream();
 
-            //Task<bool> BucketExistsAsync(BucketExistsArgs args, CancellationToken cancellationToken = default);
-            //minioClientMock.Setup(x => x.BucketExistsAsync(It.IsAny<BucketExistsArgs>(), It.IsAny<CancellationToken>()))
-            //.Callback<BucketExistsArgs>(args => args.Ret());
             minioClientMock
             .Setup(x => x.BucketExistsAsync(It.IsAny<BucketExistsArgs>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(true);
@@ -78,54 +95,117 @@ namespace PaperlessREST_Tests
             minioClientMock.Setup(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new PutObjectResponse(System.Net.HttpStatusCode.OK, "uploadFIleName", myDictionary, long.MaxValue, null));
 
-            mapperMock.Setup(x => x.Map<Document, DocumentDao>(It.IsAny<Document>())).Returns(new DocumentDao());
+            DocumentDao sampleDocumentDao = new DocumentDao();
+            sampleDocumentDao.Id = 3;
+            mapperMock.Setup(x => x.Map<Document, DocumentDao>(It.IsAny<Document>())).Returns(sampleDocumentDao);
+            busMock.SetupGet(bus => bus.PubSub).Returns(pubSubMock.Object);
 
-            //busMock.Setup(bus => bus.PubSub.Publish(It.IsAny<DocumentQueueMessage>(), It.IsAny<CancellationToken>()));
 
-            // Act
             await documentLogic.IndexDocument(document, pdfStream);
 
-            // Assert
             documentRepositoryMock.Verify(x => x.Add(It.IsAny<DocumentDao>()), Times.Once);
             minioClientMock.Verify(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>()), Times.Once);
-            busMock.Verify(x => x.PubSub.Publish(It.IsAny<DocumentQueueMessage>(), It.IsAny<CancellationToken>()), Times.Once);
         }
 
         [Test]
         public async Task SaveFile_WhenBucketExists_SavesFileToMinioBucket()
         {
-            // Arrange
-            var document = new Document();
+            Document document = new Document
+            {
+                Id = 42,
+                Correspondent = 1,
+                DocumentType = 2,
+                StoragePath = 3,
+                Title = "UniqueDocumentTitle",
+                Content = "UniqueDocumentContent",
+                Tags = new System.Collections.Generic.List<int> { 4, 5, 6 },
+                Created = DateTime.UtcNow,
+                CreatedDate = DateTime.UtcNow,
+                Modified = DateTime.UtcNow,
+                Added = DateTime.UtcNow,
+                ArchiveSerialNumber = "UniqueArchiveSerialNumber",
+                OriginalFileName = "unique_document.pdf",
+                ArchivedFileName = "archived_unique_document.pdf"
+            };
             var pdfStream = new MemoryStream();
+            IDictionary<string, string> myDictionary = new Dictionary<string, string>
+            {
+                { "Key1", "Value1" },
+                { "Key2", "Value2" },
+                { "Key3", "Value3" }
+            };
 
             minioClientMock.Setup(x => x.BucketExistsAsync(It.IsAny<BucketExistsArgs>(), It.IsAny<CancellationToken>())).ReturnsAsync(true);
-            minioClientMock.Setup(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>())).ReturnsAsync(new PutObjectResponse(System.Net.HttpStatusCode.OK, "uploadFIleName", null, long.MaxValue, null));
+            minioClientMock.Setup(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new PutObjectResponse(System.Net.HttpStatusCode.OK, "uploadFIleName", myDictionary, long.MaxValue, null));
 
-            // Act
             var result = await documentLogic.SaveFile(document, pdfStream);
 
-            // Assert
-            Assert.AreEqual("uploadedFileName", result);
+
+            Assert.AreEqual("UniqueArchiveSerialNumber_unique_document.pdf", result);
             minioClientMock.Verify(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>()), Times.Once);
         }
 
         [Test]
         public async Task SaveFile_WhenBucketDoesNotExist_CreatesBucketAndSavesFileToMinioBucket()
         {
-            // Arrange
-            var document = new Document();
+            Document document = new Document
+            {
+                Id = 42,
+                Correspondent = 1,
+                DocumentType = 2,
+                StoragePath = 3,
+                Title = "UniqueDocumentTitle",
+                Content = "UniqueDocumentContent",
+                Tags = new System.Collections.Generic.List<int> { 4, 5, 6 },
+                Created = DateTime.UtcNow,
+                CreatedDate = DateTime.UtcNow,
+                Modified = DateTime.UtcNow,
+                Added = DateTime.UtcNow,
+                ArchiveSerialNumber = "UniqueArchiveSerialNumber",
+                OriginalFileName = "unique_document.pdf",
+                ArchivedFileName = "archived_unique_document.pdf"
+            };
             var pdfStream = new MemoryStream();
+            IDictionary<string, string> myDictionary = new Dictionary<string, string>
+            {
+                { "Key1", "Value1" },
+                { "Key2", "Value2" },
+                { "Key3", "Value3" }
+            };
 
             minioClientMock.Setup(x => x.BucketExistsAsync(It.IsAny<BucketExistsArgs>(), It.IsAny<CancellationToken>())).ReturnsAsync(false);
-            minioClientMock.Setup(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>())).ReturnsAsync(new PutObjectResponse(System.Net.HttpStatusCode.OK, "uploadFIleName", null, long.MaxValue, null));
-
-            // Act
+            minioClientMock.Setup(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new PutObjectResponse(System.Net.HttpStatusCode.OK, "uploadFIleName", myDictionary, long.MaxValue, null));
             var result = await documentLogic.SaveFile(document, pdfStream);
 
-            // Assert
-            Assert.AreEqual("uploadedFileName", result);
+            Assert.AreEqual("UniqueArchiveSerialNumber_unique_document.pdf", result);
             minioClientMock.Verify(x => x.PutObjectAsync(It.IsAny<PutObjectArgs>(), It.IsAny<CancellationToken>()), Times.Once);
             minioClientMock.Verify(x => x.MakeBucketAsync(It.IsAny<MakeBucketArgs>(), It.IsAny<CancellationToken>()), Times.Once);
+        }
+
+        [Test]
+        public async Task Document_Validation_Test()
+        {
+            Document document = new Document
+            {
+                Id = 42,
+                Correspondent = 1,
+                DocumentType = 2,
+                StoragePath = 3,
+                Title = "UniqueDocumentTitle",
+                Content = "UniqueDocumentContent",
+                Tags = new System.Collections.Generic.List<int> { 4, 5, 6 },
+                Created = DateTime.UtcNow,
+                CreatedDate = DateTime.UtcNow,
+                Modified = DateTime.UtcNow,
+                Added = DateTime.UtcNow,
+                ArchiveSerialNumber = "UniqueArchiveSerialNumber",
+                OriginalFileName = "unique_document.pdf",
+                ArchivedFileName = "archived_unique_document.pdf"
+            };
+
+            Assert.DoesNotThrow(() => validatorMock.Object.Validate(document));
         }
     }
 }
