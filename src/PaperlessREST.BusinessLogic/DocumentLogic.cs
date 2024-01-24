@@ -136,5 +136,10 @@ namespace PaperlessREST.BusinessLogic
             _logger.LogInformation($"Search finished.");
             return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }
+
+        public Task<IEnumerable<Document>> SearchDocuments(string query)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

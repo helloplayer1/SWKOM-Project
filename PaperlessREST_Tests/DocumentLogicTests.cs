@@ -25,6 +25,7 @@ using EasyNetQ;
 using Minio.DataModel.Response;
 using FluentValidation;
 using System.ComponentModel.DataAnnotations;
+using Elastic.Clients.Elasticsearch;
 
 namespace PaperlessREST_Tests
 {
@@ -46,7 +47,9 @@ namespace PaperlessREST_Tests
         private Mock<IBus> busMock;
         private Mock<IPubSub> pubSubMock;
         private Mock<IValidator<Document>> validatorMock;
-
+        //ILogger<DocumentLogic> logger, ElasticsearchClient elasticSearchClient
+        private Mock<ILogger<DocumentLogic>> loggerMock;
+        private Mock<ElasticsearchClient> elasticSearchClientMock;
         [SetUp]
         public void Setup()
         {
@@ -56,7 +59,9 @@ namespace PaperlessREST_Tests
             busMock = new Mock<IBus>();
             pubSubMock = new Mock<IPubSub>();
             validatorMock = new Mock<IValidator<Document>>();
-            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object, validatorMock.Object);
+            loggerMock = new Mock<ILogger<DocumentLogic>>();
+            elasticSearchClientMock = new Mock<ElasticsearchClient>();
+            documentLogic = new DocumentLogic(mapperMock.Object, documentRepositoryMock.Object, minioClientMock.Object, busMock.Object, loggerMock.Object, elasticSearchClientMock.Object, validatorMock.Object);
 
         }
 
