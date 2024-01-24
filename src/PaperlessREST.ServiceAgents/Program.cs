@@ -3,6 +3,7 @@ using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Minio;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.DataAccess.Sql;

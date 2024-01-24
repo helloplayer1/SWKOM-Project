@@ -10,7 +10,7 @@ namespace PaperlessREST.DataAccess.Sql
 
         public DbSet<CorrespondentDao> Correspondents { get; set; }
         public DbSet<TagDao> Tags { get; set; }
-        public DbSet<DocumentDao> Documents { get; set; }
+        public virtual DbSet<DocumentDao> Documents { get; set; }
 
         public DbSet<DocumentTypeDao> DocumentTypes { get; set; }
 
@@ -19,6 +19,10 @@ namespace PaperlessREST.DataAccess.Sql
 
         }
 
+        public ApplicationDbContext()
+        {
+
+        }
 
     }
 }
