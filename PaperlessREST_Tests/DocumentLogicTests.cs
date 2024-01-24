@@ -20,6 +20,7 @@ using PaperlessREST.DataAccess.Entities;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.Entities;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.Extensions.Logging;
 using EasyNetQ;
 using Minio.DataModel.Response;
 using FluentValidation;

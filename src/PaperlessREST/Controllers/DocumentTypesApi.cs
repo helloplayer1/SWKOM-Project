@@ -21,13 +21,13 @@ using PaperlessREST.Attributes;
 using PaperlessREST.Entities;
 
 namespace PaperlessREST.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class DocumentTypesApiController : ControllerBase
-    { 
+    {
         /// <summary>
         /// 
         /// </summary>
@@ -39,14 +39,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("CreateDocumentType")]
         [SwaggerResponse(statusCode: 200, type: typeof(CreateDocumentType200Response), description: "Success")]
-        public virtual IActionResult CreateDocumentType([FromBody]CreateCorrespondentRequest createCorrespondentRequest)
+        public virtual IActionResult CreateDocumentType([FromBody] CreateCorrespondentRequest createCorrespondentRequest)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(CreateDocumentType200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"owner\" : 1,\r\n  \"matching_algorithm\" : 6,\r\n  \"user_can_change\" : true,\r\n  \"is_insensitive\" : true,\r\n  \"name\" : \"name\",\r\n  \"match\" : \"match\",\r\n  \"id\" : 0,\r\n  \"slug\" : \"slug\"\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<CreateDocumentType200Response>(exampleJson)
             : default(CreateDocumentType200Response);
@@ -63,7 +63,7 @@ namespace PaperlessREST.Controllers
         [Route("/api/document_types/{id}")]
         [ValidateModelState]
         [SwaggerOperation("DeleteDocumentType")]
-        public virtual IActionResult DeleteDocumentType([FromRoute (Name = "id")][Required]int id)
+        public virtual IActionResult DeleteDocumentType([FromRoute(Name = "id")][Required] int id)
         {
 
             //TODO: Uncomment the next line to return response 204 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -83,14 +83,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetDocumentTypes")]
         [SwaggerResponse(statusCode: 200, type: typeof(GetDocumentTypes200Response), description: "Success")]
-        public virtual IActionResult GetDocumentTypes([FromQuery (Name = "page")]int? page, [FromQuery (Name = "full_perms")]bool? fullPerms)
+        public virtual IActionResult GetDocumentTypes([FromQuery(Name = "page")] int? page, [FromQuery(Name = "full_perms")] bool? fullPerms)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(GetDocumentTypes200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"next\" : 6,\r\n  \"all\" : [ 5, 5 ],\r\n  \"previous\" : 1,\r\n  \"count\" : 0,\r\n  \"results\" : [ {\r\n    \"owner\" : 9,\r\n    \"matching_algorithm\" : 2,\r\n    \"document_count\" : 7,\r\n    \"is_insensitive\" : true,\r\n    \"permissions\" : {\r\n      \"view\" : {\r\n        \"groups\" : [ \"\", \"\" ],\r\n        \"users\" : [ \"\", \"\" ]\r\n      },\r\n      \"change\" : {\r\n        \"groups\" : [ \"\", \"\" ],\r\n        \"users\" : [ \"\", \"\" ]\r\n      }\r\n    },\r\n    \"name\" : \"name\",\r\n    \"match\" : \"match\",\r\n    \"id\" : 5,\r\n    \"slug\" : \"slug\"\r\n  }, {\r\n    \"owner\" : 9,\r\n    \"matching_algorithm\" : 2,\r\n    \"document_count\" : 7,\r\n    \"is_insensitive\" : true,\r\n    \"permissions\" : {\r\n      \"view\" : {\r\n        \"groups\" : [ \"\", \"\" ],\r\n        \"users\" : [ \"\", \"\" ]\r\n      },\r\n      \"change\" : {\r\n        \"groups\" : [ \"\", \"\" ],\r\n        \"users\" : [ \"\", \"\" ]\r\n      }\r\n    },\r\n    \"name\" : \"name\",\r\n    \"match\" : \"match\",\r\n    \"id\" : 5,\r\n    \"slug\" : \"slug\"\r\n  } ]\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<GetDocumentTypes200Response>(exampleJson)
             : default(GetDocumentTypes200Response);
@@ -110,14 +110,14 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("UpdateDocumentType")]
         [SwaggerResponse(statusCode: 200, type: typeof(UpdateDocumentType200Response), description: "Success")]
-        public virtual IActionResult UpdateDocumentType([FromRoute (Name = "id")][Required]int id, [FromBody]UpdateDocumentTypeRequest updateDocumentTypeRequest)
+        public virtual IActionResult UpdateDocumentType([FromRoute(Name = "id")][Required] int id, [FromBody] UpdateDocumentTypeRequest updateDocumentTypeRequest)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(UpdateDocumentType200Response));
             string exampleJson = null;
             exampleJson = "{\r\n  \"owner\" : 5,\r\n  \"matching_algorithm\" : 6,\r\n  \"user_can_change\" : true,\r\n  \"document_count\" : 1,\r\n  \"is_insensitive\" : true,\r\n  \"name\" : \"name\",\r\n  \"match\" : \"match\",\r\n  \"id\" : 0,\r\n  \"slug\" : \"slug\"\r\n}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<UpdateDocumentType200Response>(exampleJson)
             : default(UpdateDocumentType200Response);

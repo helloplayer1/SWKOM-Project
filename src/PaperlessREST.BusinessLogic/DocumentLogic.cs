@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Http;
 using System.Text;
 using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
+using Newtonsoft.Json;
 
 namespace PaperlessREST.BusinessLogic
 {
@@ -29,25 +30,44 @@ namespace PaperlessREST.BusinessLogic
         private IMapper _mapper;
         private readonly IMinioClient _minioClient;
         private readonly ElasticsearchClient _elasticSearchClient;
+        private readonly ILogger<DocumentLogic> _logger;
         private IDocumentRepository _documentRepository;
         private readonly IBus _rabbitMq;
 
-        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq, IValidator<Document> validator)
+        public DocumentLogic(IMapper mapper, IDocumentRepository documentRepository, IMinioClient minioClient, IBus rabbitMq, ILogger<DocumentLogic> logger, ElasticsearchClient elasticSearchClient, IValidator<Document> validator)
         {
-            //hier kommt der logger hin
-            //IValidator<Document> validator
             _validator = validator ?? throw new ArgumentNullException(nameof(_validator));
             _rabbitMq = rabbitMq;
             _mapper = mapper;
             _documentRepository = documentRepository;
             _minioClient = minioClient;
+            _logger = logger;
+            _elasticSearchClient = elasticSearchClient;
         }
 
         public async Task IndexDocument(Document document, Stream pdfStream)
         {
-            var validationResult = _validator.Validate(document);
+            _logger.LogInformation($"Indexing document: {document.Title}");
 
-           
+            try
+            {
+                var validationResult = _validator.Validate(document);
+            }
+            catch (ValidationException e)
+            {
+                _logger.LogError($"Validation Failed: {e.Message}");
+                throw new BLValidationException(e.Message);
+            }
+            catch (NullReferenceException e)
+            {
+                _logger.LogError($"Null refrence exception: {e.Message}");
+                throw e;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Indexing Document Failed: {e.Message}");
+                throw e;
+            }
 
             document.ArchiveSerialNumber = Guid.NewGuid().ToString();
             //save File to disk
@@ -58,10 +78,11 @@ namespace PaperlessREST.BusinessLogic
             _documentRepository.Add(documentDao);
 
             //saving
-            var uploadedName = await SaveFile(document, pdfStream);
 
-            
-            _rabbitMq.PubSub.Publish(new DocumentQueueMessage(){ DocumentID = (int)documentDao.Id! });
+            var uploadedName = await SaveFile(document, pdfStream);
+            _logger.LogInformation($"Finished saving document: {document.Title}");
+
+            _rabbitMq.PubSub.Publish(new DocumentQueueMessage() { DocumentID = (int)documentDao.Id! });
         }
 
         //changed to public for testing
@@ -100,14 +121,19 @@ namespace PaperlessREST.BusinessLogic
             return uniqueName;
         }
 
-        public async Task<IEnumerable<Document>> SearchDocuments(string query)
+        public async Task<IEnumerable<Document>> SearchDocumentsAsync(string query)
         {
-            var elasticClient = new ElasticsearchClient(new Uri("host.docker.internal:9200/"));
+            _logger.LogInformation($"Elastic called, staring search.");
 
-            var searchResponse = await elasticClient.SearchAsync<ElasticDocument>(s => s
-                .Index("documents")
-                .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
+            var searchResponse = await _elasticSearchClient.SearchAsync<ElasticDocument>(s => s
+             .Index("documents")
+             .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
 
+            if(!searchResponse.IsSuccess()) {
+                throw new Exception(searchResponse.DebugInformation);
+            }
+
+            _logger.LogInformation($"Search finished.");
             return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }
     }

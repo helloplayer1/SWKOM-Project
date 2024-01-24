@@ -37,6 +37,8 @@ using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.DataAccess.Sql.Repositories;
 using System.Text;
 using Minio;
+using Elastic.Clients.Elasticsearch;
+using EasyNetQ;
 
 namespace PaperlessREST
 {
@@ -70,6 +72,8 @@ namespace PaperlessREST
             string minioEndpoint = Configuration["MinIO:Endpoint"] ?? throw new InvalidOperationException("No MinIO endpoint found in appsettings.json");
             string minioAccessKey = Configuration["MinIO:AccessKey"] ?? throw new InvalidOperationException("No MinIO access key found in appsettings.json");
             string minioSecretKey = Configuration["MinIO:SecretKey"] ?? throw new InvalidOperationException("No MinIO secret key found in appsettings.json");
+            string rabbitMQHost = Configuration["RabbitMQ:Host"] ?? throw new InvalidOperationException("No RabbitMQ host found in appsettings.json");
+            string elasticSearchEndpoint = Configuration["ElasticSearch:Endpoint"] ?? throw new InvalidOperationException("No ElasticSearch endpoint found in appsettings.json");
 
 
             // Add framework services.
@@ -125,6 +129,8 @@ namespace PaperlessREST
                     // Use [ValidateModelState] on Actions to actually validate it in C# as well!
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
+            services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient(new Uri(elasticSearchEndpoint)));
+            services.AddScoped<IBus>(_ => RabbitHutch.CreateBus($"host={rabbitMQHost}"));
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddAutoMapper(typeof(RestProfile));
             services.AddScoped<IDocumentLogic, DocumentLogic>();
@@ -137,6 +143,7 @@ namespace PaperlessREST
             services.AddScoped<IValidator<Tag>, TagValidator>();
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddLogging();
             //services.AddScoped MinIo
 
         }
