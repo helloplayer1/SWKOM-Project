@@ -1,4 +1,4 @@
-﻿namespace PaperlessREST.ElasticSearch.Interfaces
+﻿namespace PaperlessREST.BusinessLogic.Entities
 {
     public class ElasticDocument
     {

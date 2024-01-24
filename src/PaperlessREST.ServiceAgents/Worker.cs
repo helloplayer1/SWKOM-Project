@@ -8,7 +8,6 @@ using PaperlessREST.ServiceAgents.Interfaces;
 using PaperlessREST.Entities;
 using System;
 using Elastic.Clients.Elasticsearch;
-using PaperlessREST.ElasticSearch.Interfaces;
 
 namespace PaperlessREST.ServiceAgents
 {
@@ -16,16 +15,16 @@ namespace PaperlessREST.ServiceAgents
     {
         private readonly IDocumentRepository _documentRepository;
         private readonly ILogger<Worker> _logger;
-        private readonly IBus _bus;
+        private readonly IBus _rabbitMq;
         private readonly IOCRService _ocrService;
         private readonly IMinioClient _minioClient;
         private readonly ElasticsearchClient _elasticsearchClient;
-       
-        public Worker(ILogger<Worker> logger, IDocumentRepository documentRepository, IOCRService ocrService, IMinioClient minioClient, ElasticsearchClient elasticsearchClient)
+
+        public Worker(ILogger<Worker> logger, IDocumentRepository documentRepository, IOCRService ocrService, IMinioClient minioClient, IBus rabbitMq, ElasticsearchClient elasticsearchClient)
         {
             _documentRepository = documentRepository;
             _logger = logger;
-            _bus = RabbitHutch.CreateBus("host=host.docker.internal");
+            _rabbitMq = rabbitMq;
             _ocrService = ocrService;
             _minioClient = minioClient;
             _elasticsearchClient = elasticsearchClient;
@@ -37,11 +36,11 @@ namespace PaperlessREST.ServiceAgents
             //bus.PubSub.Subscribe<Document>("OCR Service Worker", HandleMessage, stoppingToken);
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-            await _bus.PubSub.SubscribeAsync<DocumentQueueMessage>("OCR Service Worker", HandleMessage, stoppingToken);
+            await _rabbitMq.PubSub.SubscribeAsync<DocumentQueueMessage>("OCR Service Worker", HandleMessage, stoppingToken);
         }
 
         public void AddDocumentAsync(ElasticDocument document)
-        {             
+        {
             if (!_elasticsearchClient.Indices.Exists("documents").Exists)
                 _elasticsearchClient.Indices.Create("documents");
 
@@ -76,7 +75,7 @@ namespace PaperlessREST.ServiceAgents
                         Content = document.Content,
                         Title = document.Title,
                     });
-                });              
+                });
 
             _logger.LogInformation($"Received document {document.OriginalFileName} for processing");
             ObjectStat result = await _minioClient.GetObjectAsync(getObjectArgs);
@@ -84,7 +83,7 @@ namespace PaperlessREST.ServiceAgents
 
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-            _bus.Dispose();
+            _rabbitMq.Dispose();
         }
     }
 }

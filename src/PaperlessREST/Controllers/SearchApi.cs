@@ -18,21 +18,20 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaperlessREST.Attributes;
-using PaperlessREST.Entities;
-using PaperlessREST.ElasticSearch.Interfaces;
+using PaperlessREST.BusinessLogic.Interfaces;
 
 namespace PaperlessREST.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class SearchApiController : ControllerBase
-    { 
-        private readonly IElasticSearcher elasticSearch;
-        public SearchApiController(IElasticSearcher elasticSearch)
+    {
+        private readonly IDocumentLogic _documentLogic;
+        public SearchApiController(IDocumentLogic documentLogic)
         {
-            this.elasticSearch = elasticSearch;
+            _documentLogic = documentLogic;
         }
 
         /// <summary>
@@ -46,20 +45,10 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("AutoComplete")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<string>), description: "Success")]
-        public virtual IActionResult AutoComplete([FromQuery (Name = "term")]string term, [FromQuery (Name = "limit")]int? limit)
+        public virtual IActionResult AutoComplete([FromQuery(Name = "term")] string term, [FromQuery(Name = "limit")] int? limit)
         {
-
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<string>));
-            //string exampleJson = null;
-            //exampleJson = "[ \"\", \"\" ]";
-
-            //var example = exampleJson != null
-            //? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            //: default(List<string>);
-            //TODO: Change the data returned
-            var foundDocument = this.elasticSearch.SearchDocument(term);
-            return new ObjectResult(foundDocument);
+            var results = _documentLogic.SearchDocuments(term);
+            return new ObjectResult(results);
         }
     }
 }

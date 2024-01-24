@@ -8,12 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
+    <ProjectReference
+      Include="..\PaperlessREST.BusinessLogic.Entities\PaperlessREST.BusinessLogic.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.DataAccess.Sql\PaperlessREST.DataAccess.Sql.csproj" />
-    <ProjectReference Include="..\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj" />
-    <ProjectReference Include="..\PaperlessREST.ElasticSearch.Interfaces\PaperlessREST.ElasticSearch.Interfaces.csproj" />
+    <ProjectReference
+      Include="..\PaperlessREST.DataAccess.Entities\PaperlessREST.DataAccess.Entities.csproj" />
     <ProjectReference Include="..\PaperlessREST.Entities\PaperlessREST.Entities.csproj" />
-    <ProjectReference Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
+    <ProjectReference
+      Include="..\PaperlessREST.ServiceAgents.Interfaces\PaperlessREST.ServiceAgents.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +39,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-    <ItemGroup>
-	    <None Include="tessdata\**" CopyToOutputDirectory="PreserveNewest" />
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="tessdata\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 
+using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +37,8 @@ IHost host = Host.CreateDefaultBuilder(args)
             configureClient.WithSSL(false);
             configureClient.WithCredentials(minioAccessKey, minioSecretKey);
         });
-        services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient( new Uri ("host.docker.internal:9200")));
+        services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient(new Uri("host.docker.internal:9200")));
+        services.AddScoped<IBus>(_ => RabbitHutch.CreateBus("host=host.docker.internal"));
     })
     .Build();
 
