@@ -121,7 +121,7 @@ namespace PaperlessREST.BusinessLogic
             return uniqueName;
         }
 
-        public async Task<IEnumerable<Document>> SearchDocuments(string query)
+        public async Task<IEnumerable<Document>> SearchDocumentsAsync(string query)
         {
             _logger.LogInformation($"Elastic called, staring search.");
 
@@ -129,8 +129,11 @@ namespace PaperlessREST.BusinessLogic
              .Index("documents")
              .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
 
+            if(!searchResponse.IsSuccess()) {
+                throw new Exception(searchResponse.DebugInformation);
+            }
+
             _logger.LogInformation($"Search finished.");
-            _logger.LogInformation(JsonConvert.SerializeObject(searchResponse.Documents, Formatting.Indented));
             return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }
     }

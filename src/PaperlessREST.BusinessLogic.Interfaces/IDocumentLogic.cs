@@ -7,6 +7,6 @@ namespace PaperlessREST.BusinessLogic.Interfaces
     {
         Task IndexDocument(Document document, Stream pdfStream);
 
-        Task<IEnumerable<Document>> SearchDocuments(string query);
+        Task<IEnumerable<Document>> SearchDocumentsAsync(string query);
     }
 }
