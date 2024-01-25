@@ -20,6 +20,8 @@ using System.Text;
 using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace PaperlessREST.BusinessLogic
 {
@@ -73,16 +75,22 @@ namespace PaperlessREST.BusinessLogic
             //save File to disk
 
             //write path to document dao
+            try
+            {
+                DocumentDao documentDao = _mapper.Map<Document, DocumentDao>(document);
+                _documentRepository.Add(documentDao);
 
-            DocumentDao documentDao = _mapper.Map<Document, DocumentDao>(document);
-            _documentRepository.Add(documentDao);
+                //saving
+                var uploadedName = await SaveFile(document, pdfStream);
 
-            //saving
-
-            var uploadedName = await SaveFile(document, pdfStream);
-            _logger.LogInformation($"Finished saving document: {document.Title}");
-
-            _rabbitMq.PubSub.Publish(new DocumentQueueMessage() { DocumentID = (int)documentDao.Id! });
+                _rabbitMq.PubSub.Publish(new DocumentQueueMessage() { DocumentID = (int)documentDao.Id! });
+                _logger.LogInformation($"Finished saving document: {document.Title}");
+            }
+            catch (Exception e) when(e is DALException or DALConnectionException or DbUpdateException)
+            {
+                _logger.LogError($"Saving document failed: {e.Message}");
+                throw new BLException(e.Message);
+            }
         }
 
         //changed to public for testing
@@ -129,8 +137,9 @@ namespace PaperlessREST.BusinessLogic
              .Index("documents")
              .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
 
-            if(!searchResponse.IsSuccess()) {
-                throw new Exception(searchResponse.DebugInformation);
+            if (!searchResponse.IsSuccess())
+            {
+                throw new BLSearchException(searchResponse.DebugInformation);
             }
 
             _logger.LogInformation($"Search finished.");

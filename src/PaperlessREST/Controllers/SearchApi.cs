@@ -20,6 +20,7 @@ using Newtonsoft.Json;
 using PaperlessREST.Attributes;
 using PaperlessREST.BusinessLogic.Interfaces;
 using System.Threading.Tasks;
+using PaperlessREST.BusinessLogic.Entities;
 
 namespace PaperlessREST.Controllers
 {
@@ -48,7 +49,15 @@ namespace PaperlessREST.Controllers
         [SwaggerResponse(statusCode: 200, type: typeof(List<string>), description: "Success")]
         public async virtual Task<IActionResult> AutoComplete([FromQuery(Name = "term")] string term, [FromQuery(Name = "limit")] int? limit)
         {
-            var results = await _documentLogic.SearchDocumentsAsync(term);
+            IEnumerable<Document> results = null;
+            try
+            {
+                results = await _documentLogic.SearchDocumentsAsync(term);
+            }
+            catch (BLSearchException e)
+            {
+                return BadRequest(e.Message);
+            }
             var serializedResults = JsonConvert.SerializeObject(results);
             return new ObjectResult(serializedResults);
         }
