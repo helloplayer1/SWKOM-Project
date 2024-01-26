@@ -35,6 +35,10 @@ using PaperlessREST.ServiceAgents.Interfaces;
 using PaperlessREST.ServiceAgents;
 using PaperlessREST.DataAccess.Interfaces;
 using PaperlessREST.DataAccess.Sql.Repositories;
+using System.Text;
+using Minio;
+using Elastic.Clients.Elasticsearch;
+using EasyNetQ;
 
 namespace PaperlessREST
 {
@@ -63,7 +67,13 @@ namespace PaperlessREST
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("Database");
+            string connectionString = Configuration.GetConnectionString("Database") ?? throw new InvalidOperationException("No connection string found in appsettings.json");
+
+            string minioEndpoint = Configuration["MinIO:Endpoint"] ?? throw new InvalidOperationException("No MinIO endpoint found in appsettings.json");
+            string minioAccessKey = Configuration["MinIO:AccessKey"] ?? throw new InvalidOperationException("No MinIO access key found in appsettings.json");
+            string minioSecretKey = Configuration["MinIO:SecretKey"] ?? throw new InvalidOperationException("No MinIO secret key found in appsettings.json");
+            string rabbitMQHost = Configuration["RabbitMQ:Host"] ?? throw new InvalidOperationException("No RabbitMQ host found in appsettings.json");
+            string elasticSearchEndpoint = Configuration["ElasticSearch:Endpoint"] ?? throw new InvalidOperationException("No ElasticSearch endpoint found in appsettings.json");
 
 
             // Add framework services.
@@ -83,6 +93,12 @@ namespace PaperlessREST
                         NamingStrategy = new CamelCaseNamingStrategy()
                     });
                 });
+            services.AddMinio(configureClient =>
+            {
+                configureClient.WithEndpoint(minioEndpoint);
+                configureClient.WithSSL(false);
+                configureClient.WithCredentials(minioAccessKey, minioSecretKey);
+            });
             services
                 .AddSwaggerGen(c =>
                 {
@@ -113,6 +129,8 @@ namespace PaperlessREST
                     // Use [ValidateModelState] on Actions to actually validate it in C# as well!
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
+            services.AddScoped<ElasticsearchClient>(_ => new ElasticsearchClient(new Uri(elasticSearchEndpoint)));
+            services.AddScoped<IBus>(_ => RabbitHutch.CreateBus($"host={rabbitMQHost}"));
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddAutoMapper(typeof(RestProfile));
             services.AddScoped<IDocumentLogic, DocumentLogic>();
@@ -125,9 +143,8 @@ namespace PaperlessREST
             services.AddScoped<IValidator<Tag>, TagValidator>();
             services.AddScoped<IValidator<UserInfo>, UserInfoValidator>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
-            services.AddScoped<OCROptions>(_ => new OCROptions());
-            services.AddScoped<IOCRService, IronOCRService/*GhostScriptOCRService*/>();
-
+            services.AddLogging();
+            //services.AddScoped MinIo
 
         }
 
@@ -138,6 +155,11 @@ namespace PaperlessREST
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

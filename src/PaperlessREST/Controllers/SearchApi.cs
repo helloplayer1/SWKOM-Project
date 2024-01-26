@@ -18,16 +18,25 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaperlessREST.Attributes;
-using PaperlessREST.Entities;
+using PaperlessREST.BusinessLogic.Interfaces;
+using System.Threading.Tasks;
+using PaperlessREST.BusinessLogic.Entities;
+using System.Linq;
 
 namespace PaperlessREST.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class SearchApiController : ControllerBase
-    { 
+    {
+        private readonly IDocumentLogic _documentLogic;
+        public SearchApiController(IDocumentLogic documentLogic)
+        {
+            _documentLogic = documentLogic;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -39,19 +48,19 @@ namespace PaperlessREST.Controllers
         [ValidateModelState]
         [SwaggerOperation("AutoComplete")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<string>), description: "Success")]
-        public virtual IActionResult AutoComplete([FromQuery (Name = "term")]string term, [FromQuery (Name = "limit")]int? limit)
+        public async virtual Task<IActionResult> AutoComplete([FromQuery(Name = "term")] string term, [FromQuery(Name = "limit")] int? limit)
         {
-
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<string>));
-            string exampleJson = null;
-            exampleJson = "[ \"\", \"\" ]";
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            : default(List<string>);
-            //TODO: Change the data returned
-            return new ObjectResult(example);
+            IEnumerable<Document> results = null;
+            try
+            {
+                results = await _documentLogic.SearchDocumentsAsync(term, limit > 0 ? limit: null);
+            }
+            catch (BLSearchException e)
+            {
+                return StatusCode(500);
+            }
+            return new ObjectResult(results.Select(doc => doc?.Content));
+            //return new ObjectResult(results);
         }
     }
 }

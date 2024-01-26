@@ -1,7 +1,9 @@
-﻿using PaperlessREST.DataAccess.Entities;
+using Microsoft.EntityFrameworkCore;
+using PaperlessREST.DataAccess.Entities;
 using PaperlessREST.DataAccess.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,15 @@ namespace PaperlessREST.DataAccess.Sql.Repositories
 
         public DocumentDao Add(DocumentDao document)
         {
-            _context.Add(document);
-            _context.SaveChanges();
-
+            try
+            {
+                _context.Add(document);
+                _context.SaveChanges();
+            }
+            catch (Exception e) when (e is DbUpdateException or DBConcurrencyException)
+            {
+                throw new DALException(e.Message);
+            }
             return document;
         }
 

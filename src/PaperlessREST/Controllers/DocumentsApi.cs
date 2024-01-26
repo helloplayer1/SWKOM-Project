@@ -23,6 +23,8 @@ using PaperlessREST.BusinessLogic.Entities;
 using System.IO;
 using PaperlessREST.BusinessLogic.Interfaces;
 using EasyNetQ;
+using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace PaperlessREST.Controllers
 {
@@ -37,7 +39,7 @@ namespace PaperlessREST.Controllers
         public DocumentsApiController(IDocumentLogic documentLogic)
         {
             _documentLogic = documentLogic;
-     
+
         }
 
         /// <summary>
@@ -328,26 +330,33 @@ namespace PaperlessREST.Controllers
         [Consumes("multipart/form-data")]
         [ValidateModelState]
         [SwaggerOperation("UploadDocument")]
-        public virtual IActionResult UploadDocument([FromForm(Name = "title")] string title, [FromForm(Name = "created")] DateTime? created, [FromForm(Name = "document_type")] int? documentType, [FromForm(Name = "tags")] List<int> tags, [FromForm(Name = "correspondent")] int? correspondent, [FromForm(Name = "document")] IFormFile documentData)
+        public virtual async Task<IActionResult> UploadDocument([FromForm(Name = "title")] string title, [FromForm(Name = "created")] DateTime? created, [FromForm(Name = "document_type")] int? documentType, [FromForm(Name = "tags")] List<int> tags, [FromForm(Name = "correspondent")] int? correspondent, [FromForm(Name = "document")] IFormFile documentData)
         {
             Document document = new Document()
             {
                 Title = title,
                 Created = created,
+                CreatedDate = DateTime.Now,
                 DocumentType = documentType,
                 Tags = tags,
                 Correspondent = correspondent,
+                OriginalFileName = documentData.FileName
             };
 
             using Stream documentStream = documentData.OpenReadStream();
-
-           // _documentLogic.IndexDocument(document, documentStream);
-
-            //publish mssg that document has been uploaded using EasyNetQ
             
-            var bus = RabbitHutch.CreateBus("host=localhost");
-            bus.PubSub.Publish((document,"Document has been uploaded!"));
-         
+            try
+            {
+                await _documentLogic.IndexDocument(document, documentStream);
+            }
+            catch (BLValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
             return Ok();
         }
     }
