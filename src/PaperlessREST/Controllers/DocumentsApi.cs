@@ -336,6 +336,7 @@ namespace PaperlessREST.Controllers
             {
                 Title = title,
                 Created = created,
+                CreatedDate = DateTime.Now,
                 DocumentType = documentType,
                 Tags = tags,
                 Correspondent = correspondent,

@@ -21,6 +21,7 @@ using PaperlessREST.Attributes;
 using PaperlessREST.BusinessLogic.Interfaces;
 using System.Threading.Tasks;
 using PaperlessREST.BusinessLogic.Entities;
+using System.Linq;
 
 namespace PaperlessREST.Controllers
 {
@@ -52,14 +53,14 @@ namespace PaperlessREST.Controllers
             IEnumerable<Document> results = null;
             try
             {
-                results = await _documentLogic.SearchDocumentsAsync(term);
+                results = await _documentLogic.SearchDocumentsAsync(term, limit > 0 ? limit: null);
             }
             catch (BLSearchException e)
             {
-                return BadRequest(e.Message);
+                return StatusCode(500);
             }
-            var serializedResults = JsonConvert.SerializeObject(results);
-            return new ObjectResult(serializedResults);
+            return new ObjectResult(results.Select(doc => doc?.Content));
+            //return new ObjectResult(results);
         }
     }
 }

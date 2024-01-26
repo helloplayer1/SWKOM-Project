@@ -6,16 +6,12 @@ using AutoMapper;
 using PaperlessREST.DataAccess.Entities;
 using PaperlessREST.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Http;
-using PaperlessREST.BusinessLogic.Entities;
-using PaperlessREST.BusinessLogic.Interfaces;
 using System.Xml.Linq;
 using FluentValidation;
 using Microsoft.Extensions.Logging;
-using PaperlessREST.DataAccess.Interfaces;
 using Minio;
 using Minio.DataModel.Args;
 using Minio.Exceptions;
-using Microsoft.AspNetCore.Http;
 using System.Text;
 using EasyNetQ;
 using Elastic.Clients.Elasticsearch;
@@ -129,20 +125,21 @@ namespace PaperlessREST.BusinessLogic
             return uniqueName;
         }
 
-        public async Task<IEnumerable<Document>> SearchDocumentsAsync(string query)
+        public async Task<IEnumerable<Document>> SearchDocumentsAsync(string query, int? limit)
         {
             _logger.LogInformation($"Elastic called, staring search.");
 
             var searchResponse = await _elasticSearchClient.SearchAsync<ElasticDocument>(s => s
              .Index("documents")
-             .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))));
+             .Query(q => q.QueryString(qs => qs.DefaultField(p => p.Content).Query($"*{query}*"))).Size(limit));
 
-            if (!searchResponse.IsSuccess())
+            if (!searchResponse.IsValidResponse)
             {
                 throw new BLSearchException(searchResponse.DebugInformation);
             }
 
             _logger.LogInformation($"Search finished.");
+            _logger.LogInformation(searchResponse.DebugInformation);
             return searchResponse.Documents.Select(elasticDocument => _mapper.Map<DocumentDao, Document>(_documentRepository.GetById((int)elasticDocument.Id!)));
         }
 
